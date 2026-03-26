@@ -356,6 +356,8 @@ struct SalaryInputCard: View {
     let onEditAssumptions: () -> Void
 
     @State private var draftValue = ""
+    @State private var sliderValue = 0.0
+    @State private var suppressedDraftValue: String?
     @FocusState private var isFocused: Bool
 
     var body: some View {
@@ -381,12 +383,13 @@ struct SalaryInputCard: View {
                     }
                 }
 
-                Picker("Input mode", selection: $scenario.payPeriodMode) {
+                Picker("Input mode", selection: inputModeBinding) {
                     ForEach(SalaryInputMode.allCases) { mode in
                         Text(mode.title).tag(mode)
                     }
                 }
                 .pickerStyle(.segmented)
+                .accessibilityIdentifier("salary_input_mode_picker")
 
                 VStack(alignment: .leading, spacing: 10) {
                     TextField("0", text: $draftValue)
@@ -397,23 +400,20 @@ struct SalaryInputCard: View {
                         .font(.system(size: 42, weight: .bold, design: .rounded))
                         .monospacedDigit()
                         .foregroundStyle(palette.textPrimary)
-                        .onAppear { syncDraft() }
-                        .onChange(of: scenario.payPeriodModeRaw) { _, _ in syncDraft() }
+                        .onAppear { syncDisplayState() }
+                        .onChange(of: scenario.payPeriodModeRaw) { _, _ in syncDisplayState() }
                         .onChange(of: scenario.salaryAmount) { _, _ in
-                            if !isFocused { syncDraft() }
+                            if !isFocused { syncDisplayState() }
                         }
+                        .onChange(of: scenario.workHoursPerWeek) { _, _ in syncIfNeeded() }
+                        .onChange(of: scenario.workWeeksPerYear) { _, _ in syncIfNeeded() }
                         .onChange(of: draftValue) { _, newValue in
+                            if suppressedDraftValue == newValue {
+                                suppressedDraftValue = nil
+                                return
+                            }
                             guard let parsed = Self.parseAmount(newValue) else { return }
-                            scenario.salaryAmount = max(
-                                0,
-                                engine.annualAmount(
-                                    from: parsed,
-                                    mode: scenario.payPeriodMode,
-                                    workHoursPerWeek: scenario.workHoursPerWeek,
-                                    workWeeksPerYear: scenario.workWeeksPerYear
-                                )
-                            )
-                            scenario.touch()
+                            applyDisplayedAmount(parsed, updateDraft: false)
                         }
                         .accessibilityIdentifier("salary_input_field")
 
@@ -424,16 +424,9 @@ struct SalaryInputCard: View {
 
                 Slider(
                     value: Binding(
-                        get: { engine.displayAmount(for: scenario) },
+                        get: { sliderValue },
                         set: { newValue in
-                            scenario.salaryAmount = engine.annualAmount(
-                                from: newValue,
-                                mode: scenario.payPeriodMode,
-                                workHoursPerWeek: scenario.workHoursPerWeek,
-                                workWeeksPerYear: scenario.workWeeksPerYear
-                            )
-                            scenario.touch()
-                            syncDraft()
+                            applyDisplayedAmount(newValue, updateDraft: true)
                         }
                     ),
                     in: sliderRange
@@ -446,7 +439,7 @@ struct SalaryInputCard: View {
                             scenario.salaryAmount = preset
                             scenario.payPeriodMode = .annual
                             scenario.touch()
-                            syncDraft()
+                            syncDisplayState()
                         } label: {
                             Text(PayloFormatters.compactCurrency(preset, code: scenario.currencyCode))
                                 .font(.system(size: 12, weight: .semibold))
@@ -490,8 +483,60 @@ struct SalaryInputCard: View {
         [30_000, 50_000, 75_000, 100_000, 150_000]
     }
 
-    private func syncDraft() {
-        draftValue = PayloFormatters.decimal(engine.displayAmount(for: scenario), fractionDigits: scenario.payPeriodMode == .hourly ? 2 : 0)
+    private var inputModeBinding: Binding<SalaryInputMode> {
+        Binding(
+            get: { scenario.payPeriodMode },
+            set: { newMode in
+                guard scenario.payPeriodMode != newMode else { return }
+                isFocused = false
+                scenario.payPeriodMode = newMode
+                scenario.touch()
+                syncDisplayState()
+            }
+        )
+    }
+
+    private func syncIfNeeded() {
+        if !isFocused {
+            syncDisplayState()
+        }
+    }
+
+    private func syncDisplayState() {
+        let displayedAmount = max(0, engine.displayAmount(for: scenario))
+        sliderValue = clampedSliderValue(for: displayedAmount)
+        updateDraftValue(displayedAmount)
+    }
+
+    private func applyDisplayedAmount(_ displayedAmount: Double, updateDraft: Bool) {
+        let normalizedAmount = max(0, displayedAmount)
+        sliderValue = clampedSliderValue(for: normalizedAmount)
+        scenario.salaryAmount = max(
+            0,
+            engine.annualAmount(
+                from: normalizedAmount,
+                mode: scenario.payPeriodMode,
+                workHoursPerWeek: scenario.workHoursPerWeek,
+                workWeeksPerYear: scenario.workWeeksPerYear
+            )
+        )
+        scenario.touch()
+        if updateDraft {
+            updateDraftValue(normalizedAmount)
+        }
+    }
+
+    private func updateDraftValue(_ amount: Double) {
+        let formatted = PayloFormatters.decimal(
+            amount,
+            fractionDigits: scenario.payPeriodMode == .hourly ? 2 : 0
+        )
+        suppressedDraftValue = formatted
+        draftValue = formatted
+    }
+
+    private func clampedSliderValue(for amount: Double) -> Double {
+        min(max(amount, sliderRange.lowerBound), sliderRange.upperBound)
     }
 
     private static func parseAmount(_ value: String) -> Double? {

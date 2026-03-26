@@ -10,82 +10,101 @@ struct MainWorkspaceView: View {
     @Binding var selectedCanvas: CanvasSection
     @Binding var sessionStartDate: Date
     let onOpenSheet: (RootSheet) -> Void
+    @State private var canvasHeights: [CanvasSection: CGFloat] = [:]
 
     var body: some View {
-        VStack(spacing: 16) {
-            header
+        ScrollView {
+            VStack(spacing: 16) {
+                header
 
-            SalaryInputCard(
-                scenario: scenario,
-                settings: settings,
-                palette: palette,
-                engine: salaryEngine,
-                onEditAssumptions: { onOpenSheet(.assumptions) }
-            )
-
-            assumptionsRow
-            previewStrip
-            canvasSelector
-
-            TabView(selection: $selectedCanvas) {
-                LiveCanvasView(
+                SalaryInputCard(
                     scenario: scenario,
                     settings: settings,
                     palette: palette,
-                    salaryEngine: salaryEngine,
-                    sessionStartDate: $sessionStartDate,
-                    onShare: { onOpenSheet(.share($0)) }
+                    engine: salaryEngine,
+                    onEditAssumptions: { onOpenSheet(.assumptions) }
                 )
-                .tag(CanvasSection.live)
 
-                ObjectsCanvasView(
-                    scenario: scenario,
-                    settings: settings,
-                    palette: palette,
-                    repository: repository,
-                    salaryEngine: salaryEngine,
-                    onShare: { onOpenSheet(.share($0)) }
-                )
-                .tag(CanvasSection.objects)
+                assumptionsRow
+                previewStrip
+                canvasSelector
 
-                WorkCanvasView(
-                    scenario: scenario,
-                    settings: settings,
-                    palette: palette,
-                    repository: repository,
-                    salaryEngine: salaryEngine,
-                    onShare: { onOpenSheet(.share($0)) }
-                )
-                .tag(CanvasSection.work)
+                TabView(selection: $selectedCanvas) {
+                    canvasPage(section: .live) {
+                        LiveCanvasView(
+                            scenario: scenario,
+                            settings: settings,
+                            palette: palette,
+                            salaryEngine: salaryEngine,
+                            sessionStartDate: $sessionStartDate,
+                            onShare: { onOpenSheet(.share($0)) }
+                        )
+                    }
+                    .tag(CanvasSection.live)
 
-                CitiesCanvasView(
-                    scenario: scenario,
-                    settings: settings,
-                    palette: palette,
-                    repository: repository,
-                    cityEngine: cityEngine,
-                    salaryEngine: salaryEngine,
-                    onShare: { onOpenSheet(.share($0)) }
-                )
-                .tag(CanvasSection.cities)
+                    canvasPage(section: .objects) {
+                        ObjectsCanvasView(
+                            scenario: scenario,
+                            settings: settings,
+                            palette: palette,
+                            repository: repository,
+                            salaryEngine: salaryEngine,
+                            onShare: { onOpenSheet(.share($0)) }
+                        )
+                    }
+                    .tag(CanvasSection.objects)
 
-                GapCanvasView(
-                    scenario: scenario,
-                    settings: settings,
-                    palette: palette,
-                    salaryEngine: salaryEngine,
-                    sessionStartDate: $sessionStartDate,
-                    onShare: { onOpenSheet(.share($0)) }
-                )
-                .tag(CanvasSection.gap)
+                    canvasPage(section: .work) {
+                        WorkCanvasView(
+                            scenario: scenario,
+                            settings: settings,
+                            palette: palette,
+                            repository: repository,
+                            salaryEngine: salaryEngine,
+                            onShare: { onOpenSheet(.share($0)) }
+                        )
+                    }
+                    .tag(CanvasSection.work)
+
+                    canvasPage(section: .cities) {
+                        CitiesCanvasView(
+                            scenario: scenario,
+                            settings: settings,
+                            palette: palette,
+                            repository: repository,
+                            cityEngine: cityEngine,
+                            salaryEngine: salaryEngine,
+                            onShare: { onOpenSheet(.share($0)) }
+                        )
+                    }
+                    .tag(CanvasSection.cities)
+
+                    canvasPage(section: .gap) {
+                        GapCanvasView(
+                            scenario: scenario,
+                            settings: settings,
+                            palette: palette,
+                            salaryEngine: salaryEngine,
+                            sessionStartDate: $sessionStartDate,
+                            onShare: { onOpenSheet(.share($0)) }
+                        )
+                    }
+                    .tag(CanvasSection.gap)
+                }
+                .frame(height: canvasHeights[selectedCanvas] ?? 720)
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .indexViewStyle(.page(backgroundDisplayMode: .never))
+                .animation(.spring(response: 0.38, dampingFraction: 0.86), value: selectedCanvas)
+                .animation(.spring(response: 0.34, dampingFraction: 0.84), value: canvasHeights[selectedCanvas] ?? 720)
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .indexViewStyle(.page(backgroundDisplayMode: .never))
-            .animation(.spring(response: 0.38, dampingFraction: 0.86), value: selectedCanvas)
+            .padding(.horizontal, 20)
+            .padding(.top, 14)
+            .padding(.bottom, 8)
         }
-        .padding(.horizontal, 20)
-        .padding(.top, 14)
-        .padding(.bottom, 8)
+        .scrollIndicators(.hidden)
+        .onPreferenceChange(CanvasHeightPreferenceKey.self) { heights in
+            canvasHeights.merge(heights) { _, new in new }
+        }
     }
 
     private var header: some View {
@@ -221,6 +240,19 @@ struct MainWorkspaceView: View {
             theme: scenario.selectedTheme
         )
     }
+
+    private func canvasPage<Content: View>(section: CanvasSection, @ViewBuilder content: () -> Content) -> some View {
+        content()
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .background(
+                GeometryReader { proxy in
+                    Color.clear.preference(
+                        key: CanvasHeightPreferenceKey.self,
+                        value: [section: proxy.size.height]
+                    )
+                }
+            )
+    }
 }
 
 private struct HeaderButton: View {
@@ -246,6 +278,14 @@ private struct HeaderButton: View {
         }
         .buttonStyle(.plain)
         .accessibilityLabel(title)
+    }
+}
+
+private struct CanvasHeightPreferenceKey: PreferenceKey {
+    static let defaultValue: [CanvasSection: CGFloat] = [:]
+
+    static func reduce(value: inout [CanvasSection: CGFloat], nextValue: () -> [CanvasSection: CGFloat]) {
+        value.merge(nextValue()) { _, new in new }
     }
 }
 

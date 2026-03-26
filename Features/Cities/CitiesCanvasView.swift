@@ -28,97 +28,94 @@ struct CitiesCanvasView: View {
     }
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                SectionTitle(
-                    title: "See where the same salary bends differently.",
-                    subtitle: "Local editorial indices, not tax promises.",
-                    palette: palette
-                )
+        VStack(alignment: .leading, spacing: 16) {
+            SectionTitle(
+                title: "See where the same salary bends differently.",
+                subtitle: "Local editorial indices, not tax promises.",
+                palette: palette
+            )
 
-                if let best = insights.first {
-                    GlassCard(palette: palette) {
-                        VStack(alignment: .leading, spacing: 14) {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Your salary stretches furthest in")
-                                        .font(.system(size: 14, weight: .semibold))
-                                        .foregroundStyle(palette.textSecondary)
-                                    Text(best.city.cityName)
-                                        .font(.system(size: 30, weight: .black, design: .rounded))
-                                        .foregroundStyle(palette.textPrimary)
-                                }
-                                Spacer()
-                                Button("Share") {
-                                    onShare(snapshot(for: best))
-                                }
-                                .buttonStyle(.plain)
-                                .foregroundStyle(palette.accent)
+            if let best = insights.first {
+                GlassCard(palette: palette) {
+                    VStack(alignment: .leading, spacing: 14) {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Your salary stretches furthest in")
+                                    .font(.system(size: 14, weight: .semibold))
+                                    .foregroundStyle(palette.textSecondary)
+                                Text(best.city.cityName)
+                                    .font(.system(size: 30, weight: .black, design: .rounded))
+                                    .foregroundStyle(palette.textPrimary)
                             }
-
-                            Text(best.comparisonBlurb)
-                                .font(.system(size: 14, weight: .medium))
-                                .foregroundStyle(palette.textSecondary)
-
-                            RatioBar(progress: best.affordabilityBar, palette: palette)
+                            Spacer()
+                            Button("Share") {
+                                onShare(snapshot(for: best))
+                            }
+                            .buttonStyle(.plain)
+                            .foregroundStyle(palette.accent)
                         }
+
+                        Text(best.comparisonBlurb)
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundStyle(palette.textSecondary)
+
+                        RatioBar(progress: best.affordabilityBar, palette: palette)
                     }
                 }
+            }
 
-                TextField("Search city or country", text: $searchText)
-                    .textFieldStyle(.roundedBorder)
+            TextField("Search city or country", text: $searchText)
+                .textFieldStyle(.roundedBorder)
 
-                Picker("Sort", selection: $sortMode) {
-                    ForEach(CitySortMode.allCases) { mode in
-                        Text(mode.title).tag(mode)
-                    }
+            Picker("Sort", selection: $sortMode) {
+                ForEach(CitySortMode.allCases) { mode in
+                    Text(mode.title).tag(mode)
                 }
-                .pickerStyle(.menu)
+            }
+            .pickerStyle(.menu)
 
-                if !settings.pinnedCityIDs.isEmpty {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 8) {
-                            ForEach(settings.pinnedCityIDs, id: \.self) { cityID in
-                                if let city = repository.cities.first(where: { $0.id == cityID }) {
-                                    Text(city.cityName)
-                                        .font(.system(size: 13, weight: .semibold))
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 9)
-                                        .background(Capsule(style: .continuous).fill(palette.cardFill))
-                                }
+            if !settings.pinnedCityIDs.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(settings.pinnedCityIDs, id: \.self) { cityID in
+                            if let city = repository.cities.first(where: { $0.id == cityID }) {
+                                Text(city.cityName)
+                                    .font(.system(size: 13, weight: .semibold))
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 9)
+                                    .background(Capsule(style: .continuous).fill(palette.cardFill))
                             }
-                        }
-                    }
-                }
-
-                LazyVStack(spacing: 10) {
-                    ForEach(Array(insights.enumerated()), id: \.element.id) { index, insight in
-                        CityRankRow(rank: index + 1, insight: insight, currencyCode: scenario.currencyCode, palette: palette) {
-                            selectedInsight = insight
-                        }
-                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
-                            Button {
-                                togglePin(insight.id)
-                            } label: {
-                                Label("Pin", systemImage: settings.pinnedCityIDs.contains(insight.id) ? "pin.slash" : "pin")
-                            }
-                            .tint(.orange)
-                        }
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                            Button {
-                                onShare(snapshot(for: insight))
-                            } label: {
-                                Label("Share", systemImage: "square.and.arrow.up")
-                            }
-                            .tint(Color(palette.accent))
                         }
                     }
                 }
             }
-            .padding(.vertical, 4)
-            .padding(.bottom, 30)
+
+            LazyVStack(spacing: 10) {
+                ForEach(Array(insights.enumerated()), id: \.element.id) { index, insight in
+                    CityRankRow(rank: index + 1, insight: insight, currencyCode: scenario.currencyCode, palette: palette) {
+                        selectedInsight = insight
+                    }
+                    .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                        Button {
+                            togglePin(insight.id)
+                        } label: {
+                            Label("Pin", systemImage: settings.pinnedCityIDs.contains(insight.id) ? "pin.slash" : "pin")
+                        }
+                        .tint(.orange)
+                    }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                        Button {
+                            onShare(snapshot(for: insight))
+                        } label: {
+                            Label("Share", systemImage: "square.and.arrow.up")
+                        }
+                        .tint(Color(palette.accent))
+                    }
+                }
+            }
         }
-        .scrollIndicators(.hidden)
+        .padding(.vertical, 4)
+        .padding(.bottom, 30)
         .sheet(item: $selectedInsight) { insight in
             CityDetailSheet(insight: insight, scenario: scenario, palette: palette, onShare: { onShare(snapshot(for: insight)) })
         }

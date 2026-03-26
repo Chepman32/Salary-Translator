@@ -46,136 +46,133 @@ struct ObjectsCanvasView: View {
     }
 
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                SectionTitle(
-                    title: "Translate salary into real things.",
-                    subtitle: "Objects stay editable, local, and instantly shareable.",
-                    palette: palette
-                )
+        VStack(alignment: .leading, spacing: 16) {
+            SectionTitle(
+                title: "Translate salary into real things.",
+                subtitle: "Objects stay editable, local, and instantly shareable.",
+                palette: palette
+            )
 
-                if let featuredInsight {
-                    GlassCard(palette: palette, padding: 22) {
-                        VStack(alignment: .leading, spacing: 14) {
-                            HStack {
-                                Label(featuredInsight.preset.localizedName, systemImage: featuredInsight.preset.iconName)
-                                    .font(.system(size: 16, weight: .semibold))
-                                    .foregroundStyle(palette.textPrimary)
-                                Spacer()
-                                Button("Share") {
-                                    onShare(snapshot(for: featuredInsight))
-                                }
-                                .buttonStyle(.borderless)
-                                .foregroundStyle(palette.accent)
-                            }
-
-                            Text(heroStatement(for: featuredInsight))
-                                .font(.system(size: 28, weight: .bold, design: .rounded))
+            if let featuredInsight {
+                GlassCard(palette: palette, padding: 22) {
+                    VStack(alignment: .leading, spacing: 14) {
+                        HStack {
+                            Label(featuredInsight.preset.localizedName, systemImage: featuredInsight.preset.iconName)
+                                .font(.system(size: 16, weight: .semibold))
                                 .foregroundStyle(palette.textPrimary)
-
-                            Text(featuredInsight.preset.supportingLine)
-                                .font(.system(size: 13, weight: .medium))
-                                .foregroundStyle(palette.textSecondary)
-
-                            RatioBar(progress: min(featuredInsight.ratio, 1), palette: palette)
-                        }
-                    }
-                }
-
-                Picker("Mode", selection: $displayMode) {
-                    ForEach(ObjectDisplayMode.allCases) { mode in
-                        Text(mode.title).tag(mode)
-                    }
-                }
-                .pickerStyle(.segmented)
-
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
-                        ForEach(ObjectCategory.allCases) { category in
-                            Button {
-                                selectedCategory = category
-                            } label: {
-                                Text(category.title)
-                                    .font(.system(size: 13, weight: .semibold))
-                                    .foregroundStyle(category == selectedCategory ? palette.textPrimary : palette.textSecondary)
-                                    .padding(.horizontal, 14)
-                                    .padding(.vertical, 10)
-                                    .background(
-                                        Capsule(style: .continuous)
-                                            .fill(category == selectedCategory ? palette.cardFill : .clear)
-                                            .overlay(
-                                                Capsule(style: .continuous)
-                                                    .stroke(category == selectedCategory ? palette.accent.opacity(0.35) : palette.divider, lineWidth: 1)
-                                            )
-                                    )
+                            Spacer()
+                            Button("Share") {
+                                onShare(snapshot(for: featuredInsight))
                             }
-                            .buttonStyle(.plain)
+                            .buttonStyle(.borderless)
+                            .foregroundStyle(palette.accent)
                         }
-                    }
-                }
 
-                Button {
-                    showingCustomObjectEditor = true
-                } label: {
-                    Label("Add Custom Object", systemImage: "plus.circle")
-                        .font(.system(size: 14, weight: .semibold))
-                        .foregroundStyle(palette.textPrimary)
-                }
-                .buttonStyle(.plain)
+                        Text(heroStatement(for: featuredInsight))
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                            .foregroundStyle(palette.textPrimary)
 
-                LazyVStack(spacing: 12) {
-                    ForEach(filteredInsights) { insight in
-                        GlassCard(palette: palette, padding: 16) {
-                            VStack(alignment: .leading, spacing: 12) {
-                                HStack {
-                                    Label(insight.preset.localizedName, systemImage: insight.preset.iconName)
-                                        .font(.system(size: 16, weight: .semibold))
-                                    Spacer()
-                                    Text(PayloFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode, maximumFractionDigits: 0))
-                                        .font(.system(size: 13, weight: .semibold, design: .monospaced))
-                                }
-                                .foregroundStyle(palette.textPrimary)
+                        Text(featuredInsight.preset.supportingLine)
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundStyle(palette.textSecondary)
 
-                                Text(displayMode == .earn ? earnCopy(for: insight) : workCopy(for: insight))
-                                    .font(.system(size: 22, weight: .bold, design: .rounded))
-                                    .foregroundStyle(palette.textPrimary)
-
-                                Text(displayMode == .earn ? "Quantity earned on your current pace." : salaryEngine.humanWorkDescription(hours: insight.workHours))
-                                    .font(.system(size: 12, weight: .medium))
-                                    .foregroundStyle(palette.textSecondary)
-
-                                RatioBar(progress: min(insight.ratio, 1), palette: palette)
-                            }
-                        }
-                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
-                            Button {
-                                toggleFavorite(insight.id)
-                            } label: {
-                                Label("Favorite", systemImage: scenario.favoriteObjectIDs.contains(insight.id) ? "star.slash" : "star")
-                            }
-                            .tint(.yellow)
-                        }
-                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                            Button(role: .destructive) {
-                                hide(insight.id)
-                            } label: {
-                                Label("Hide", systemImage: "eye.slash")
-                            }
-
-                            Button {
-                                onShare(snapshot(for: insight))
-                            } label: {
-                                Label("Share", systemImage: "square.and.arrow.up")
-                            }
-                            .tint(Color(palette.accent))
-                        }
+                        RatioBar(progress: min(featuredInsight.ratio, 1), palette: palette)
                     }
                 }
             }
-            .padding(.vertical, 4)
-            .padding(.bottom, 30)
+
+            Picker("Mode", selection: $displayMode) {
+                ForEach(ObjectDisplayMode.allCases) { mode in
+                    Text(mode.title).tag(mode)
+                }
+            }
+            .pickerStyle(.segmented)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(ObjectCategory.allCases) { category in
+                        Button {
+                            selectedCategory = category
+                        } label: {
+                            Text(category.title)
+                                .font(.system(size: 13, weight: .semibold))
+                                .foregroundStyle(category == selectedCategory ? palette.textPrimary : palette.textSecondary)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 10)
+                                .background(
+                                    Capsule(style: .continuous)
+                                        .fill(category == selectedCategory ? palette.cardFill : .clear)
+                                        .overlay(
+                                            Capsule(style: .continuous)
+                                                .stroke(category == selectedCategory ? palette.accent.opacity(0.35) : palette.divider, lineWidth: 1)
+                                        )
+                                )
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
+
+            Button {
+                showingCustomObjectEditor = true
+            } label: {
+                Label("Add Custom Object", systemImage: "plus.circle")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(palette.textPrimary)
+            }
+            .buttonStyle(.plain)
+
+            LazyVStack(spacing: 12) {
+                ForEach(filteredInsights) { insight in
+                    GlassCard(palette: palette, padding: 16) {
+                        VStack(alignment: .leading, spacing: 12) {
+                            HStack {
+                                Label(insight.preset.localizedName, systemImage: insight.preset.iconName)
+                                    .font(.system(size: 16, weight: .semibold))
+                                Spacer()
+                                Text(PayloFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode, maximumFractionDigits: 0))
+                                    .font(.system(size: 13, weight: .semibold, design: .monospaced))
+                            }
+                            .foregroundStyle(palette.textPrimary)
+
+                            Text(displayMode == .earn ? earnCopy(for: insight) : workCopy(for: insight))
+                                .font(.system(size: 22, weight: .bold, design: .rounded))
+                                .foregroundStyle(palette.textPrimary)
+
+                            Text(displayMode == .earn ? "Quantity earned on your current pace." : salaryEngine.humanWorkDescription(hours: insight.workHours))
+                                .font(.system(size: 12, weight: .medium))
+                                .foregroundStyle(palette.textSecondary)
+
+                            RatioBar(progress: min(insight.ratio, 1), palette: palette)
+                        }
+                    }
+                    .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                        Button {
+                            toggleFavorite(insight.id)
+                        } label: {
+                            Label("Favorite", systemImage: scenario.favoriteObjectIDs.contains(insight.id) ? "star.slash" : "star")
+                        }
+                        .tint(.yellow)
+                    }
+                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                        Button(role: .destructive) {
+                            hide(insight.id)
+                        } label: {
+                            Label("Hide", systemImage: "eye.slash")
+                        }
+
+                        Button {
+                            onShare(snapshot(for: insight))
+                        } label: {
+                            Label("Share", systemImage: "square.and.arrow.up")
+                        }
+                        .tint(Color(palette.accent))
+                    }
+                }
+            }
         }
-        .scrollIndicators(.hidden)
+        .padding(.vertical, 4)
+        .padding(.bottom, 30)
         .sheet(isPresented: $showingCustomObjectEditor) {
             CustomObjectEditorView(palette: palette) { newObject in
                 settings.customObjects.append(newObject)
