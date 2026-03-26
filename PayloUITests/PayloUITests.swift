@@ -36,6 +36,27 @@ final class PayloUITests: XCTestCase {
     }
 
     @MainActor
+    func testQuickPresetLabelsFollowSelectedInputMode() {
+        let app = launchApp()
+        let firstPreset = app.buttons["quick_preset_0"]
+
+        XCTAssertTrue(firstPreset.waitForExistence(timeout: 2))
+
+        let annualLabel = firstPreset.label
+        XCTAssertTrue(annualLabel.contains("30"))
+
+        app.buttons["Hourly"].tap()
+
+        let hourlyLabel = firstPreset.label
+        XCTAssertNotEqual(hourlyLabel, annualLabel)
+        XCTAssertTrue(hourlyLabel.contains("10"))
+        XCTAssertTrue(app.buttons["quick_preset_1"].label.contains("15"))
+        XCTAssertTrue(app.buttons["quick_preset_2"].label.contains("20"))
+        XCTAssertTrue(app.buttons["quick_preset_3"].label.contains("25"))
+        XCTAssertTrue(app.buttons["quick_preset_4"].label.contains("30"))
+    }
+
+    @MainActor
     private func launchApp() -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = ["-ui-testing-reset", "-skip-splash"]

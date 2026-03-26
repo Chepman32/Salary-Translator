@@ -323,6 +323,7 @@ struct BottomSheetEditor<Content: View>: View {
     let title: String
     let palette: ThemePalette
     @ViewBuilder var content: Content
+    @State private var selectedDetent: PresentationDetent = .large
 
     init(title: String, palette: ThemePalette, @ViewBuilder content: () -> Content) {
         self.title = title
@@ -344,7 +345,7 @@ struct BottomSheetEditor<Content: View>: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         .presentationDragIndicator(.visible)
-        .presentationDetents([.medium, .large])
+        .presentationDetents([.medium, .large], selection: $selectedDetent)
     }
 }
 
@@ -433,27 +434,31 @@ struct SalaryInputCard: View {
                 )
                 .tint(palette.accent)
 
-                HStack(spacing: 10) {
-                    ForEach(quickPresets, id: \.self) { preset in
-                        Button {
-                            scenario.salaryAmount = preset
-                            scenario.payPeriodMode = .annual
-                            scenario.touch()
-                            syncDisplayState()
-                        } label: {
-                            Text(PayloFormatters.compactCurrency(preset, code: scenario.currencyCode))
-                                .font(.system(size: 12, weight: .semibold))
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 8)
-                                .background(
-                                    Capsule(style: .continuous)
-                                        .fill(palette.cardFill)
-                                        .overlay(Capsule(style: .continuous).stroke(palette.divider, lineWidth: 1))
-                                )
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(Array(quickPresets.enumerated()), id: \.offset) { index, preset in
+                            Button {
+                                applyDisplayedAmount(preset, updateDraft: true)
+                            } label: {
+                                Text(quickPresetLabel(for: preset))
+                                    .font(.system(size: 12, weight: .semibold))
+                                    .lineLimit(1)
+                                    .fixedSize(horizontal: true, vertical: false)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 8)
+                                    .background(
+                                        Capsule(style: .continuous)
+                                            .fill(palette.cardFill)
+                                            .overlay(Capsule(style: .continuous).stroke(palette.divider, lineWidth: 1))
+                                    )
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityIdentifier("quick_preset_\(index)")
                         }
-                        .buttonStyle(.plain)
                     }
+                    .padding(.horizontal, 1)
                 }
+                .scrollIndicators(.hidden)
 
                 Button(action: onEditAssumptions) {
                     HStack {
@@ -480,7 +485,12 @@ struct SalaryInputCard: View {
     }
 
     private var quickPresets: [Double] {
-        [30_000, 50_000, 75_000, 100_000, 150_000]
+        switch scenario.payPeriodMode {
+        case .hourly:
+            [10, 15, 20, 25, 30]
+        default:
+            annualQuickPresetSeeds.map(displayAmount(forAnnualPreset:))
+        }
     }
 
     private var inputModeBinding: Binding<SalaryInputMode> {
@@ -506,6 +516,19 @@ struct SalaryInputCard: View {
         let displayedAmount = max(0, engine.displayAmount(for: scenario))
         sliderValue = clampedSliderValue(for: displayedAmount)
         updateDraftValue(displayedAmount)
+    }
+
+    private func displayAmount(forAnnualPreset annualAmount: Double) -> Double {
+        switch scenario.payPeriodMode {
+        case .annual:
+            annualAmount
+        case .monthly:
+            annualAmount / 12
+        case .weekly:
+            annualAmount / max(scenario.workWeeksPerYear, 1)
+        case .hourly:
+            annualAmount / max(scenario.workHoursPerWeek * scenario.workWeeksPerYear, 1)
+        }
     }
 
     private func applyDisplayedAmount(_ displayedAmount: Double, updateDraft: Bool) {
@@ -537,6 +560,14 @@ struct SalaryInputCard: View {
 
     private func clampedSliderValue(for amount: Double) -> Double {
         min(max(amount, sliderRange.lowerBound), sliderRange.upperBound)
+    }
+
+    private func quickPresetLabel(for displayedAmount: Double) -> String {
+        PayloFormatters.compactCurrency(displayedAmount, code: scenario.currencyCode)
+    }
+
+    private var annualQuickPresetSeeds: [Double] {
+        [30_000, 50_000, 75_000, 100_000, 150_000]
     }
 
     private static func parseAmount(_ value: String) -> Double? {
