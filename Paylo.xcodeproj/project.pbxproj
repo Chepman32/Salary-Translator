@@ -1,0 +1,856 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		026121E10D558AEB105B872D /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 16D05896B41082E502BA8A22 /* cities.json */; };
+		0C295C1433E807BC955CD28C /* fx_rates.json in Resources */ = {isa = PBXBuildFile; fileRef = F8231AE438A7417A844185DA /* fx_rates.json */; };
+		0CC5750C70BBCCD3EDE0FCBC /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791A9F3C835A356CF2815BC2 /* LibraryView.swift */; };
+		124A7DBD56F124234F106807 /* Engines.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A9B3CAA74984AC0FBB447 /* Engines.swift */; };
+		15602B06389468086F07841D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E3E9A67B88C5723B0FD3D5 /* Foundation.framework */; };
+		332968607857D43DE1F1C955 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF3D5A1A4203850427CE7CD /* Theme.swift */; };
+		4B594B63C5927738A70B72B6 /* PayloUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F39390E2B078A0A3CA9883D /* PayloUITestsLaunchTests.swift */; };
+		59F20D195A19EE95DBF28027 /* PayloDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D629667214D158984F06CD /* PayloDataTests.swift */; };
+		5C11C6A12B26AD0B7980A9B7 /* OnboardingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0C790BBCE3FDBA14BAF01E /* OnboardingFlow.swift */; };
+		5E62E988C6DD111448CC7036 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E3E9A67B88C5723B0FD3D5 /* Foundation.framework */; };
+		5F738CB8A15A762A7C5221EC /* PayloRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5FD85058A4CCB2CE8A6B32 /* PayloRootView.swift */; };
+		5FF2BCF57A43D65D8618C520 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 16D05896B41082E502BA8A22 /* cities.json */; };
+		668AC54ADE4F35DCA54F0F60 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14722043984ED9BE964D8948 /* Protocols.swift */; };
+		6E75E5F969920DC074983761 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C8EB7CD883F949A9410B5D /* Formatters.swift */; };
+		72EFD2D34DA2689E68FD81A9 /* MainWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A015D457BFB248A04BCDEF52 /* MainWorkspaceView.swift */; };
+		7E43B6E9FFE4F02714C7908C /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 16227FC548BE329E37DC1DEB /* objects.json */; };
+		842F1FCB09494B3CD5AA830B /* ObjectsCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5546D0CAE0F7C9D0ACD8D /* ObjectsCanvasView.swift */; };
+		89F9DD2F48572BC66A6D09D1 /* PayloCityEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CDC0CC67F1DBC4839442A0 /* PayloCityEngineTests.swift */; };
+		99DC9D419357D7F88274693C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6057C4813EB544C4D68EFDC6 /* Assets.xcassets */; };
+		A758F17FBE5635FCB60C6DE5 /* CitiesCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EC7FF7519C62E1C766312 /* CitiesCanvasView.swift */; };
+		A990084AE27C03FF857C9440 /* BundledDatasetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9FE91BBB862B0EF99C40C /* BundledDatasetRepository.swift */; };
+		B3323BF6611F856FE87602C8 /* PayloApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C07EE99014055749BC974B /* PayloApp.swift */; };
+		BD69B18833A3E42FA723E888 /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 16227FC548BE329E37DC1DEB /* objects.json */; };
+		CB7948EF642247CB0E6B78F1 /* ShareStudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732DB59FD439598A1C5EC58E /* ShareStudioView.swift */; };
+		D45C04DFF560B99AE8896914 /* GapCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3E6B02421C10FB1135209 /* GapCanvasView.swift */; };
+		D75759E2E4002B75D7098B71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8953A41A16F719B4C8591 /* SettingsView.swift */; };
+		E964B8FA412FA8E1AB412B78 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EC2E60BAA8D1F5057860 /* Components.swift */; };
+		EB7994A3C03D04F82C6B6C27 /* LiveCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3B35916E3B5CC3C17EC496 /* LiveCanvasView.swift */; };
+		EB8F019535FFCB92DBF389BB /* PayloMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE2D11D6395FFB8A1197B62 /* PayloMathTests.swift */; };
+		EF3204D90BAB4C491B11BB36 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C9C6D69C708B4238BEB2F9 /* Models.swift */; };
+		F00904C5A3D9915E319B87A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E3E9A67B88C5723B0FD3D5 /* Foundation.framework */; };
+		F09F302E6072348596B12395 /* fx_rates.json in Resources */ = {isa = PBXBuildFile; fileRef = F8231AE438A7417A844185DA /* fx_rates.json */; };
+		F3FE9D03798BD7000D4F24E5 /* PayloUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68CF954AD09420D76F5412 /* PayloUITests.swift */; };
+		FC3D38AA6B2B1F59A940EA5D /* WorkCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235C449AAD72892F0D121494 /* WorkCanvasView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5521468919D135D64194435F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CAB015098933910E9F14898 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CC39A9158DF511AAB02456F;
+			remoteInfo = Paylo;
+		};
+		D7EE8F9ED4D79A9893CAE1CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CAB015098933910E9F14898 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6CC39A9158DF511AAB02456F;
+			remoteInfo = Paylo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		07C07EE99014055749BC974B /* PayloApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PayloApp.swift; sourceTree = "<group>"; };
+		14722043984ED9BE964D8948 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		16227FC548BE329E37DC1DEB /* objects.json */ = {isa = PBXFileReference; includeInIndex = 1; path = objects.json; sourceTree = "<group>"; };
+		16D05896B41082E502BA8A22 /* cities.json */ = {isa = PBXFileReference; includeInIndex = 1; path = cities.json; sourceTree = "<group>"; };
+		235C449AAD72892F0D121494 /* WorkCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WorkCanvasView.swift; sourceTree = "<group>"; };
+		3E365552A91FED4B8F7AAC50 /* Paylo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paylo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47C9C6D69C708B4238BEB2F9 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4AD881DF1D990AE23F33E825 /* PayloTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayloTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FE2D11D6395FFB8A1197B62 /* PayloMathTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PayloMathTests.swift; sourceTree = "<group>"; };
+		536EC7FF7519C62E1C766312 /* CitiesCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CitiesCanvasView.swift; sourceTree = "<group>"; };
+		56C8EB7CD883F949A9410B5D /* Formatters.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
+		5F39390E2B078A0A3CA9883D /* PayloUITestsLaunchTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PayloUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6057C4813EB544C4D68EFDC6 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65D629667214D158984F06CD /* PayloDataTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PayloDataTests.swift; sourceTree = "<group>"; };
+		6EA3E6B02421C10FB1135209 /* GapCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GapCanvasView.swift; sourceTree = "<group>"; };
+		732DB59FD439598A1C5EC58E /* ShareStudioView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShareStudioView.swift; sourceTree = "<group>"; };
+		7828E4AC74707248C9529D84 /* PayloUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayloUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		791A9F3C835A356CF2815BC2 /* LibraryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		91D9FE91BBB862B0EF99C40C /* BundledDatasetRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BundledDatasetRepository.swift; sourceTree = "<group>"; };
+		93C5546D0CAE0F7C9D0ACD8D /* ObjectsCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ObjectsCanvasView.swift; sourceTree = "<group>"; };
+		98CDC0CC67F1DBC4839442A0 /* PayloCityEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PayloCityEngineTests.swift; sourceTree = "<group>"; };
+		A015D457BFB248A04BCDEF52 /* MainWorkspaceView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MainWorkspaceView.swift; sourceTree = "<group>"; };
+		A2E3E9A67B88C5723B0FD3D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		AA94EC2E60BAA8D1F5057860 /* Components.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		ACF3D5A1A4203850427CE7CD /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		AD0C790BBCE3FDBA14BAF01E /* OnboardingFlow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
+		AD5FD85058A4CCB2CE8A6B32 /* PayloRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PayloRootView.swift; sourceTree = "<group>"; };
+		BF68CF954AD09420D76F5412 /* PayloUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PayloUITests.swift; sourceTree = "<group>"; };
+		CC3B35916E3B5CC3C17EC496 /* LiveCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveCanvasView.swift; sourceTree = "<group>"; };
+		E72A9B3CAA74984AC0FBB447 /* Engines.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Engines.swift; sourceTree = "<group>"; };
+		ECD8953A41A16F719B4C8591 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F8231AE438A7417A844185DA /* fx_rates.json */ = {isa = PBXFileReference; includeInIndex = 1; path = fx_rates.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		211EE4A9E35D11764123EBF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15602B06389468086F07841D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F14E49620E5FC81A81115AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F00904C5A3D9915E319B87A2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F80A02B3E182B475AEA9F117 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E62E988C6DD111448CC7036 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		004C3374BD22F1DA1B46A62A /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				7AF3955FC4EF21C0A7DAF879 /* Cities */,
+				259BE925949DD06BC0F8B0B4 /* Gap */,
+				6DC016623B3147BE2992FB81 /* Library */,
+				9F059A9DA23FCED552F23FE8 /* Live */,
+				B165E0BEFEDC8268AF70A547 /* Objects */,
+				58FE7B56F7EA8B9C6E877525 /* Onboarding */,
+				2361B21FDF97CF1A06789EF6 /* Settings */,
+				228E95A8F26BC2999876C4F7 /* Work */,
+			);
+			name = Features;
+			path = Features;
+			sourceTree = "<group>";
+		};
+		00A8ACED5546BE6086EB1870 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1DEAFCA57A631176613D9A9 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		12CD25A89B1D5EFF63217815 /* PayloTests */ = {
+			isa = PBXGroup;
+			children = (
+				98CDC0CC67F1DBC4839442A0 /* PayloCityEngineTests.swift */,
+				65D629667214D158984F06CD /* PayloDataTests.swift */,
+				4FE2D11D6395FFB8A1197B62 /* PayloMathTests.swift */,
+			);
+			name = PayloTests;
+			path = PayloTests;
+			sourceTree = "<group>";
+		};
+		228E95A8F26BC2999876C4F7 /* Work */ = {
+			isa = PBXGroup;
+			children = (
+				235C449AAD72892F0D121494 /* WorkCanvasView.swift */,
+			);
+			name = Work;
+			path = Work;
+			sourceTree = "<group>";
+		};
+		2361B21FDF97CF1A06789EF6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ECD8953A41A16F719B4C8591 /* SettingsView.swift */,
+			);
+			name = Settings;
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		259BE925949DD06BC0F8B0B4 /* Gap */ = {
+			isa = PBXGroup;
+			children = (
+				6EA3E6B02421C10FB1135209 /* GapCanvasView.swift */,
+			);
+			name = Gap;
+			path = Gap;
+			sourceTree = "<group>";
+		};
+		3973D2C0CF32B5D6F33D93CA /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				732DB59FD439598A1C5EC58E /* ShareStudioView.swift */,
+			);
+			name = Share;
+			path = Share;
+			sourceTree = "<group>";
+		};
+		58FE7B56F7EA8B9C6E877525 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AD0C790BBCE3FDBA14BAF01E /* OnboardingFlow.swift */,
+			);
+			name = Onboarding;
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		5E58BB91BC1DEA673F7688D7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E365552A91FED4B8F7AAC50 /* Paylo.app */,
+				4AD881DF1D990AE23F33E825 /* PayloTests.xctest */,
+				7828E4AC74707248C9529D84 /* PayloUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6869C493AAFD02B181C95334 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E72A9B3CAA74984AC0FBB447 /* Engines.swift */,
+				56C8EB7CD883F949A9410B5D /* Formatters.swift */,
+				47C9C6D69C708B4238BEB2F9 /* Models.swift */,
+				14722043984ED9BE964D8948 /* Protocols.swift */,
+			);
+			name = Core;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		6932EB2AF58F139917F0EA4C /* PayloUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF68CF954AD09420D76F5412 /* PayloUITests.swift */,
+				5F39390E2B078A0A3CA9883D /* PayloUITestsLaunchTests.swift */,
+			);
+			name = PayloUITests;
+			path = PayloUITests;
+			sourceTree = "<group>";
+		};
+		6DC016623B3147BE2992FB81 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				791A9F3C835A356CF2815BC2 /* LibraryView.swift */,
+			);
+			name = Library;
+			path = Library;
+			sourceTree = "<group>";
+		};
+		7AF3955FC4EF21C0A7DAF879 /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				536EC7FF7519C62E1C766312 /* CitiesCanvasView.swift */,
+			);
+			name = Cities;
+			path = Cities;
+			sourceTree = "<group>";
+		};
+		834F193AB42B283AA0E00CB0 = {
+			isa = PBXGroup;
+			children = (
+				C9A25036D2C605FA1666ABAD /* App */,
+				6869C493AAFD02B181C95334 /* Core */,
+				A670844D20853FF1AEB0EE07 /* Data */,
+				BD2EB8321F2F71E49F276979 /* DesignSystem */,
+				004C3374BD22F1DA1B46A62A /* Features */,
+				00A8ACED5546BE6086EB1870 /* Frameworks */,
+				12CD25A89B1D5EFF63217815 /* PayloTests */,
+				6932EB2AF58F139917F0EA4C /* PayloUITests */,
+				5E58BB91BC1DEA673F7688D7 /* Products */,
+				857E8B429DECEE89C9C0194F /* Resources */,
+				3973D2C0CF32B5D6F33D93CA /* Share */,
+			);
+			sourceTree = "<group>";
+		};
+		857E8B429DECEE89C9C0194F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6057C4813EB544C4D68EFDC6 /* Assets.xcassets */,
+				EDB021FC6AF0FA7CCA3B3A5F /* MockData */,
+			);
+			name = Resources;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9F059A9DA23FCED552F23FE8 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				CC3B35916E3B5CC3C17EC496 /* LiveCanvasView.swift */,
+				A015D457BFB248A04BCDEF52 /* MainWorkspaceView.swift */,
+			);
+			name = Live;
+			path = Live;
+			sourceTree = "<group>";
+		};
+		A670844D20853FF1AEB0EE07 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				91D9FE91BBB862B0EF99C40C /* BundledDatasetRepository.swift */,
+			);
+			name = Data;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B165E0BEFEDC8268AF70A547 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				93C5546D0CAE0F7C9D0ACD8D /* ObjectsCanvasView.swift */,
+			);
+			name = Objects;
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		BD2EB8321F2F71E49F276979 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				AA94EC2E60BAA8D1F5057860 /* Components.swift */,
+				ACF3D5A1A4203850427CE7CD /* Theme.swift */,
+			);
+			name = DesignSystem;
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		C9A25036D2C605FA1666ABAD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				07C07EE99014055749BC974B /* PayloApp.swift */,
+				AD5FD85058A4CCB2CE8A6B32 /* PayloRootView.swift */,
+			);
+			name = App;
+			path = App;
+			sourceTree = "<group>";
+		};
+		EDB021FC6AF0FA7CCA3B3A5F /* MockData */ = {
+			isa = PBXGroup;
+			children = (
+				16D05896B41082E502BA8A22 /* cities.json */,
+				F8231AE438A7417A844185DA /* fx_rates.json */,
+				16227FC548BE329E37DC1DEB /* objects.json */,
+			);
+			name = MockData;
+			path = MockData;
+			sourceTree = "<group>";
+		};
+		F1DEAFCA57A631176613D9A9 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A2E3E9A67B88C5723B0FD3D5 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		44CDA12C46E58857FEF3EECD /* PayloTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6729842C6D14760FA78662E0 /* Build configuration list for PBXNativeTarget "PayloTests" */;
+			buildPhases = (
+				98D2BDEE48A01D21765E7E43 /* Sources */,
+				211EE4A9E35D11764123EBF6 /* Frameworks */,
+				B1739B87D02A505984A780F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8AF578B08693BD6691C04F4C /* PBXTargetDependency */,
+			);
+			name = PayloTests;
+			productName = PayloTests;
+			productReference = 4AD881DF1D990AE23F33E825 /* PayloTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6CC39A9158DF511AAB02456F /* Paylo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB048372241DAC84ECFD070E /* Build configuration list for PBXNativeTarget "Paylo" */;
+			buildPhases = (
+				BE1B60391D7CA3D6BC4E895B /* Sources */,
+				3F14E49620E5FC81A81115AF /* Frameworks */,
+				476A61CCEFDD9652E0781C75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Paylo;
+			productName = Paylo;
+			productReference = 3E365552A91FED4B8F7AAC50 /* Paylo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94904E0D9BDC0F6B3731DB8C /* PayloUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A30AF71878D397CB2E9198D /* Build configuration list for PBXNativeTarget "PayloUITests" */;
+			buildPhases = (
+				763B1E923A996D1E0BCDCE31 /* Sources */,
+				F80A02B3E182B475AEA9F117 /* Frameworks */,
+				2733607DD1D784019B750A78 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F0E9BB60EFBD69FF2CF1D59 /* PBXTargetDependency */,
+			);
+			name = PayloUITests;
+			productName = PayloUITests;
+			productReference = 7828E4AC74707248C9529D84 /* PayloUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0CAB015098933910E9F14898 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+			};
+			buildConfigurationList = A6934ADE281DF02FAFF61B92 /* Build configuration list for PBXProject "Paylo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 834F193AB42B283AA0E00CB0;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5E58BB91BC1DEA673F7688D7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6CC39A9158DF511AAB02456F /* Paylo */,
+				44CDA12C46E58857FEF3EECD /* PayloTests */,
+				94904E0D9BDC0F6B3731DB8C /* PayloUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2733607DD1D784019B750A78 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		476A61CCEFDD9652E0781C75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99DC9D419357D7F88274693C /* Assets.xcassets in Resources */,
+				5FF2BCF57A43D65D8618C520 /* cities.json in Resources */,
+				0C295C1433E807BC955CD28C /* fx_rates.json in Resources */,
+				BD69B18833A3E42FA723E888 /* objects.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1739B87D02A505984A780F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				026121E10D558AEB105B872D /* cities.json in Resources */,
+				F09F302E6072348596B12395 /* fx_rates.json in Resources */,
+				7E43B6E9FFE4F02714C7908C /* objects.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		763B1E923A996D1E0BCDCE31 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3FE9D03798BD7000D4F24E5 /* PayloUITests.swift in Sources */,
+				4B594B63C5927738A70B72B6 /* PayloUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		98D2BDEE48A01D21765E7E43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89F9DD2F48572BC66A6D09D1 /* PayloCityEngineTests.swift in Sources */,
+				59F20D195A19EE95DBF28027 /* PayloDataTests.swift in Sources */,
+				EB8F019535FFCB92DBF389BB /* PayloMathTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE1B60391D7CA3D6BC4E895B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A990084AE27C03FF857C9440 /* BundledDatasetRepository.swift in Sources */,
+				A758F17FBE5635FCB60C6DE5 /* CitiesCanvasView.swift in Sources */,
+				E964B8FA412FA8E1AB412B78 /* Components.swift in Sources */,
+				124A7DBD56F124234F106807 /* Engines.swift in Sources */,
+				6E75E5F969920DC074983761 /* Formatters.swift in Sources */,
+				D45C04DFF560B99AE8896914 /* GapCanvasView.swift in Sources */,
+				0CC5750C70BBCCD3EDE0FCBC /* LibraryView.swift in Sources */,
+				EB7994A3C03D04F82C6B6C27 /* LiveCanvasView.swift in Sources */,
+				72EFD2D34DA2689E68FD81A9 /* MainWorkspaceView.swift in Sources */,
+				EF3204D90BAB4C491B11BB36 /* Models.swift in Sources */,
+				842F1FCB09494B3CD5AA830B /* ObjectsCanvasView.swift in Sources */,
+				5C11C6A12B26AD0B7980A9B7 /* OnboardingFlow.swift in Sources */,
+				B3323BF6611F856FE87602C8 /* PayloApp.swift in Sources */,
+				5F738CB8A15A762A7C5221EC /* PayloRootView.swift in Sources */,
+				668AC54ADE4F35DCA54F0F60 /* Protocols.swift in Sources */,
+				D75759E2E4002B75D7098B71 /* SettingsView.swift in Sources */,
+				CB7948EF642247CB0E6B78F1 /* ShareStudioView.swift in Sources */,
+				332968607857D43DE1F1C955 /* Theme.swift in Sources */,
+				FC3D38AA6B2B1F59A940EA5D /* WorkCanvasView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F0E9BB60EFBD69FF2CF1D59 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Paylo;
+			target = 6CC39A9158DF511AAB02456F /* Paylo */;
+			targetProxy = 5521468919D135D64194435F /* PBXContainerItemProxy */;
+		};
+		8AF578B08693BD6691C04F4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Paylo;
+			target = 6CC39A9158DF511AAB02456F /* Paylo */;
+			targetProxy = D7EE8F9ED4D79A9893CAE1CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1514EBABF41D07727E9F43F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		2B4BDF70E1E6F0FD15A4D870 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3119B5E0A02FD64A44B3A0F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = Resources/PreviewContent;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Paylo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.paylo;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		647275B4CA8BAB4F40C9216C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = Resources/PreviewContent;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Paylo;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.paylo;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8918512E4BDD882DC755B425 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.payloTests;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paylo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Paylo";
+				TEST_TARGET_NAME = Paylo;
+			};
+			name = Debug;
+		};
+		A6E79A387C552CE4C4BB2AAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.payloTests;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Paylo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Paylo";
+				TEST_TARGET_NAME = Paylo;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C5501EDEC6CE2A4A94B77A21 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.payloUITests;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Paylo;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EDB07F88F5C0519CA1D17A8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codex.payloUITests;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_TARGET_NAME = Paylo;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A30AF71878D397CB2E9198D /* Build configuration list for PBXNativeTarget "PayloUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDB07F88F5C0519CA1D17A8F /* Debug */,
+				C5501EDEC6CE2A4A94B77A21 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6729842C6D14760FA78662E0 /* Build configuration list for PBXNativeTarget "PayloTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8918512E4BDD882DC755B425 /* Debug */,
+				A6E79A387C552CE4C4BB2AAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6934ADE281DF02FAFF61B92 /* Build configuration list for PBXProject "Paylo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1514EBABF41D07727E9F43F9 /* Debug */,
+				2B4BDF70E1E6F0FD15A4D870 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB048372241DAC84ECFD070E /* Build configuration list for PBXNativeTarget "Paylo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3119B5E0A02FD64A44B3A0F6 /* Debug */,
+				647275B4CA8BAB4F40C9216C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0CAB015098933910E9F14898 /* Project object */;
+}

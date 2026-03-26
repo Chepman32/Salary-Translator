@@ -1,0 +1,156 @@
+[
+  {
+    "id": "big-mac",
+    "localizedName": "Big Mac",
+    "category": "food",
+    "iconName": "fork.knife",
+    "defaultPrice": 6.5,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 1,
+    "supportingLine": "Fast benchmark for everyday purchasing power."
+  },
+  {
+    "id": "coffee",
+    "localizedName": "Coffee",
+    "category": "food",
+    "iconName": "cup.and.saucer",
+    "defaultPrice": 4.8,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 1,
+    "supportingLine": "A tiny recurring indulgence with instant meaning."
+  },
+  {
+    "id": "grocery-basket",
+    "localizedName": "Grocery Basket",
+    "category": "food",
+    "iconName": "cart",
+    "defaultPrice": 82,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 2,
+    "supportingLine": "A one-trip household grocery reset."
+  },
+  {
+    "id": "ps5",
+    "localizedName": "PS5",
+    "category": "tech",
+    "iconName": "gamecontroller",
+    "defaultPrice": 499,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 1,
+    "supportingLine": "A clean benchmark for one-off discretionary spend."
+  },
+  {
+    "id": "iphone",
+    "localizedName": "iPhone",
+    "category": "tech",
+    "iconName": "iphone.gen3",
+    "defaultPrice": 999,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 1,
+    "supportingLine": "A premium consumer tech anchor."
+  },
+  {
+    "id": "airpods",
+    "localizedName": "AirPods Pro",
+    "category": "tech",
+    "iconName": "airpodspro",
+    "defaultPrice": 249,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 2,
+    "supportingLine": "A compact splurge with recognizable value."
+  },
+  {
+    "id": "rent-day",
+    "localizedName": "Rent Day",
+    "category": "housing",
+    "iconName": "house",
+    "defaultPrice": 80,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 1,
+    "supportingLine": "One day of housing pressure."
+  },
+  {
+    "id": "streaming",
+    "localizedName": "Streaming Month",
+    "category": "bills",
+    "iconName": "play.rectangle",
+    "defaultPrice": 16,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 3,
+    "supportingLine": "A recurring convenience subscription."
+  },
+  {
+    "id": "cinema",
+    "localizedName": "Cinema Ticket",
+    "category": "lifestyle",
+    "iconName": "ticket",
+    "defaultPrice": 18,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 3,
+    "supportingLine": "A small leisure benchmark."
+  },
+  {
+    "id": "flight",
+    "localizedName": "Intercity Flight",
+    "category": "travel",
+    "iconName": "airplane",
+    "defaultPrice": 280,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 2,
+    "supportingLine": "A quick mobility escape."
+  },
+  {
+    "id": "sneakers",
+    "localizedName": "Sneakers",
+    "category": "lifestyle",
+    "iconName": "shoeprints.fill",
+    "defaultPrice": 130,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 3,
+    "supportingLine": "A mainstream style purchase."
+  },
+  {
+    "id": "gym",
+    "localizedName": "Gym Membership",
+    "category": "lifestyle",
+    "iconName": "figure.strengthtraining.traditional",
+    "defaultPrice": 55,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 3,
+    "supportingLine": "A monthly routine expense."
+  },
+  {
+    "id": "taxi",
+    "localizedName": "Taxi Ride",
+    "category": "transport",
+    "iconName": "car.side",
+    "defaultPrice": 28,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 3,
+    "supportingLine": "A convenience vs time trade-off."
+  },
+  {
+    "id": "energy-bill",
+    "localizedName": "Energy Bill Chunk",
+    "category": "bills",
+    "iconName": "bolt.house",
+    "defaultPrice": 120,
+    "currencyCode": "USD",
+    "editableByUser": true,
+    "sharePriority": 2,
+    "supportingLine": "A monthly household utility pulse."
+  }
+]
