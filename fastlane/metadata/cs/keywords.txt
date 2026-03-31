@@ -1,0 +1,1 @@
+tepy,milníky,věk,kalkulačka,počítadlo,časová osa,dechy,sekundy,narození,kroky,dny,měsíc

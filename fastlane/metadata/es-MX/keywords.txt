@@ -1,0 +1,1 @@
+latidos,hitos,edad,calculadora,contador,cronología,respiraciones,segundos,nacimiento,pasos,días,luna

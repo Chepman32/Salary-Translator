@@ -1,0 +1,1 @@
+battiti,traguardi,età,calcolatore,contatore,cronologia,respiri,secondi,nascita,passi,giorni,luna
