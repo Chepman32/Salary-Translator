@@ -1,0 +1,1 @@
+sydämenlyönnit,tavoitteet,ikä,laskin,laskuri,aikajana,hengitykset,sekunnit,syntymä,askeleet,päivät,kuu

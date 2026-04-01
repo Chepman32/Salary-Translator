@@ -1,1 +1,1 @@
-uderzenia,kamienie,wiek,kalkulator,licznik,oś,oddechy,sekundy,urodzenie,kroki,dni,księżyc
+wynagrodzenie,dochód,zarobki,kalkulator,pieniądze,praca,budżet,kariera,miasto,porównanie,finanse

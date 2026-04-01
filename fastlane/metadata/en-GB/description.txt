@@ -1,57 +1,32 @@
-You've been alive for over a billion heartbeats. Do you know exactly how many?
+Your salary is a number. Earnza makes it real.
 
-Earnza turns your birthday into a living dashboard of the numbers your life produces — continuously updated, mathematically precise, and unlike anything you've seen in an app before.
+Watch your income appear second by second. See what your paycheck buys in 50 cities. Find out how many hours you work for a coffee — or a new laptop. Earnza translates abstract earnings into something you can actually feel.
 
-WHAT IS LUNIVO?
+LIVE COUNTER
+The moment you open Earnza, your income starts accumulating on screen. Per-minute, per-hour, per-session — it ticks up in real time. A number that once felt distant becomes visceral and personal. Share milestone moments when you hit meaningful thresholds.
 
-Enter your birthday. That's it. Earnza instantly calculates 30+ statistics across five categories — Body, Time, Space, Life, and Absurd — and keeps them running in real time. Everything is backed by physics, astronomical constants, or carefully sourced lifestyle estimates.
+OBJECTS — PRICE THINGS IN WORK HOURS
+Browse 30+ everyday items — from coffee to flights to rent — priced not in money but in work time. See how many you earn per hour. See how long you'd need to work to afford a new phone. Create unlimited custom objects. Add anything that matters to you.
 
-YOUR BODY
+CITIES — WHERE DOES YOUR SALARY STRETCH?
+The same salary means something very different in Austin versus San Francisco, London versus Lisbon. Compare your income across 50+ cities worldwide. Sort by housing pressure, tech affordability, daily purchasing power, or lifestyle fit. Pin favourites for quick reference.
 
-Your heart has beaten over a billion times. You've taken hundreds of millions of breaths. You've slept through roughly a third of your life, dreamed thousands of dreams, blinked tens of millions of times. Earnza shows you the full count — ticking upward, right now.
+WORK CANVAS — FEEL THE LABOUR COST
+See purchases as stacked work-hour blocks. Abstract prices become concrete effort. That weekend trip isn't a pound amount — it's a precise count of hours from your life. This single view changes how you think about spending.
 
-TIME & SPACE
+GAP — COMPARE THE PACE
+Add a comparator salary — a competing offer, your manager's package, a peer's wage. Watch both accumulate in real time. See the exact delta per hour and how long it takes them to earn what you earn in a full day.
 
-You've completed multiple orbits around the Sun. Hundreds of full moons have risen since you were born. You've travelled billions of kilometres through space just by standing on this planet. Earnza calculates it all using the same constants astronomers use — to the kilometre, to the second.
+SCENARIOS — PLAN CAREER DECISIONS
+Save multiple salary setups. Evaluate a job offer in a new city. Compare gross versus take-home. Duplicate scenarios, tweak assumptions, compare side by side. Earnza is a thinking tool built for every salary decision you'll ever make.
 
-LIFE
+SHARE STUDIO
+Generate beautiful shareable cards from your data — with full privacy controls. Blur or hide actual figures before posting. Six card templates designed for social sharing.
 
-Meals eaten. Words spoken. Steps walked. Songs heard. Glasses of water. Phone unlocks. Coffees. Laughs. Earnza estimates the everyday scale of a human life using well-researched averages. Every estimate is clearly labelled — no false precision.
+PRIVATE BY DESIGN
+Everything stays on your device. No account. No server. No tracking. Calculations run fully offline. Your salary is nobody's business but yours.
 
-ABSURD
+——
 
-Mondays Survived. Books' Worth of Words Spoken. Breaths Taken Despite Everything. The Absurd category reframes your real stats with a little existential humour. The maths is the same. The perspective is different.
-
-MILESTONES
-
-Every life contains approaching round-number milestones: your 1,000th full moon, your 1 billionth heartbeat, your 10,000th day. Earnza tracks each one — showing the estimated arrival date, how fast you're approaching it, and your current progress.
-
-SHAREABLE CARDS
-
-Export any stat as a beautifully designed card and share it anywhere. Choose your template, pick your format — story or square — and send directly to your camera roll, Instagram, Messages, or anywhere else. The numbers are real, and they're uniquely yours.
-
-DESIGNED WITH CARE
-
-Four hand-crafted visual themes: Light, Dark, Solar, and Mono. A cosmic animated background. Glass-morphism stat cards with rolling number animations that update live. Configurable display density, motion preferences, background intensity, and text size.
-
-Earnza is built to feel as precise as the numbers it shows.
-
-COMPLETELY PRIVATE
-
-No account. No server. No internet connection required — ever. Your birthday never leaves your device. All 30+ statistics are calculated locally, offline, always.
-
-· All calculations happen on your device
-· No account required
-· No internet connection needed
-· No tracking, no analytics, no adverts
-· Available in 10 languages: English, Spanish, French, German, Portuguese, Russian, Japanese, Korean, Chinese (Simplified), and Ukrainian
-
-HOW IT WORKS
-
-Tap any stat card to open its full detail view. See the exact formula used to calculate the number, the source of each constant, and whether the value is exact or estimated. The complete Methodology reference is always one tap away.
-
-Exact stats — like seconds lived, leap days, or Earth orbits — use precise calendar arithmetic and verified astronomical constants. Lifestyle estimates — like meals or steps — use well-researched global averages and are always marked clearly.
-
-YOUR LIFE, AT SCALE
-
-Most apps focus on what you haven't done yet. Earnza shows you what you've already accomplished — in heartbeats, in orbits, in breaths, in kilometres travelled through space — and leaves the meaning entirely to you.
+Earnza is for anyone who has ever looked at their paycheck and wondered what it actually means.
+Now you know.

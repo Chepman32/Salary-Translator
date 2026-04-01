@@ -1,57 +1,32 @@
-Du hast schon über eine Milliarde Herzschläge gelebt. Weißt du genau, wie viele?
+Dein Gehalt ist eine Zahl. Earnza macht sie greifbar.
 
-Earnza verwandelt deinen Geburtstag in ein lebendiges Dashboard der Zahlen, die dein Leben produziert — kontinuierlich aktualisiert, mathematisch präzise und ganz anders als alles, was du je in einer App gesehen hast.
+Sieh zu, wie dein Einkommen Sekunde für Sekunde entsteht. Erfahre, was dein Gehalt in 50 Städten kauft. Finde heraus, wie viele Stunden du für einen Kaffee arbeitest — oder für ein neues Laptop. Earnza übersetzt abstrakte Zahlen in etwas, das du wirklich spüren kannst.
 
-WAS IST LUNIVO?
+LIVE-ZÄHLER
+Sobald du Earnza öffnest, beginnt dein Einkommen auf dem Bildschirm zu laufen. Pro Minute, pro Stunde, pro Sitzung — es zählt in Echtzeit. Eine Zahl, die sich früher fern anfühlte, wird plötzlich persönlich und greifbar. Teile besondere Momente, wenn du bedeutungsvolle Meilensteine erreichst.
 
-Gib deinen Geburtstag ein. Das ist alles. Earnza berechnet sofort 30+ Statistiken in fünf Kategorien — Körper, Zeit, Raum, Leben und Absurd — und hält sie in Echtzeit laufen. Alles basiert auf Physik, astronomischen Konstanten oder sorgfältig belegten Lebensschätzungen.
+OBJEKTE — PREISE IN ARBEITSSTUNDEN
+Entdecke über 30 Alltagsgegenstände — vom Kaffee bis zum Flug bis zur Miete — bewertet nicht in Geld, sondern in Arbeitszeit. Sieh, wie viele du pro Stunde verdienst. Erfahre, wie lange du arbeiten müsstest, um dir ein neues Telefon leisten zu können. Erstelle unbegrenzt eigene Objekte. Füge alles hinzu, was dir wichtig ist.
 
-DEIN KÖRPER
+STÄDTE — WO REICHT DEIN GEHALT AM WEITESTEN?
+Das gleiche Gehalt bedeutet in Austin etwas völlig anderes als in San Francisco, in London anders als in Lissabon. Vergleiche dein Einkommen in über 50 Städten weltweit. Sortiere nach Wohnkosten, Tech-Erschwinglichkeit, täglicher Kaufkraft oder Lebensqualität. Markiere Favoriten für schnellen Zugriff.
 
-Dein Herz hat über eine Milliarde Mal geschlagen. Du hast Hunderte von Millionen Atemzüge genommen. Du hast etwa ein Drittel deines Lebens geschlafen, Tausende von Träumen geträumt, Zigmillionen Mal geblinzelt. Earnza zeigt dir die vollständige Zählung — von Sekunde zu Sekunde steigend.
+ARBEITSPLAN — SPÜR DEN PREIS DER ARBEIT
+Sieh Ausgaben als gestapelte Arbeitsstunden-Blöcke. Abstrakte Preise werden zu konkretem Aufwand. Dieser Wochenendausflug ist kein Geldbetrag — er ist eine genaue Anzahl von Stunden aus deinem Leben. Diese Ansicht verändert, wie du über Ausgaben nachdenkst.
 
-ZEIT & RAUM
+LÜCKE — VERGLEICHE DAS TEMPO
+Füge ein Vergleichsgehalt hinzu — ein konkurrierendes Angebot, das Paket deines Vorgesetzten, das Gehalt eines Kollegen. Beobachte, wie beide in Echtzeit steigen. Sieh das genaue Delta pro Stunde und wie lange es dauert, bis die andere Person das verdient, was du an einem ganzen Tag verdienst.
 
-Du hast mehrere Umläufe um die Sonne abgeschlossen. Hunderte von Vollmonden sind aufgegangen, seit du geboren wurdest. Du hast Milliarden von Kilometern durch den Weltraum zurückgelegt — einfach indem du auf diesem Planeten standst. Earnza berechnet alles mit denselben Konstanten, die Astronomen verwenden — auf den Kilometer, auf die Sekunde genau.
+SZENARIEN — PLANE KARRIEREENTSCHEIDUNGEN
+Speichere mehrere Gehaltseinstellungen. Bewerte ein Jobangebot in einer neuen Stadt. Vergleiche Brutto gegen Netto. Dupliziere Szenarien, passe Annahmen an, vergleiche sie nebeneinander. Earnza ist ein Denkwerkzeug für jede Gehaltsentscheidung, die du je treffen wirst.
 
-LEBEN
+SHARE STUDIO
+Erstelle wunderschöne, teilbare Karten aus deinen Daten — mit vollständiger Privatsphäre-Steuerung. Zahlen vor dem Teilen unscharf machen oder ausblenden. Sechs Kartenvorlagen für soziale Netzwerke.
 
-Gegessene Mahlzeiten. Gesprochene Wörter. Gegangene Schritte. Gehörte Lieder. Gläser Wasser. Handyentsperrungen. Kaffees. Lacher. Earnza schätzt den alltäglichen Maßstab eines Menschenlebens anhand gut erforschter Durchschnittswerte. Jede Schätzung ist klar gekennzeichnet — keine falsche Präzision.
+PRIVATSPHÄRE ALS GRUNDPRINZIP
+Alles bleibt auf deinem Gerät. Kein Konto. Kein Server. Kein Tracking. Berechnungen laufen vollständig offline. Dein Gehalt geht niemanden etwas an außer dir.
 
-ABSURD
+——
 
-Überlebte Montage. Bücher voll gesprochener Wörter. Atemzüge trotz allem. Die Absurd-Kategorie bringt deine echten Zahlen in ein existenzielles Gewand — gleiche Mathematik, andere Perspektive.
-
-MEILENSTEINE
-
-Jedes Leben hat nahende runde Meilensteine: dein 1.000ster Vollmond, dein 1-milliardster Herzschlag, dein 10.000ster Tag. Earnza verfolgt jeden einzelnen — zeigt das geschätzte Datum, wie schnell du dich näherst und deinen aktuellen Fortschritt.
-
-TEILBARE KARTEN
-
-Exportiere jede Statistik als schön gestaltete Karte und teile sie überall. Wähle deine Vorlage, dein Format — Story oder Quadrat — und sende direkt in deine Fotogalerie, Instagram, Nachrichten oder anderswo. Die Zahlen sind real und einzigartig deine.
-
-SORGFÄLTIG GESTALTET
-
-Vier handgefertigte visuelle Themen: Hell, Dunkel, Solar und Mono. Ein kosmischer animierter Hintergrund. Glasmorphismus-Statistikkarten mit rollenden Zahlenanimationen, die live aktualisiert werden. Konfigurierbare Anzeigedichte, Bewegungseinstellungen, Hintergrundintensität und Textgröße.
-
-Earnza ist so präzise gestaltet wie die Zahlen, die es zeigt.
-
-VOLLSTÄNDIG PRIVAT
-
-Kein Konto. Kein Server. Keine Internetverbindung erforderlich — jemals. Dein Geburtstag verlässt nie dein Gerät. Alle 30+ Statistiken werden lokal, offline, immer berechnet.
-
-· Alle Berechnungen finden auf deinem Gerät statt
-· Kein Konto erforderlich
-· Keine Internetverbindung benötigt
-· Kein Tracking, keine Analysen, keine Werbung
-· Verfügbar in 10 Sprachen
-
-SO FUNKTIONIERT ES
-
-Tippe auf eine Statistikkarte, um die vollständige Detailansicht zu öffnen. Sieh die genaue Formel, die zur Berechnung der Zahl verwendet wird, die Quelle jeder Konstante und ob der Wert exakt oder geschätzt ist. Die vollständige Methodologiereferenz ist immer einen Tipp entfernt.
-
-Exakte Statistiken — wie gelebte Sekunden, Schalttage oder Erdorbits — verwenden präzise Kalenderarithmetik und verifizierte astronomische Konstanten. Lebensschätzungen — wie Mahlzeiten oder Schritte — verwenden gut erforschte globale Durchschnittswerte und sind immer klar gekennzeichnet.
-
-DEIN LEBEN IM GROßEN MAßSTAB
-
-Die meisten Apps konzentrieren sich auf das, was du noch nicht getan hast. Earnza zeigt dir, was du bereits erreicht hast — in Herzschlägen, in Orbits, in Atemzügen, in durch den Weltraum zurückgelegten Kilometern — und überlässt die Bedeutung ganz dir.
+Earnza ist für jeden, der jemals auf seinen Gehaltszettel geschaut und sich gefragt hat, was er eigentlich bedeutet.
+Jetzt weißt du es.

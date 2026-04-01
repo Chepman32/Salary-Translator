@@ -1,1 +1,1 @@
-szívdobbanások,mérföldkövek,életkor,számológép,számláló,idővonal,légzések,másodpercek,születés,lépések,napok,hold
+fizetés,jövedelem,bér,kalkulátor,pénz,kereset,munka,költségvetés,karrier,város,pénzügy

@@ -1,1 +1,1 @@
-sydämenlyönnit,tavoitteet,ikä,laskin,laskuri,aikajana,hengitykset,sekunnit,syntymä,askeleet,päivät,kuu
+palkka,tulot,laskuri,raha,ansiot,työ,budjetti,ura,kaupunki,talous,vertailu,työaika

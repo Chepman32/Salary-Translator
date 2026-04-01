@@ -1,1 +1,1 @@
-batimentos,marcos,idade,calculadora,contador,cronologia,respirações,segundos,nascimento,passos,dias,lua
+salário,renda,remuneração,calculadora,dinheiro,ganhos,emprego,orçamento,carreira,cidade,comparação

@@ -1,1 +1,1 @@
-hjärtslag,milstolpar,ålder,kalkylator,räknare,tidslinje,andetag,sekunder,födsel,steg,dagar,måne
+lön,inkomst,kalkylator,pengar,förtjänst,jobb,budget,karriär,stad,ekonomi,jämförelse,arbete

@@ -84,6 +84,7 @@ struct EarnzaRootView: View {
                         }
                     case .settings:
                         SettingsView(settings: settings, repository: repository, palette: palette)
+                            .presentationDetents([.large])
                     case .library:
                         LibraryView(
                             scenarios: scenarios,

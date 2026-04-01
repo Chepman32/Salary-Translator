@@ -131,7 +131,7 @@ struct DefaultShareRenderService: ShareRenderService {
         }
 
         let url = FileManager.default.temporaryDirectory
-            .appendingPathComponent("paylo-\(snapshot.id.uuidString).png")
+            .appendingPathComponent("earnza-\(snapshot.id.uuidString).png")
         try data.write(to: url, options: .atomic)
         return url
     }

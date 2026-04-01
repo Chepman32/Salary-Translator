@@ -1,1 +1,1 @@
-latidos,hitos,edad,calculadora,contador,cronología,respiraciones,segundos,nacimiento,pasos,días,luna
+salario,ingreso,sueldo,calculadora,dinero,ganancias,trabajo,presupuesto,carrera,ciudad,comparación

@@ -1,1 +1,1 @@
-hjerteslag,milepæler,alder,kalkulator,teller,tidslinje,åndedrag,sekunder,fødsel,skritt,dager,måne
+lønn,inntekt,lønnssats,kalkulator,penger,fortjeneste,jobb,budsjett,karriere,by,sammenligning,økonomi

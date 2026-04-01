@@ -1,1 +1,1 @@
-detak,pencapaian,usia,kalkulator,penghitung,kronologi,napas,detik,lahir,langkah,hari,bulan
+gaji,penghasilan,upah,kalkulator,uang,kerja,anggaran,kota,karir,keuangan,salary,finance

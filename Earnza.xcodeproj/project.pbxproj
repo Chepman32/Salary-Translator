@@ -63,8 +63,8 @@
 /* Begin PBXFileReference section */
 		07C07EE99014055749BC974B /* EarnzaApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarnzaApp.swift; sourceTree = "<group>"; };
 		14722043984ED9BE964D8948 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
-		16227FC548BE329E37DC1DEB /* objects.json */ = {isa = PBXFileReference; includeInIndex = 1; path = objects.json; sourceTree = "<group>"; };
-		16D05896B41082E502BA8A22 /* cities.json */ = {isa = PBXFileReference; includeInIndex = 1; path = cities.json; sourceTree = "<group>"; };
+		16227FC548BE329E37DC1DEB /* objects.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = objects.json; sourceTree = "<group>"; };
+		16D05896B41082E502BA8A22 /* cities.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = cities.json; sourceTree = "<group>"; };
 		235C449AAD72892F0D121494 /* WorkCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WorkCanvasView.swift; sourceTree = "<group>"; };
 		3E365552A91FED4B8F7AAC50 /* Earnza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Earnza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47C9C6D69C708B4238BEB2F9 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		CC3B35916E3B5CC3C17EC496 /* LiveCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveCanvasView.swift; sourceTree = "<group>"; };
 		E72A9B3CAA74984AC0FBB447 /* Engines.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Engines.swift; sourceTree = "<group>"; };
 		ECD8953A41A16F719B4C8591 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		F8231AE438A7417A844185DA /* fx_rates.json */ = {isa = PBXFileReference; includeInIndex = 1; path = fx_rates.json; sourceTree = "<group>"; };
+		F8231AE438A7417A844185DA /* fx_rates.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = fx_rates.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +135,6 @@
 				2361B21FDF97CF1A06789EF6 /* Settings */,
 				228E95A8F26BC2999876C4F7 /* Work */,
 			);
-			name = Features;
 			path = Features;
 			sourceTree = "<group>";
 		};
@@ -154,7 +153,6 @@
 				65D629667214D158984F06CD /* EarnzaDataTests.swift */,
 				4FE2D11D6395FFB8A1197B62 /* EarnzaMathTests.swift */,
 			);
-			name = EarnzaTests;
 			path = EarnzaTests;
 			sourceTree = "<group>";
 		};
@@ -163,7 +161,6 @@
 			children = (
 				235C449AAD72892F0D121494 /* WorkCanvasView.swift */,
 			);
-			name = Work;
 			path = Work;
 			sourceTree = "<group>";
 		};
@@ -172,7 +169,6 @@
 			children = (
 				ECD8953A41A16F719B4C8591 /* SettingsView.swift */,
 			);
-			name = Settings;
 			path = Settings;
 			sourceTree = "<group>";
 		};
@@ -181,7 +177,6 @@
 			children = (
 				6EA3E6B02421C10FB1135209 /* GapCanvasView.swift */,
 			);
-			name = Gap;
 			path = Gap;
 			sourceTree = "<group>";
 		};
@@ -190,7 +185,6 @@
 			children = (
 				732DB59FD439598A1C5EC58E /* ShareStudioView.swift */,
 			);
-			name = Share;
 			path = Share;
 			sourceTree = "<group>";
 		};
@@ -199,7 +193,6 @@
 			children = (
 				AD0C790BBCE3FDBA14BAF01E /* OnboardingFlow.swift */,
 			);
-			name = Onboarding;
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
@@ -221,7 +214,6 @@
 				47C9C6D69C708B4238BEB2F9 /* Models.swift */,
 				14722043984ED9BE964D8948 /* Protocols.swift */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -231,7 +223,6 @@
 				BF68CF954AD09420D76F5412 /* EarnzaUITests.swift */,
 				5F39390E2B078A0A3CA9883D /* EarnzaUITestsLaunchTests.swift */,
 			);
-			name = EarnzaUITests;
 			path = EarnzaUITests;
 			sourceTree = "<group>";
 		};
@@ -240,7 +231,6 @@
 			children = (
 				791A9F3C835A356CF2815BC2 /* LibraryView.swift */,
 			);
-			name = Library;
 			path = Library;
 			sourceTree = "<group>";
 		};
@@ -249,7 +239,6 @@
 			children = (
 				536EC7FF7519C62E1C766312 /* CitiesCanvasView.swift */,
 			);
-			name = Cities;
 			path = Cities;
 			sourceTree = "<group>";
 		};
@@ -276,7 +265,6 @@
 				6057C4813EB544C4D68EFDC6 /* Assets.xcassets */,
 				EDB021FC6AF0FA7CCA3B3A5F /* MockData */,
 			);
-			name = Resources;
 			path = Resources;
 			sourceTree = "<group>";
 		};
@@ -286,7 +274,6 @@
 				CC3B35916E3B5CC3C17EC496 /* LiveCanvasView.swift */,
 				A015D457BFB248A04BCDEF52 /* MainWorkspaceView.swift */,
 			);
-			name = Live;
 			path = Live;
 			sourceTree = "<group>";
 		};
@@ -295,7 +282,6 @@
 			children = (
 				91D9FE91BBB862B0EF99C40C /* BundledDatasetRepository.swift */,
 			);
-			name = Data;
 			path = Data;
 			sourceTree = "<group>";
 		};
@@ -304,7 +290,6 @@
 			children = (
 				93C5546D0CAE0F7C9D0ACD8D /* ObjectsCanvasView.swift */,
 			);
-			name = Objects;
 			path = Objects;
 			sourceTree = "<group>";
 		};
@@ -314,7 +299,6 @@
 				AA94EC2E60BAA8D1F5057860 /* Components.swift */,
 				ACF3D5A1A4203850427CE7CD /* Theme.swift */,
 			);
-			name = DesignSystem;
 			path = DesignSystem;
 			sourceTree = "<group>";
 		};
@@ -324,7 +308,6 @@
 				07C07EE99014055749BC974B /* EarnzaApp.swift */,
 				AD5FD85058A4CCB2CE8A6B32 /* EarnzaRootView.swift */,
 			);
-			name = App;
 			path = App;
 			sourceTree = "<group>";
 		};
@@ -335,7 +318,6 @@
 				F8231AE438A7417A844185DA /* fx_rates.json */,
 				16227FC548BE329E37DC1DEB /* objects.json */,
 			);
-			name = MockData;
 			path = MockData;
 			sourceTree = "<group>";
 		};
@@ -411,6 +393,18 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					44CDA12C46E58857FEF3EECD = {
+						ProvisioningStyle = Automatic;
+					};
+					6CC39A9158DF511AAB02456F = {
+						DevelopmentTeam = RUYUP6W3YT;
+						ProvisioningStyle = Manual;
+					};
+					94904E0D9BDC0F6B3731DB8C = {
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = A6934ADE281DF02FAFF61B92 /* Build configuration list for PBXProject "Earnza" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -421,8 +415,6 @@
 				Base,
 			);
 			mainGroup = 834F193AB42B283AA0E00CB0;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 5E58BB91BC1DEA673F7688D7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -638,8 +630,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -652,10 +643,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = Resources/PreviewContent;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = RUYUP6W3YT;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -668,6 +661,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.earnza.app;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EarnzaApp;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -684,10 +679,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = Resources/PreviewContent;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = RUYUP6W3YT;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTABILITY = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -700,6 +697,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.earnza.app;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = EarnzaApp;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
