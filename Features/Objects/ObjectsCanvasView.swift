@@ -130,7 +130,7 @@ struct ObjectsCanvasView: View {
                                 Label(insight.preset.localizedName, systemImage: insight.preset.iconName)
                                     .font(.system(size: 16, weight: .semibold))
                                 Spacer()
-                                Text(PayloFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode, maximumFractionDigits: 0))
+                                Text(EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode, maximumFractionDigits: 0))
                                     .font(.system(size: 13, weight: .semibold, design: .monospaced))
                             }
                             .foregroundStyle(palette.textPrimary)
@@ -183,7 +183,7 @@ struct ObjectsCanvasView: View {
     private func earnCopy(for insight: ObjectInsight) -> String {
         switch displayMode {
         case .earn:
-            return "\(PayloFormatters.decimal(insight.quantityPerHour, fractionDigits: 1)) per hour"
+            return "\(EarnzaFormatters.decimal(insight.quantityPerHour, fractionDigits: 1)) per hour"
         case .work:
             return workCopy(for: insight)
         }
@@ -191,16 +191,16 @@ struct ObjectsCanvasView: View {
 
     private func workCopy(for insight: ObjectInsight) -> String {
         if insight.workHours >= 8 {
-            return "\(PayloFormatters.decimal(insight.workDays, fractionDigits: 1)) workdays"
+            return "\(EarnzaFormatters.decimal(insight.workDays, fractionDigits: 1)) workdays"
         }
-        return "\(PayloFormatters.decimal(insight.workHours, fractionDigits: 1)) hours"
+        return "\(EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1)) hours"
     }
 
     private func heroStatement(for insight: ObjectInsight) -> String {
         if displayMode == .earn {
-            return "You earn \(PayloFormatters.decimal(insight.quantityPerHour, fractionDigits: 1)) \(insight.preset.localizedName) per hour."
+            return "You earn \(EarnzaFormatters.decimal(insight.quantityPerHour, fractionDigits: 1)) \(insight.preset.localizedName) per hour."
         }
-        return "One \(insight.preset.localizedName) costs \(PayloFormatters.decimal(insight.workHours, fractionDigits: 1)) work hours."
+        return "One \(insight.preset.localizedName) costs \(EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1)) work hours."
     }
 
     private func toggleFavorite(_ id: String) {
@@ -229,8 +229,8 @@ struct ObjectsCanvasView: View {
             value: displayMode == .earn ? earnCopy(for: insight) : workCopy(for: insight),
             subtitle: displayMode == .earn ? "How many you earn at current pace." : "How long you work for it.",
             details: [
-                "Price: \(PayloFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode))",
-                "Per day: \(PayloFormatters.decimal(insight.quantityPerDay, fractionDigits: 1))",
+                "Price: \(EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode))",
+                "Per day: \(EarnzaFormatters.decimal(insight.quantityPerDay, fractionDigits: 1))",
                 salaryEngine.humanWorkDescription(hours: insight.workHours)
             ],
             symbolName: insight.preset.iconName,

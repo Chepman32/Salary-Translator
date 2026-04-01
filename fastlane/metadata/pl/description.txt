@@ -1,22 +1,22 @@
 Przeżyłeś już ponad miliard uderzeń serca. Czy wiesz dokładnie ile?
 
-Lunivo zamienia Twoją datę urodzenia w żywy dashboard liczb, które produkuje Twoje życie — ciągle aktualizowany, matematycznie precyzyjny i niepodobny do żadnej innej aplikacji.
+Earnza zamienia Twoją datę urodzenia w żywy dashboard liczb, które produkuje Twoje życie — ciągle aktualizowany, matematycznie precyzyjny i niepodobny do żadnej innej aplikacji.
 
 CZYM JEST LUNIVO?
 
-Podaj datę urodzenia. To wszystko. Lunivo natychmiast oblicza ponad 30 statystyk w pięciu kategoriach — Ciało, Czas, Przestrzeń, Życie i Absurd — i utrzymuje je w czasie rzeczywistym. Wszystko opiera się na fizyce, stałych astronomicznych lub starannie zbadanych szacunkach dotyczących stylu życia.
+Podaj datę urodzenia. To wszystko. Earnza natychmiast oblicza ponad 30 statystyk w pięciu kategoriach — Ciało, Czas, Przestrzeń, Życie i Absurd — i utrzymuje je w czasie rzeczywistym. Wszystko opiera się na fizyce, stałych astronomicznych lub starannie zbadanych szacunkach dotyczących stylu życia.
 
 TWOJE CIAŁO
 
-Twoje serce uderzyło ponad miliard razy. Wzięłeś setki milionów oddechów. Przespałeś około jednej trzeciej życia, śniłeś tysiące snów, mrugnąłeś dziesiątki milionów razy. Lunivo pokazuje pełne liczenie — rosnące z każdą chwilą.
+Twoje serce uderzyło ponad miliard razy. Wzięłeś setki milionów oddechów. Przespałeś około jednej trzeciej życia, śniłeś tysiące snów, mrugnąłeś dziesiątki milionów razy. Earnza pokazuje pełne liczenie — rosnące z każdą chwilą.
 
 CZAS I PRZESTRZEŃ
 
-Odbyłeś wiele obiegów wokół Słońca. Od Twojego urodzenia wschodziły setki pełnych Księżyców. Podróżowałeś miliardy kilometrów przez przestrzeń kosmiczną — po prostu stojąc na tej planecie. Lunivo oblicza wszystko przy użyciu tych samych stałych co astronomowie — do kilometra, do sekundy.
+Odbyłeś wiele obiegów wokół Słońca. Od Twojego urodzenia wschodziły setki pełnych Księżyców. Podróżowałeś miliardy kilometrów przez przestrzeń kosmiczną — po prostu stojąc na tej planecie. Earnza oblicza wszystko przy użyciu tych samych stałych co astronomowie — do kilometra, do sekundy.
 
 ŻYCIE
 
-Zjedzone posiłki. Wypowiedziane słowa. Zrobione kroki. Usłyszane piosenki. Wypite szklanki wody. Odblokowywania telefonu. Kawy. Śmiechy. Lunivo szacuje codzienną skalę ludzkiego życia na podstawie dobrze zbadanych średnich. Każde szacowanie jest wyraźnie oznaczone — bez fałszywej precyzji.
+Zjedzone posiłki. Wypowiedziane słowa. Zrobione kroki. Usłyszane piosenki. Wypite szklanki wody. Odblokowywania telefonu. Kawy. Śmiechy. Earnza szacuje codzienną skalę ludzkiego życia na podstawie dobrze zbadanych średnich. Każde szacowanie jest wyraźnie oznaczone — bez fałszywej precyzji.
 
 ABSURD
 
@@ -24,7 +24,7 @@ Przeżytych Poniedziałków. Książek Wypowiedzianych Słów. Oddechów Pomimo 
 
 KAMIENIE MILOWE
 
-Każde życie zawiera zbliżające się okrągłe kamienie milowe: Twój 1000. Pełny Księżyc, Twoje 1 miliardowe uderzenie serca, Twój 10 000. dzień. Lunivo śledzi każdy — pokazując szacowaną datę, jak szybko się zbliżasz i Twój aktualny postęp.
+Każde życie zawiera zbliżające się okrągłe kamienie milowe: Twój 1000. Pełny Księżyc, Twoje 1 miliardowe uderzenie serca, Twój 10 000. dzień. Earnza śledzi każdy — pokazując szacowaną datę, jak szybko się zbliżasz i Twój aktualny postęp.
 
 KARTY DO UDOSTĘPNIANIA
 
@@ -34,7 +34,7 @@ ZAPROJEKTOWANY Z TROSKĄ
 
 Cztery ręcznie wykonane motywy wizualne: Jasny, Ciemny, Słoneczny i Mono. Kosmiczne animowane tło. Karty statystyk ze szklanym morfozmem i toczącymi się animacjami liczb, aktualizowanymi na żywo. Konfigurowalna gęstość wyświetlania, preferencje ruchu, intensywność tła i rozmiar tekstu.
 
-Lunivo jest zbudowany, aby czuć się tak precyzyjnie jak liczby, które pokazuje.
+Earnza jest zbudowany, aby czuć się tak precyzyjnie jak liczby, które pokazuje.
 
 CAŁKOWICIE PRYWATNY
 
@@ -54,4 +54,4 @@ Dokładne statystyki — takie jak przeżyte sekundy, lata przestępne czy obrot
 
 TWOJE ŻYCIE W SKALI
 
-Większość aplikacji skupia się na tym, czego jeszcze nie zrobiłeś. Lunivo pokazuje Ci, co już osiągnąłeś — w uderzeniach serca, w orbitach, w oddechach, w kilometrach podróżowanych przez przestrzeń — i pozostawia znaczenie całkowicie Tobie.
+Większość aplikacji skupia się na tym, czego jeszcze nie zrobiłeś. Earnza pokazuje Ci, co już osiągnąłeś — w uderzeniach serca, w orbitach, w oddechach, w kilometrach podróżowanych przez przestrzeń — i pozostawia znaczenie całkowicie Tobie.

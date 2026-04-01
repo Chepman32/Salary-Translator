@@ -1,7 +1,7 @@
 import XCTest
-@testable import Paylo
+@testable import Earnza
 
-final class PayloDataTests: XCTestCase {
+final class EarnzaDataTests: XCTestCase {
     func testBundledDatasetsDecode() {
         let repository = BundledDatasetRepository(bundle: Bundle(for: Self.self))
 

@@ -13,7 +13,7 @@ struct ThemePalette: Hashable {
     let shadow: Color
 }
 
-enum PayloTheme {
+enum EarnzaTheme {
     static func palette(for style: ThemeStyle) -> ThemePalette {
         switch style {
         case .light:
@@ -72,7 +72,7 @@ enum PayloTheme {
     }
 }
 
-struct PayloBackground: View {
+struct EarnzaBackground: View {
     let palette: ThemePalette
 
     var body: some View {

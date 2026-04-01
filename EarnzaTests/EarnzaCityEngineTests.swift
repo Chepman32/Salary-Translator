@@ -1,7 +1,7 @@
 import XCTest
-@testable import Paylo
+@testable import Earnza
 
-final class PayloCityEngineTests: XCTestCase {
+final class EarnzaCityEngineTests: XCTestCase {
     private let engine = DefaultCityComparisonEngine()
 
     func testBestStretchSortReturnsHighestScoreFirst() {

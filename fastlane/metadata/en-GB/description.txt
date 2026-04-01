@@ -1,22 +1,22 @@
 You've been alive for over a billion heartbeats. Do you know exactly how many?
 
-Lunivo turns your birthday into a living dashboard of the numbers your life produces — continuously updated, mathematically precise, and unlike anything you've seen in an app before.
+Earnza turns your birthday into a living dashboard of the numbers your life produces — continuously updated, mathematically precise, and unlike anything you've seen in an app before.
 
 WHAT IS LUNIVO?
 
-Enter your birthday. That's it. Lunivo instantly calculates 30+ statistics across five categories — Body, Time, Space, Life, and Absurd — and keeps them running in real time. Everything is backed by physics, astronomical constants, or carefully sourced lifestyle estimates.
+Enter your birthday. That's it. Earnza instantly calculates 30+ statistics across five categories — Body, Time, Space, Life, and Absurd — and keeps them running in real time. Everything is backed by physics, astronomical constants, or carefully sourced lifestyle estimates.
 
 YOUR BODY
 
-Your heart has beaten over a billion times. You've taken hundreds of millions of breaths. You've slept through roughly a third of your life, dreamed thousands of dreams, blinked tens of millions of times. Lunivo shows you the full count — ticking upward, right now.
+Your heart has beaten over a billion times. You've taken hundreds of millions of breaths. You've slept through roughly a third of your life, dreamed thousands of dreams, blinked tens of millions of times. Earnza shows you the full count — ticking upward, right now.
 
 TIME & SPACE
 
-You've completed multiple orbits around the Sun. Hundreds of full moons have risen since you were born. You've travelled billions of kilometres through space just by standing on this planet. Lunivo calculates it all using the same constants astronomers use — to the kilometre, to the second.
+You've completed multiple orbits around the Sun. Hundreds of full moons have risen since you were born. You've travelled billions of kilometres through space just by standing on this planet. Earnza calculates it all using the same constants astronomers use — to the kilometre, to the second.
 
 LIFE
 
-Meals eaten. Words spoken. Steps walked. Songs heard. Glasses of water. Phone unlocks. Coffees. Laughs. Lunivo estimates the everyday scale of a human life using well-researched averages. Every estimate is clearly labelled — no false precision.
+Meals eaten. Words spoken. Steps walked. Songs heard. Glasses of water. Phone unlocks. Coffees. Laughs. Earnza estimates the everyday scale of a human life using well-researched averages. Every estimate is clearly labelled — no false precision.
 
 ABSURD
 
@@ -24,7 +24,7 @@ Mondays Survived. Books' Worth of Words Spoken. Breaths Taken Despite Everything
 
 MILESTONES
 
-Every life contains approaching round-number milestones: your 1,000th full moon, your 1 billionth heartbeat, your 10,000th day. Lunivo tracks each one — showing the estimated arrival date, how fast you're approaching it, and your current progress.
+Every life contains approaching round-number milestones: your 1,000th full moon, your 1 billionth heartbeat, your 10,000th day. Earnza tracks each one — showing the estimated arrival date, how fast you're approaching it, and your current progress.
 
 SHAREABLE CARDS
 
@@ -34,7 +34,7 @@ DESIGNED WITH CARE
 
 Four hand-crafted visual themes: Light, Dark, Solar, and Mono. A cosmic animated background. Glass-morphism stat cards with rolling number animations that update live. Configurable display density, motion preferences, background intensity, and text size.
 
-Lunivo is built to feel as precise as the numbers it shows.
+Earnza is built to feel as precise as the numbers it shows.
 
 COMPLETELY PRIVATE
 
@@ -54,4 +54,4 @@ Exact stats — like seconds lived, leap days, or Earth orbits — use precise c
 
 YOUR LIFE, AT SCALE
 
-Most apps focus on what you haven't done yet. Lunivo shows you what you've already accomplished — in heartbeats, in orbits, in breaths, in kilometres travelled through space — and leaves the meaning entirely to you.
+Most apps focus on what you haven't done yet. Earnza shows you what you've already accomplished — in heartbeats, in orbits, in breaths, in kilometres travelled through space — and leaves the meaning entirely to you.

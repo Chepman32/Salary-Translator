@@ -45,12 +45,12 @@ struct SettingsView: View {
                 }
 
                 Section("Privacy") {
-                    Text("Paylo works fully offline. No account, no tracking, no remote dependency for the core product.")
+                    Text("Earnza works fully offline. No account, no tracking, no remote dependency for the core product.")
                         .font(.system(size: 13, weight: .medium))
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(PayloBackground(palette: palette))
+            .background(EarnzaBackground(palette: palette))
             .navigationTitle("Settings")
         }
         .presentationDetents([.medium, .large])

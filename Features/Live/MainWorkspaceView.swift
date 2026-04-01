@@ -110,7 +110,7 @@ struct MainWorkspaceView: View {
     private var header: some View {
         HStack(spacing: 12) {
             VStack(alignment: .leading, spacing: 2) {
-                Text("Paylo")
+                Text("Earnza")
                     .font(.system(size: 28, weight: .black, design: .rounded))
                     .tracking(-1.2)
                 Text(scenario.name)
@@ -140,16 +140,16 @@ struct MainWorkspaceView: View {
     private var assumptionsRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
-                AssumptionChip(label: "Hours", value: PayloFormatters.decimal(scenario.workHoursPerWeek, fractionDigits: 0), palette: palette, systemName: "briefcase") {
+                AssumptionChip(label: "Hours", value: EarnzaFormatters.decimal(scenario.workHoursPerWeek, fractionDigits: 0), palette: palette, systemName: "briefcase") {
                     onOpenSheet(.assumptions)
                 }
-                AssumptionChip(label: "Weeks", value: PayloFormatters.decimal(scenario.workWeeksPerYear, fractionDigits: 0), palette: palette, systemName: "calendar") {
+                AssumptionChip(label: "Weeks", value: EarnzaFormatters.decimal(scenario.workWeeksPerYear, fractionDigits: 0), palette: palette, systemName: "calendar") {
                     onOpenSheet(.assumptions)
                 }
-                AssumptionChip(label: "Rent", value: PayloFormatters.currency(scenario.monthlyRent, code: scenario.currencyCode, maximumFractionDigits: 0), palette: palette, systemName: "house") {
+                AssumptionChip(label: "Rent", value: EarnzaFormatters.currency(scenario.monthlyRent, code: scenario.currencyCode, maximumFractionDigits: 0), palette: palette, systemName: "house") {
                     onOpenSheet(.assumptions)
                 }
-                AssumptionChip(label: "Comparator", value: scenario.comparatorSalary > 0 ? PayloFormatters.compactCurrency(scenario.comparatorSalary, code: scenario.currencyCode) : "Off", palette: palette, systemName: "person.2") {
+                AssumptionChip(label: "Comparator", value: scenario.comparatorSalary > 0 ? EarnzaFormatters.compactCurrency(scenario.comparatorSalary, code: scenario.currencyCode) : "Off", palette: palette, systemName: "person.2") {
                     onOpenSheet(.assumptions)
                 }
                 AssumptionChip(label: "City", value: cityName, palette: palette, systemName: "globe") {
@@ -212,7 +212,7 @@ struct MainWorkspaceView: View {
                 Text(title)
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(palette.textSecondary)
-                Text(PayloFormatters.currency(value, code: scenario.currencyCode, maximumFractionDigits: value < 10 ? 2 : 0))
+                Text(EarnzaFormatters.currency(value, code: scenario.currencyCode, maximumFractionDigits: value < 10 ? 2 : 0))
                     .font(.system(size: 21, weight: .bold, design: .rounded))
                     .monospacedDigit()
                     .foregroundStyle(palette.textPrimary)
@@ -229,11 +229,11 @@ struct MainWorkspaceView: View {
         let pace = salaryEngine.paceSummary(for: scenario, settings: settings)
         return ShareSnapshot(
             title: "Your salary, translated.",
-            value: PayloFormatters.currency(pace.minute, code: scenario.currencyCode),
+            value: EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode),
             subtitle: "You earn this much per minute.",
             details: [
-                "Hourly pace: \(PayloFormatters.currency(pace.hourly, code: scenario.currencyCode))",
-                "Monthly pace: \(PayloFormatters.currency(pace.monthly, code: scenario.currencyCode, maximumFractionDigits: 0))",
+                "Hourly pace: \(EarnzaFormatters.currency(pace.hourly, code: scenario.currencyCode))",
+                "Monthly pace: \(EarnzaFormatters.currency(pace.monthly, code: scenario.currencyCode, maximumFractionDigits: 0))",
                 "Based on \(scenario.workHoursPerWeek.formatted()) hrs/week and \(scenario.workWeeksPerYear.formatted()) weeks/year"
             ],
             symbolName: "waveform.path.ecg",
@@ -351,7 +351,7 @@ struct AssumptionsEditorView: View {
 
     private func labeledStepper(title: String, value: Binding<Double>, in range: ClosedRange<Double>, step: Double) -> some View {
         Stepper {
-            Text("\(title): \(PayloFormatters.decimal(value.wrappedValue, fractionDigits: 0))")
+            Text("\(title): \(EarnzaFormatters.decimal(value.wrappedValue, fractionDigits: 0))")
         } onIncrement: {
             value.wrappedValue = min(range.upperBound, value.wrappedValue + step)
         } onDecrement: {

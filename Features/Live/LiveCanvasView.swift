@@ -44,7 +44,7 @@ struct LiveCanvasView: View {
                         HStack {
                             Text("Minute pace")
                             Spacer()
-                            Text(PayloFormatters.currency(pace.minute, code: scenario.currencyCode))
+                            Text(EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode))
                                 .monospacedDigit()
                         }
                         .font(.system(size: 13, weight: .semibold))
@@ -55,11 +55,11 @@ struct LiveCanvasView: View {
                     onShare(
                         ShareSnapshot(
                             title: "While you read this",
-                            value: PayloFormatters.currency(accumulated, code: scenario.currencyCode),
+                            value: EarnzaFormatters.currency(accumulated, code: scenario.currencyCode),
                             subtitle: "Screen-session accumulation",
                             details: [
-                                "Per minute: \(PayloFormatters.currency(pace.minute, code: scenario.currencyCode))",
-                                "Per hour: \(PayloFormatters.currency(pace.hourly, code: scenario.currencyCode))",
+                                "Per minute: \(EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode))",
+                                "Per hour: \(EarnzaFormatters.currency(pace.hourly, code: scenario.currencyCode))",
                                 "Scenario: \(scenario.name)"
                             ],
                             symbolName: "timer",
@@ -73,11 +73,11 @@ struct LiveCanvasView: View {
 
             let pace = salaryEngine.paceSummary(for: scenario, settings: settings)
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2), spacing: 12) {
-                insightCard(title: "Per Second", value: PayloFormatters.currency(pace.second, code: scenario.currencyCode), subtitle: "Continuous rate for live accumulation", symbol: "hare", paceValue: pace.second)
-                insightCard(title: "Per Minute", value: PayloFormatters.currency(pace.minute, code: scenario.currencyCode), subtitle: "The clearest real-time heartbeat", symbol: "clock", paceValue: pace.minute)
-                insightCard(title: "Per Workday", value: PayloFormatters.currency(pace.daily, code: scenario.currencyCode), subtitle: "Saved work assumption applied", symbol: "briefcase", paceValue: pace.daily)
-                insightCard(title: "Per Paycheck", value: PayloFormatters.currency(pace.paycheck, code: scenario.currencyCode), subtitle: "Based on paychecks per year", symbol: "creditcard", paceValue: pace.paycheck)
-                insightCard(title: "Per Month", value: PayloFormatters.currency(pace.monthly, code: scenario.currencyCode, maximumFractionDigits: 0), subtitle: "Salary spread over 12 months", symbol: "calendar", paceValue: pace.monthly)
+                insightCard(title: "Per Second", value: EarnzaFormatters.currency(pace.second, code: scenario.currencyCode), subtitle: "Continuous rate for live accumulation", symbol: "hare", paceValue: pace.second)
+                insightCard(title: "Per Minute", value: EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode), subtitle: "The clearest real-time heartbeat", symbol: "clock", paceValue: pace.minute)
+                insightCard(title: "Per Workday", value: EarnzaFormatters.currency(pace.daily, code: scenario.currencyCode), subtitle: "Saved work assumption applied", symbol: "briefcase", paceValue: pace.daily)
+                insightCard(title: "Per Paycheck", value: EarnzaFormatters.currency(pace.paycheck, code: scenario.currencyCode), subtitle: "Based on paychecks per year", symbol: "creditcard", paceValue: pace.paycheck)
+                insightCard(title: "Per Month", value: EarnzaFormatters.currency(pace.monthly, code: scenario.currencyCode, maximumFractionDigits: 0), subtitle: "Salary spread over 12 months", symbol: "calendar", paceValue: pace.monthly)
                 insightCard(title: "Reading Session", value: sessionInsightValue, subtitle: "Resets when the app becomes active again", symbol: "book.pages", paceValue: pace.minute)
             }
 
@@ -107,11 +107,11 @@ struct LiveCanvasView: View {
     private var tickerItems: [String] {
         let pace = salaryEngine.paceSummary(for: scenario, settings: settings)
         return [
-            "Minute pace \(PayloFormatters.currency(pace.minute, code: scenario.currencyCode))",
-            "Coffee in \(PayloFormatters.decimal(4.8 / max(pace.hourly, 0.01) * 60, fractionDigits: 1)) min",
-            "Paycheck \(PayloFormatters.currency(pace.paycheck, code: scenario.currencyCode, maximumFractionDigits: 0))",
-            "Hourly \(PayloFormatters.currency(pace.hourly, code: scenario.currencyCode))",
-            "Rent day every \(PayloFormatters.decimal(max(scenario.monthlyRent / 30, 1) / max(pace.hourly, 0.01), fractionDigits: 1)) hrs"
+            "Minute pace \(EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode))",
+            "Coffee in \(EarnzaFormatters.decimal(4.8 / max(pace.hourly, 0.01) * 60, fractionDigits: 1)) min",
+            "Paycheck \(EarnzaFormatters.currency(pace.paycheck, code: scenario.currencyCode, maximumFractionDigits: 0))",
+            "Hourly \(EarnzaFormatters.currency(pace.hourly, code: scenario.currencyCode))",
+            "Rent day every \(EarnzaFormatters.decimal(max(scenario.monthlyRent / 30, 1) / max(pace.hourly, 0.01), fractionDigits: 1)) hrs"
         ]
     }
 
@@ -129,7 +129,7 @@ struct LiveCanvasView: View {
                 details: [
                     "Scenario: \(scenario.name)",
                     "Currency: \(scenario.currencyCode)",
-                    "Exact value: \(PayloFormatters.currency(paceValue, code: scenario.currencyCode))"
+                    "Exact value: \(EarnzaFormatters.currency(paceValue, code: scenario.currencyCode))"
                 ],
                 symbolName: symbol,
                 theme: scenario.selectedTheme
@@ -144,7 +144,7 @@ struct LiveCanvasView: View {
             settings: settings,
             elapsed: Date().timeIntervalSince(sessionStartDate)
         )
-        return PayloFormatters.currency(readingValue, code: scenario.currencyCode)
+        return EarnzaFormatters.currency(readingValue, code: scenario.currencyCode)
     }
 
     private var milestones: [String] {
@@ -152,6 +152,6 @@ struct LiveCanvasView: View {
         let checks = [0.5, 1, 5, 10, pace.minute, pace.hourly / 2]
             .filter { $0 > 0 }
             .sorted()
-        return checks.map { "Cross \(PayloFormatters.currency($0, code: scenario.currencyCode)) in the live session." }
+        return checks.map { "Cross \(EarnzaFormatters.currency($0, code: scenario.currencyCode)) in the live session." }
     }
 }

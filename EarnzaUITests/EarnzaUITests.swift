@@ -1,6 +1,6 @@
 import XCTest
 
-final class PayloUITests: XCTestCase {
+final class EarnzaUITests: XCTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
     }

@@ -1,22 +1,22 @@
 Du har allerede oplevet over en milliard hjerteslag. Ved du præcis, hvor mange?
 
-Lunivo forvandler din fødselsdag til et levende dashboard af de tal, dit liv producerer — løbende opdateret, matematisk præcist og forskelligt fra alt, du nogensinde har set i en app.
+Earnza forvandler din fødselsdag til et levende dashboard af de tal, dit liv producerer — løbende opdateret, matematisk præcist og forskelligt fra alt, du nogensinde har set i en app.
 
 HVAD ER LUNIVO?
 
-Indtast din fødselsdag. Det er det hele. Lunivo beregner øjeblikkeligt 30+ statistikker på tværs af fem kategorier — Krop, Tid, Rum, Liv og Absurd — og holder dem kørende i realtid. Alt er baseret på fysik, astronomiske konstanter eller omhyggeligt beskaffede livsstilsestimater.
+Indtast din fødselsdag. Det er det hele. Earnza beregner øjeblikkeligt 30+ statistikker på tværs af fem kategorier — Krop, Tid, Rum, Liv og Absurd — og holder dem kørende i realtid. Alt er baseret på fysik, astronomiske konstanter eller omhyggeligt beskaffede livsstilsestimater.
 
 DIN KROP
 
-Dit hjerte har slået over en milliard gange. Du har trukket vejret hundredvis af millioner gange. Du har sovet omtrent en tredjedel af dit liv, drømt tusinder af drømme, blinket titusinder af millioner gange. Lunivo viser dig det fulde antal — stigende hvert sekund.
+Dit hjerte har slået over en milliard gange. Du har trukket vejret hundredvis af millioner gange. Du har sovet omtrent en tredjedel af dit liv, drømt tusinder af drømme, blinket titusinder af millioner gange. Earnza viser dig det fulde antal — stigende hvert sekund.
 
 TID OG RUM
 
-Du har gennemført adskillige kredsløb om Solen. Hundredvis af fuldmåner er stået op, siden du blev født. Du har rejst milliarder af kilometer gennem rummet blot ved at stå på denne planet. Lunivo beregner det hele med de samme konstanter, som astronomerne bruger — til kilometeret, til sekundet.
+Du har gennemført adskillige kredsløb om Solen. Hundredvis af fuldmåner er stået op, siden du blev født. Du har rejst milliarder af kilometer gennem rummet blot ved at stå på denne planet. Earnza beregner det hele med de samme konstanter, som astronomerne bruger — til kilometeret, til sekundet.
 
 LIV
 
-Spiste måltider. Talte ord. Gåede skridt. Lyttede sange. Glas vand. Telefonoplåsninger. Kaffe. Latter. Lunivo estimerer den daglige skala af et menneskeliv ved hjælp af velundersøgte gennemsnit. Hvert estimat er tydeligt markeret — ingen falsk præcision.
+Spiste måltider. Talte ord. Gåede skridt. Lyttede sange. Glas vand. Telefonoplåsninger. Kaffe. Latter. Earnza estimerer den daglige skala af et menneskeliv ved hjælp af velundersøgte gennemsnit. Hvert estimat er tydeligt markeret — ingen falsk præcision.
 
 ABSURD
 
@@ -24,7 +24,7 @@ Overlevede Mandage. Bøger af Talte Ord. Åndedrag Taget På Trods Alt. Absurd-k
 
 MILEPÆLE
 
-Hvert liv indeholder kommende runde-tal milepæle: din 1.000. fuldmåne, dit 1 milliardste hjerteslag, din 10.000. dag. Lunivo sporer hver — og viser den estimerede ankomstdato, hvor hurtigt du nærmer dig, og din nuværende fremgang.
+Hvert liv indeholder kommende runde-tal milepæle: din 1.000. fuldmåne, dit 1 milliardste hjerteslag, din 10.000. dag. Earnza sporer hver — og viser den estimerede ankomstdato, hvor hurtigt du nærmer dig, og din nuværende fremgang.
 
 DELBARE KORT
 
@@ -34,7 +34,7 @@ DESIGNET MED OMHU
 
 Fire håndlavede visuelle temaer: Lys, Mørk, Sol og Mono. En kosmisk animeret baggrund. Glasmorfisme statistikkort med rullende talanimationer, der opdateres live. Konfigurerbar visningstæthed, bevægelsespræferencer, baggrundsintensitet og tekststørrelse.
 
-Lunivo er bygget til at føles lige så præcist som de tal, det viser.
+Earnza er bygget til at føles lige så præcist som de tal, det viser.
 
 FULDSTÆNDIG PRIVAT
 
@@ -54,4 +54,4 @@ Præcise statistikker — som levede sekunder, skudår eller jordbaner — bruge
 
 DIT LIV I SKALA
 
-De fleste apps fokuserer på det, du endnu ikke har gjort. Lunivo viser dig, hvad du allerede har opnået — i hjerteslag, i kredsløb, i åndedrag, i kilometer rejst gennem rummet — og overlader betydningen helt til dig.
+De fleste apps fokuserer på det, du endnu ikke har gjort. Earnza viser dig, hvad du allerede har opnået — i hjerteslag, i kredsløb, i åndedrag, i kilometer rejst gennem rummet — og overlader betydningen helt til dig.

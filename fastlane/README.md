@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios upload_metadata
 ```
 
-Upload Lunivo metadata to App Store Connect
+Upload Earnza metadata to App Store Connect
 
 ### ios upload_screenshots
 
@@ -29,7 +29,7 @@ Upload Lunivo metadata to App Store Connect
 [bundle exec] fastlane ios upload_screenshots
 ```
 
-Upload Lunivo screenshots to App Store Connect
+Upload Earnza screenshots to App Store Connect
 
 ----
 

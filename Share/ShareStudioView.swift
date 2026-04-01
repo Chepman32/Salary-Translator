@@ -48,7 +48,7 @@ struct ShareStudioView: View {
                 }
                 .padding(20)
             }
-            .background(PayloBackground(palette: palette))
+            .background(EarnzaBackground(palette: palette))
             .navigationTitle("Share Studio")
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -77,7 +77,7 @@ struct SharePreviewCard: View {
         GlassCard(palette: palette, padding: 26) {
             VStack(alignment: .leading, spacing: 18) {
                 HStack {
-                    Label("Paylo", systemImage: snapshot.symbolName)
+                    Label("Earnza", systemImage: snapshot.symbolName)
                         .font(.system(size: 15, weight: .semibold))
                     Spacer()
                     Text(template.title)
@@ -115,11 +115,11 @@ struct SharePreviewCard: View {
 struct DefaultShareRenderService: ShareRenderService {
     @MainActor
     func fileURL(for snapshot: ShareSnapshot, template: ShareTemplate, privacy: SharePrivacyMode, width: CGFloat) async throws -> URL {
-        let palette = PayloTheme.palette(for: snapshot.theme)
+        let palette = EarnzaTheme.palette(for: snapshot.theme)
         let view = SharePreviewCard(snapshot: snapshot, palette: palette, template: template, privacyMode: privacy)
             .frame(width: width / 3.1)
             .padding(32)
-            .background(PayloBackground(palette: palette))
+            .background(EarnzaBackground(palette: palette))
 
         let renderer = ImageRenderer(content: view)
         renderer.scale = 3

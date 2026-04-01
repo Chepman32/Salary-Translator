@@ -17,7 +17,7 @@ enum RootSheet: Identifiable {
     }
 }
 
-struct PayloRootView: View {
+struct EarnzaRootView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.scenePhase) private var scenePhase
 
@@ -41,10 +41,10 @@ struct PayloRootView: View {
         Group {
             if let settings = settingsRecords.first {
                 let activeScenario = resolvedScenario(using: settings)
-                let palette = PayloTheme.palette(for: activeScenario?.selectedTheme ?? settings.selectedTheme)
+                let palette = EarnzaTheme.palette(for: activeScenario?.selectedTheme ?? settings.selectedTheme)
 
                 ZStack {
-                    PayloBackground(palette: palette)
+                    EarnzaBackground(palette: palette)
 
                     if splashFinished {
                         if let activeScenario {
@@ -163,7 +163,7 @@ private struct SplashExperienceView: View {
 
     var body: some View {
         ZStack {
-            PayloBackground(palette: palette)
+            EarnzaBackground(palette: palette)
 
             VStack(spacing: 20) {
                 ZStack {
@@ -171,7 +171,7 @@ private struct SplashExperienceView: View {
                         fragment(index: index)
                     }
 
-                    Text("Paylo")
+                    Text("Earnza")
                         .font(.system(size: 50, weight: .black, design: .rounded))
                         .foregroundStyle(palette.textPrimary)
                         .tracking(-2)

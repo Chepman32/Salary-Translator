@@ -2,7 +2,7 @@ import SwiftData
 import SwiftUI
 
 @main
-struct PayloApp: App {
+struct EarnzaApp: App {
     private let container: ModelContainer = {
         let isUITesting = ProcessInfo.processInfo.arguments.contains("-ui-testing-reset")
         do {
@@ -19,7 +19,7 @@ struct PayloApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PayloRootView()
+            EarnzaRootView()
         }
         .modelContainer(container)
     }

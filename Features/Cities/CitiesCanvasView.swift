@@ -134,12 +134,12 @@ struct CitiesCanvasView: View {
     private func snapshot(for insight: CityInsight) -> ShareSnapshot {
         ShareSnapshot(
             title: insight.city.cityName,
-            value: "Stretch score \(PayloFormatters.decimal(insight.rankScore, fractionDigits: 0))",
+            value: "Stretch score \(EarnzaFormatters.decimal(insight.rankScore, fractionDigits: 0))",
             subtitle: insight.comparisonBlurb,
             details: [
-                "Daily purchasing power: \(PayloFormatters.currency(insight.dailyPower, code: scenario.currencyCode))",
-                "Burger pace: \(PayloFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)) per hour",
-                "Pressure index: \(PayloFormatters.decimal(insight.pressure, fractionDigits: 2))"
+                "Daily purchasing power: \(EarnzaFormatters.currency(insight.dailyPower, code: scenario.currencyCode))",
+                "Burger pace: \(EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)) per hour",
+                "Pressure index: \(EarnzaFormatters.decimal(insight.pressure, fractionDigits: 2))"
             ],
             symbolName: "building.2",
             theme: scenario.selectedTheme
@@ -161,10 +161,10 @@ private struct CityDetailSheet: View {
 
             GroupBox("Affordability") {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Daily power: \(PayloFormatters.currency(insight.dailyPower, code: scenario.currencyCode))")
-                    Text("Housing pressure: \(PayloFormatters.decimal(insight.rentBurden, fractionDigits: 2))")
-                    Text("Tech affordability score: \(PayloFormatters.decimal(insight.techAffordability, fractionDigits: 1))")
-                    Text("Big Mac pace: \(PayloFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)) per hour")
+                    Text("Daily power: \(EarnzaFormatters.currency(insight.dailyPower, code: scenario.currencyCode))")
+                    Text("Housing pressure: \(EarnzaFormatters.decimal(insight.rentBurden, fractionDigits: 2))")
+                    Text("Tech affordability score: \(EarnzaFormatters.decimal(insight.techAffordability, fractionDigits: 1))")
+                    Text("Big Mac pace: \(EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)) per hour")
                 }
                 .font(.system(size: 14, weight: .medium))
             }

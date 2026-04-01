@@ -26,7 +26,7 @@ struct LibraryView: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(scenario.name)
                                     .font(.system(size: 16, weight: .semibold))
-                                Text(PayloFormatters.currency(scenario.salaryAmount, code: scenario.currencyCode, maximumFractionDigits: 0))
+                                Text(EarnzaFormatters.currency(scenario.salaryAmount, code: scenario.currencyCode, maximumFractionDigits: 0))
                                     .font(.system(size: 13, weight: .medium))
                                     .foregroundStyle(.secondary)
                             }
@@ -40,7 +40,7 @@ struct LibraryView: View {
                             }
                         }
 
-                        Text("City: \(scenario.cityID)  Rent: \(PayloFormatters.currency(scenario.monthlyRent, code: scenario.currencyCode, maximumFractionDigits: 0))")
+                        Text("City: \(scenario.cityID)  Rent: \(EarnzaFormatters.currency(scenario.monthlyRent, code: scenario.currencyCode, maximumFractionDigits: 0))")
                             .font(.system(size: 12, weight: .medium))
                             .foregroundStyle(.secondary)
                     }
@@ -73,7 +73,7 @@ struct LibraryView: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(PayloBackground(palette: palette))
+            .background(EarnzaBackground(palette: palette))
             .navigationTitle("Scenario Library")
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -97,9 +97,9 @@ struct LibraryView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("\(first.name) vs \(second.name)")
                         .font(.system(size: 16, weight: .semibold))
-                    Text("Delta: \(PayloFormatters.currency(second.salaryAmount - first.salaryAmount, code: first.currencyCode, maximumFractionDigits: 0)) annually")
+                    Text("Delta: \(EarnzaFormatters.currency(second.salaryAmount - first.salaryAmount, code: first.currencyCode, maximumFractionDigits: 0)) annually")
                         .font(.system(size: 13, weight: .medium))
-                    Text("Rent difference: \(PayloFormatters.currency(second.monthlyRent - first.monthlyRent, code: first.currencyCode, maximumFractionDigits: 0)) per month")
+                    Text("Rent difference: \(EarnzaFormatters.currency(second.monthlyRent - first.monthlyRent, code: first.currencyCode, maximumFractionDigits: 0)) per month")
                         .font(.system(size: 13, weight: .medium))
                 }
             }

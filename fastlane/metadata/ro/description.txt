@@ -1,22 +1,22 @@
 Ai trăit deja peste un miliard de bătăi ale inimii. Știi exact câte?
 
-Lunivo transformă ziua ta de naștere într-un tablou de bord viu al numerelor pe care viața ta le produce — actualizat continuu, precis matematic și diferit de orice altă aplicație ai văzut.
+Earnza transformă ziua ta de naștere într-un tablou de bord viu al numerelor pe care viața ta le produce — actualizat continuu, precis matematic și diferit de orice altă aplicație ai văzut.
 
 CE ESTE LUNIVO?
 
-Introdu ziua ta de naștere. Atât. Lunivo calculează instant 30+ statistici în cinci categorii — Corp, Timp, Spațiu, Viață și Absurd — și le menține în timp real. Totul este susținut de fizică, constante astronomice sau estimări de stil de viață atent documentate.
+Introdu ziua ta de naștere. Atât. Earnza calculează instant 30+ statistici în cinci categorii — Corp, Timp, Spațiu, Viață și Absurd — și le menține în timp real. Totul este susținut de fizică, constante astronomice sau estimări de stil de viață atent documentate.
 
 CORPUL TĂU
 
-Inima ta a bătut de peste un miliard de ori. Ai respirat de sute de milioane de ori. Ai dormit aproximativ o treime din viață, ai visat mii de vise, ai clipit de zeci de milioane de ori. Lunivo îți arată numărul complet — crescând în fiecare secundă.
+Inima ta a bătut de peste un miliard de ori. Ai respirat de sute de milioane de ori. Ai dormit aproximativ o treime din viață, ai visat mii de vise, ai clipit de zeci de milioane de ori. Earnza îți arată numărul complet — crescând în fiecare secundă.
 
 TIMP ȘI SPAȚIU
 
-Ai completat mai multe orbite în jurul Soarelui. Sute de luni pline au răsărit de când te-ai născut. Ai călătorit miliarde de kilometri prin spațiu doar stând pe această planetă. Lunivo calculează totul folosind aceleași constante pe care le folosesc astronomii — la kilometru, la secundă.
+Ai completat mai multe orbite în jurul Soarelui. Sute de luni pline au răsărit de când te-ai născut. Ai călătorit miliarde de kilometri prin spațiu doar stând pe această planetă. Earnza calculează totul folosind aceleași constante pe care le folosesc astronomii — la kilometru, la secundă.
 
 VIAȚĂ
 
-Mese mâncate. Cuvinte spuse. Pași parcurși. Cântece ascultate. Pahare de apă. Deblocări de telefon. Cafele. Râsete. Lunivo estimează scala zilnică a unei vieți umane folosind medii bine documentate. Fiecare estimare este clar etichetată — nicio precizie falsă.
+Mese mâncate. Cuvinte spuse. Pași parcurși. Cântece ascultate. Pahare de apă. Deblocări de telefon. Cafele. Râsete. Earnza estimează scala zilnică a unei vieți umane folosind medii bine documentate. Fiecare estimare este clar etichetată — nicio precizie falsă.
 
 ABSURD
 
@@ -24,7 +24,7 @@ Luni Supraviețuite. Cărți de Cuvinte Spuse. Respirații Luate În Ciuda Tutur
 
 ETAPE
 
-Fiecare viață conține etape cu numere rotunde care se apropie: a 1.000-a lună plină, a 1 miliarda bătaie a inimii, a 10.000-a zi. Lunivo urmărește fiecare — arătând data estimată de sosire, cât de repede te apropii și progresul tău actual.
+Fiecare viață conține etape cu numere rotunde care se apropie: a 1.000-a lună plină, a 1 miliarda bătaie a inimii, a 10.000-a zi. Earnza urmărește fiecare — arătând data estimată de sosire, cât de repede te apropii și progresul tău actual.
 
 CARDURI DE PARTAJAT
 
@@ -34,7 +34,7 @@ CONCEPUT CU GRIJĂ
 
 Patru teme vizuale realizate manual: Luminos, Întunecat, Solar și Mono. Fundal animat cosmic. Carduri de statistici cu glassmorfism și animații de numere care se rotesc și se actualizează live. Densitatea afișajului, preferințele de mișcare, intensitatea fundalului și dimensiunea textului sunt configurabile.
 
-Lunivo este construit pentru a se simți la fel de precis ca numerele pe care le arată.
+Earnza este construit pentru a se simți la fel de precis ca numerele pe care le arată.
 
 COMPLET PRIVAT
 
@@ -54,4 +54,4 @@ Statisticile exacte — cum ar fi secundele trăite, anii bisecți sau orbitele 
 
 VIAȚA TA LA SCARĂ
 
-Majoritatea aplicațiilor se concentrează pe ce nu ai făcut încă. Lunivo îți arată ce ai realizat deja — în bătăi ale inimii, în orbite, în respirații, în kilometri parcurși prin spațiu — și lasă semnificația în întregime ție.
+Majoritatea aplicațiilor se concentrează pe ce nu ai făcut încă. Earnza îți arată ce ai realizat deja — în bătăi ale inimii, în orbite, în respirații, în kilometri parcurși prin spațiu — și lasă semnificația în întregime ție.

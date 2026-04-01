@@ -40,7 +40,7 @@ struct GapCanvasView: View {
                     InsightCard(
                         palette: palette,
                         title: "Comparator Pace",
-                        value: "\(PayloFormatters.decimal(insight.ratio, fractionDigits: 1))x",
+                        value: "\(EarnzaFormatters.decimal(insight.ratio, fractionDigits: 1))x",
                         subtitle: "Relative minute-by-minute speed",
                         symbolName: "speedometer",
                         shareSnapshot: snapshot(for: insight),
@@ -50,7 +50,7 @@ struct GapCanvasView: View {
                     InsightCard(
                         palette: palette,
                         title: "They earn your hour in",
-                        value: "\(PayloFormatters.decimal(insight.timeForYourHour, fractionDigits: 1)) min",
+                        value: "\(EarnzaFormatters.decimal(insight.timeForYourHour, fractionDigits: 1)) min",
                         subtitle: "Compressed time translation of the gap",
                         symbolName: "timer.square",
                         shareSnapshot: snapshot(for: insight),
@@ -60,7 +60,7 @@ struct GapCanvasView: View {
                     InsightCard(
                         palette: palette,
                         title: "Delta Per Hour",
-                        value: PayloFormatters.currency(insight.deltaPerHour, code: scenario.currencyCode),
+                        value: EarnzaFormatters.currency(insight.deltaPerHour, code: scenario.currencyCode),
                         subtitle: "Gap at equal work assumptions",
                         symbolName: "chart.bar.xaxis",
                         shareSnapshot: snapshot(for: insight),
@@ -73,7 +73,7 @@ struct GapCanvasView: View {
                                 .font(.system(size: 16, weight: .semibold))
                                 .foregroundStyle(palette.textPrimary)
 
-                            Text("\(scenario.comparatorLabel) earns the equivalent of \(PayloFormatters.decimal(max(insight.deltaPerHour, 0) / max(499 / max(pace.hourly, 0.01), 1), fractionDigits: 1)) PS5 hours saved per hour of work.")
+                            Text("\(scenario.comparatorLabel) earns the equivalent of \(EarnzaFormatters.decimal(max(insight.deltaPerHour, 0) / max(499 / max(pace.hourly, 0.01), 1), fractionDigits: 1)) PS5 hours saved per hour of work.")
                                 .font(.system(size: 14, weight: .medium))
                                 .foregroundStyle(palette.textSecondary)
 
@@ -101,12 +101,12 @@ struct GapCanvasView: View {
     private func snapshot(for insight: ComparatorInsight) -> ShareSnapshot {
         ShareSnapshot(
             title: "Comparator pace",
-            value: "\(PayloFormatters.decimal(insight.ratio, fractionDigits: 1))x",
+            value: "\(EarnzaFormatters.decimal(insight.ratio, fractionDigits: 1))x",
             subtitle: "\(scenario.comparatorLabel) against your current scenario",
             details: [
-                "Comparator annual: \(PayloFormatters.currency(insight.comparatorAnnual, code: scenario.currencyCode, maximumFractionDigits: 0))",
-                "Delta per hour: \(PayloFormatters.currency(insight.deltaPerHour, code: scenario.currencyCode))",
-                "They earn your hour in \(PayloFormatters.decimal(insight.timeForYourHour, fractionDigits: 1)) minutes"
+                "Comparator annual: \(EarnzaFormatters.currency(insight.comparatorAnnual, code: scenario.currencyCode, maximumFractionDigits: 0))",
+                "Delta per hour: \(EarnzaFormatters.currency(insight.deltaPerHour, code: scenario.currencyCode))",
+                "They earn your hour in \(EarnzaFormatters.decimal(insight.timeForYourHour, fractionDigits: 1)) minutes"
             ],
             symbolName: "person.2",
             theme: scenario.selectedTheme

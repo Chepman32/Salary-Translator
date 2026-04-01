@@ -1,6 +1,6 @@
 import XCTest
 
-final class PayloUITestsLaunchTests: XCTestCase {
+final class EarnzaUITestsLaunchTests: XCTestCase {
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

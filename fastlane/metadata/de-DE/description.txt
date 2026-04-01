@@ -1,22 +1,22 @@
 Du hast schon über eine Milliarde Herzschläge gelebt. Weißt du genau, wie viele?
 
-Lunivo verwandelt deinen Geburtstag in ein lebendiges Dashboard der Zahlen, die dein Leben produziert — kontinuierlich aktualisiert, mathematisch präzise und ganz anders als alles, was du je in einer App gesehen hast.
+Earnza verwandelt deinen Geburtstag in ein lebendiges Dashboard der Zahlen, die dein Leben produziert — kontinuierlich aktualisiert, mathematisch präzise und ganz anders als alles, was du je in einer App gesehen hast.
 
 WAS IST LUNIVO?
 
-Gib deinen Geburtstag ein. Das ist alles. Lunivo berechnet sofort 30+ Statistiken in fünf Kategorien — Körper, Zeit, Raum, Leben und Absurd — und hält sie in Echtzeit laufen. Alles basiert auf Physik, astronomischen Konstanten oder sorgfältig belegten Lebensschätzungen.
+Gib deinen Geburtstag ein. Das ist alles. Earnza berechnet sofort 30+ Statistiken in fünf Kategorien — Körper, Zeit, Raum, Leben und Absurd — und hält sie in Echtzeit laufen. Alles basiert auf Physik, astronomischen Konstanten oder sorgfältig belegten Lebensschätzungen.
 
 DEIN KÖRPER
 
-Dein Herz hat über eine Milliarde Mal geschlagen. Du hast Hunderte von Millionen Atemzüge genommen. Du hast etwa ein Drittel deines Lebens geschlafen, Tausende von Träumen geträumt, Zigmillionen Mal geblinzelt. Lunivo zeigt dir die vollständige Zählung — von Sekunde zu Sekunde steigend.
+Dein Herz hat über eine Milliarde Mal geschlagen. Du hast Hunderte von Millionen Atemzüge genommen. Du hast etwa ein Drittel deines Lebens geschlafen, Tausende von Träumen geträumt, Zigmillionen Mal geblinzelt. Earnza zeigt dir die vollständige Zählung — von Sekunde zu Sekunde steigend.
 
 ZEIT & RAUM
 
-Du hast mehrere Umläufe um die Sonne abgeschlossen. Hunderte von Vollmonden sind aufgegangen, seit du geboren wurdest. Du hast Milliarden von Kilometern durch den Weltraum zurückgelegt — einfach indem du auf diesem Planeten standst. Lunivo berechnet alles mit denselben Konstanten, die Astronomen verwenden — auf den Kilometer, auf die Sekunde genau.
+Du hast mehrere Umläufe um die Sonne abgeschlossen. Hunderte von Vollmonden sind aufgegangen, seit du geboren wurdest. Du hast Milliarden von Kilometern durch den Weltraum zurückgelegt — einfach indem du auf diesem Planeten standst. Earnza berechnet alles mit denselben Konstanten, die Astronomen verwenden — auf den Kilometer, auf die Sekunde genau.
 
 LEBEN
 
-Gegessene Mahlzeiten. Gesprochene Wörter. Gegangene Schritte. Gehörte Lieder. Gläser Wasser. Handyentsperrungen. Kaffees. Lacher. Lunivo schätzt den alltäglichen Maßstab eines Menschenlebens anhand gut erforschter Durchschnittswerte. Jede Schätzung ist klar gekennzeichnet — keine falsche Präzision.
+Gegessene Mahlzeiten. Gesprochene Wörter. Gegangene Schritte. Gehörte Lieder. Gläser Wasser. Handyentsperrungen. Kaffees. Lacher. Earnza schätzt den alltäglichen Maßstab eines Menschenlebens anhand gut erforschter Durchschnittswerte. Jede Schätzung ist klar gekennzeichnet — keine falsche Präzision.
 
 ABSURD
 
@@ -24,7 +24,7 @@ ABSURD
 
 MEILENSTEINE
 
-Jedes Leben hat nahende runde Meilensteine: dein 1.000ster Vollmond, dein 1-milliardster Herzschlag, dein 10.000ster Tag. Lunivo verfolgt jeden einzelnen — zeigt das geschätzte Datum, wie schnell du dich näherst und deinen aktuellen Fortschritt.
+Jedes Leben hat nahende runde Meilensteine: dein 1.000ster Vollmond, dein 1-milliardster Herzschlag, dein 10.000ster Tag. Earnza verfolgt jeden einzelnen — zeigt das geschätzte Datum, wie schnell du dich näherst und deinen aktuellen Fortschritt.
 
 TEILBARE KARTEN
 
@@ -34,7 +34,7 @@ SORGFÄLTIG GESTALTET
 
 Vier handgefertigte visuelle Themen: Hell, Dunkel, Solar und Mono. Ein kosmischer animierter Hintergrund. Glasmorphismus-Statistikkarten mit rollenden Zahlenanimationen, die live aktualisiert werden. Konfigurierbare Anzeigedichte, Bewegungseinstellungen, Hintergrundintensität und Textgröße.
 
-Lunivo ist so präzise gestaltet wie die Zahlen, die es zeigt.
+Earnza ist so präzise gestaltet wie die Zahlen, die es zeigt.
 
 VOLLSTÄNDIG PRIVAT
 
@@ -54,4 +54,4 @@ Exakte Statistiken — wie gelebte Sekunden, Schalttage oder Erdorbits — verwe
 
 DEIN LEBEN IM GROßEN MAßSTAB
 
-Die meisten Apps konzentrieren sich auf das, was du noch nicht getan hast. Lunivo zeigt dir, was du bereits erreicht hast — in Herzschlägen, in Orbits, in Atemzügen, in durch den Weltraum zurückgelegten Kilometern — und überlässt die Bedeutung ganz dir.
+Die meisten Apps konzentrieren sich auf das, was du noch nicht getan hast. Earnza zeigt dir, was du bereits erreicht hast — in Herzschlägen, in Orbits, in Atemzügen, in durch den Weltraum zurückgelegten Kilometern — und überlässt die Bedeutung ganz dir.

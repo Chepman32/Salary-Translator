@@ -47,7 +47,7 @@ struct WorkCanvasView: View {
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(palette.textPrimary)
 
-                        Text("\(PayloFormatters.decimal(selectedInsight.workHours, fractionDigits: 1)) hours")
+                        Text("\(EarnzaFormatters.decimal(selectedInsight.workHours, fractionDigits: 1)) hours")
                             .font(.system(size: 34, weight: .black, design: .rounded))
                             .foregroundStyle(palette.textPrimary)
 
@@ -79,7 +79,7 @@ struct WorkCanvasView: View {
                                 Text(insight.preset.localizedName)
                                     .font(.system(size: 15, weight: .semibold))
                                 Spacer()
-                                Text(PayloFormatters.duration(hours: insight.workHours))
+                                Text(EarnzaFormatters.duration(hours: insight.workHours))
                                     .font(.system(size: 13, weight: .bold, design: .monospaced))
                             }
                             .foregroundStyle(palette.textPrimary)
@@ -121,11 +121,11 @@ struct WorkCanvasView: View {
         ShareSnapshot(
             title: "You work this long for",
             value: insight.preset.localizedName,
-            subtitle: "\(PayloFormatters.decimal(insight.workHours, fractionDigits: 1)) hours of work",
+            subtitle: "\(EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1)) hours of work",
             details: [
-                PayloFormatters.duration(hours: insight.workHours),
+                EarnzaFormatters.duration(hours: insight.workHours),
                 salaryEngine.humanWorkDescription(hours: insight.workHours),
-                "Price: \(PayloFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode))"
+                "Price: \(EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode))"
             ],
             symbolName: insight.preset.iconName,
             theme: scenario.selectedTheme

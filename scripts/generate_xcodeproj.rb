@@ -1,13 +1,13 @@
 require 'fileutils'
 require 'xcodeproj'
 
-PROJECT_NAME = 'Paylo'
+PROJECT_NAME = 'Earnza'
 PROJECT_PATH = "#{PROJECT_NAME}.xcodeproj"
-BUNDLE_ID = 'com.codex.paylo'
+BUNDLE_ID = 'com.earnza.app'
 
 APP_SOURCE_DIRS = %w[App Core Data DesignSystem Features Share].freeze
-TEST_SOURCE_DIRS = %w[PayloTests].freeze
-UI_TEST_SOURCE_DIRS = %w[PayloUITests].freeze
+TEST_SOURCE_DIRS = %w[EarnzaTests].freeze
+UI_TEST_SOURCE_DIRS = %w[EarnzaUITests].freeze
 RESOURCE_PATHS = [
   'Resources/Assets.xcassets',
   'Resources/MockData/cities.json',

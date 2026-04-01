@@ -1,7 +1,7 @@
 import XCTest
-@testable import Paylo
+@testable import Earnza
 
-final class PayloMathTests: XCTestCase {
+final class EarnzaMathTests: XCTestCase {
     private let engine = DefaultSalaryTranslationEngine()
 
     func testPaceSummaryUsesWorkAssumptions() {

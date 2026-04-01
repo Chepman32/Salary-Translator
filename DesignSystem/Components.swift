@@ -61,7 +61,7 @@ struct MoneyCounterView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
-        Text(PayloFormatters.currency(value, code: currencyCode, maximumFractionDigits: value < 10 ? 2 : 0))
+        Text(EarnzaFormatters.currency(value, code: currencyCode, maximumFractionDigits: value < 10 ? 2 : 0))
             .font(.system(size: fontSize, weight: weight, design: .default))
             .fontDesign(.rounded)
             .monospacedDigit()
@@ -70,7 +70,7 @@ struct MoneyCounterView: View {
             .contentTransition(reduceMotion ? .opacity : .numericText(value: value))
             .animation(.spring(response: 0.35, dampingFraction: 0.86), value: value)
             .accessibilityLabel("Value")
-            .accessibilityValue(PayloFormatters.currency(value, code: currencyCode))
+            .accessibilityValue(EarnzaFormatters.currency(value, code: currencyCode))
     }
 }
 
@@ -242,7 +242,7 @@ struct CityRankRow: View {
                                 .foregroundStyle(palette.textSecondary)
                         }
                         Spacer()
-                        Text(PayloFormatters.currency(insight.dailyPower, code: currencyCode, maximumFractionDigits: 0))
+                        Text(EarnzaFormatters.currency(insight.dailyPower, code: currencyCode, maximumFractionDigits: 0))
                             .font(.system(size: 13, weight: .semibold, design: .monospaced))
                     }
 
@@ -252,7 +252,7 @@ struct CityRankRow: View {
                     HStack {
                         Text(insight.comparisonBlurb)
                         Spacer()
-                        Text("\(PayloFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1))/hr burgers")
+                        Text("\(EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1))/hr burgers")
                     }
                     .font(.system(size: 11, weight: .medium))
                     .foregroundStyle(palette.textSecondary)
@@ -287,7 +287,7 @@ struct ComparatorPanel: View {
                     Label("While you read this", systemImage: "text.viewfinder")
                         .font(.system(size: 14, weight: .semibold))
                     Spacer()
-                    Text("\(PayloFormatters.decimal(ratio, fractionDigits: 1))x")
+                    Text("\(EarnzaFormatters.decimal(ratio, fractionDigits: 1))x")
                         .font(.system(size: 18, weight: .bold, design: .rounded))
                 }
                 .foregroundStyle(palette.textPrimary)
@@ -340,7 +340,7 @@ struct BottomSheetEditor<Content: View>: View {
                 .padding(20)
             }
             .scrollIndicators(.hidden)
-            .background(PayloBackground(palette: palette))
+            .background(EarnzaBackground(palette: palette))
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -550,7 +550,7 @@ struct SalaryInputCard: View {
     }
 
     private func updateDraftValue(_ amount: Double) {
-        let formatted = PayloFormatters.decimal(
+        let formatted = EarnzaFormatters.decimal(
             amount,
             fractionDigits: scenario.payPeriodMode == .hourly ? 2 : 0
         )
@@ -563,7 +563,7 @@ struct SalaryInputCard: View {
     }
 
     private func quickPresetLabel(for displayedAmount: Double) -> String {
-        PayloFormatters.compactCurrency(displayedAmount, code: scenario.currencyCode)
+        EarnzaFormatters.compactCurrency(displayedAmount, code: scenario.currencyCode)
     }
 
     private var annualQuickPresetSeeds: [Double] {

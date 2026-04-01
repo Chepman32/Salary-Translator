@@ -1,6 +1,6 @@
 import Foundation
 
-enum PayloFormatters {
+enum EarnzaFormatters {
     static func currency(
         _ value: Double,
         code: String,
