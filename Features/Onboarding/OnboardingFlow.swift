@@ -5,11 +5,11 @@ struct OnboardingFlowView: View {
     let onFinish: () -> Void
     @State private var selection = 0
 
-    private let pages: [(title: String, subtitle: String, symbol: String)] = [
-        ("See what your salary really means.", "Translate income into time, objects, rent, and real-world context.", "sparkles.rectangle.stack"),
-        ("Watch your pay accumulate in real time.", "Every second on screen becomes visible.", "timer"),
-        ("Compare your pay across 50 cities.", "Understand how far the same salary stretches elsewhere.", "building.2.crop.circle"),
-        ("Private by design.", "All calculations stay on your device. No account required.", "lock.shield")
+    private let pages: [(title: String, subtitle: String, symbol: String, stat: String, statLabel: String)] = [
+        ("See what your salary really means.", "Translate income into time, objects, rent, and real-world context.", "sparkles.rectangle.stack", "0.43 / min", "Coffee in 18.4 minutes"),
+        ("Watch your pay accumulate in real time.", "Every second on screen becomes visible.", "timer", "$0.08 / sec", "Earned $4.80 since you opened the app"),
+        ("Compare your pay across 50 cities.", "Understand how far the same salary stretches elsewhere.", "building.2.crop.circle", "3× further", "Same salary, Austin vs. San Francisco"),
+        ("Private by design.", "All calculations stay on your device. No account required.", "lock.shield", "100% local", "Zero data ever leaves your device")
     ]
 
     var body: some View {
@@ -29,6 +29,8 @@ struct OnboardingFlowView: View {
                         title: page.title,
                         subtitle: page.subtitle,
                         symbolName: page.symbol,
+                        stat: page.stat,
+                        statLabel: page.statLabel,
                         palette: palette
                     )
                     .padding(.horizontal, 24)
@@ -70,6 +72,8 @@ private struct OnboardingPageView: View {
     let title: String
     let subtitle: String
     let symbolName: String
+    let stat: String
+    let statLabel: String
     let palette: ThemePalette
     @State private var animate = false
 
@@ -95,10 +99,10 @@ private struct OnboardingPageView: View {
                             .scaleEffect(animate ? 1.08 : 0.92)
 
                         VStack(spacing: 8) {
-                            Text("0.43 / min")
+                            Text(stat)
                                 .font(.system(size: 34, weight: .black, design: .rounded))
                                 .monospacedDigit()
-                            Text("Coffee in 18.4 minutes")
+                            Text(statLabel)
                                 .font(.system(size: 14, weight: .semibold))
                                 .foregroundStyle(palette.textSecondary)
                         }
