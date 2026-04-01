@@ -434,32 +434,6 @@ struct SalaryInputCard: View {
                 )
                 .tint(palette.accent)
 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        ForEach(Array(quickPresets.enumerated()), id: \.offset) { index, preset in
-                            Button {
-                                applyDisplayedAmount(preset, updateDraft: true)
-                            } label: {
-                                Text(quickPresetLabel(for: preset))
-                                    .font(.system(size: 12, weight: .semibold))
-                                    .lineLimit(1)
-                                    .fixedSize(horizontal: true, vertical: false)
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 8)
-                                    .background(
-                                        Capsule(style: .continuous)
-                                            .fill(palette.cardFill)
-                                            .overlay(Capsule(style: .continuous).stroke(palette.divider, lineWidth: 1))
-                                    )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityIdentifier("quick_preset_\(index)")
-                        }
-                    }
-                    .padding(.horizontal, 1)
-                }
-                .scrollIndicators(.hidden)
-
                 Button(action: onEditAssumptions) {
                     HStack {
                         Text("Edit assumptions")
