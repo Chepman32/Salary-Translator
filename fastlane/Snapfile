@@ -1,0 +1,16 @@
+devices([
+  "iPhone 16 Pro Max",
+  "iPhone 16 Plus"
+])
+
+languages(["en-US"])
+
+scheme("Earnza")
+
+output_directory("../src/screenshots")
+
+clear_previous_screenshots(true)
+
+override_status_bar(true)
+
+xcargs("-skipPackagePluginValidation")

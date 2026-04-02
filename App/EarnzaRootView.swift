@@ -41,7 +41,7 @@ struct EarnzaRootView: View {
         Group {
             if let settings = settingsRecords.first {
                 let activeScenario = resolvedScenario(using: settings)
-                let palette = EarnzaTheme.palette(for: activeScenario?.selectedTheme ?? settings.selectedTheme)
+                let palette = EarnzaTheme.palette(for: settings.selectedTheme)
 
                 ZStack {
                     EarnzaBackground(palette: palette)
@@ -75,7 +75,7 @@ struct EarnzaRootView: View {
                             .transition(.opacity.combined(with: .scale(scale: 1.02)))
                     }
                 }
-                .preferredColorScheme((activeScenario?.selectedTheme ?? settings.selectedTheme).colorScheme)
+                .preferredColorScheme(settings.selectedTheme.colorScheme)
                 .sheet(item: $activeSheet) { sheet in
                     switch sheet {
                     case .assumptions:
