@@ -371,7 +371,7 @@ struct SalaryInputCard: View {
                     Spacer()
                     Menu {
                         Picker("Currency", selection: $scenario.currencyCode) {
-                            ForEach(["USD", "EUR", "GBP", "JPY", "PLN", "AED", "SGD", "AUD", "CAD", "THB"], id: \.self) { code in
+                            ForEach(["USD", "EUR", "GBP", "JPY", "PLN", "AED", "SGD", "AUD", "CAD", "THB", "RUB"], id: \.self) { code in
                                 Text(code).tag(code)
                             }
                         }

@@ -31,7 +31,8 @@ final class BundledDatasetRepository: DatasetRepository {
         "THB": 35.6,
         "SGD": 1.34,
         "AUD": 1.52,
-        "CAD": 1.36
+        "CAD": 1.36,
+        "RUB": 90.0
     ]
 
     private static let fallbackObjects: [ObjectPreset] = [
