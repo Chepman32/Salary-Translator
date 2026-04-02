@@ -69,8 +69,6 @@ struct LiveCanvasView: View {
                 }
             }
 
-            TickerBand(items: tickerItems, palette: palette)
-
             let pace = salaryEngine.paceSummary(for: scenario, settings: settings)
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2), spacing: 12) {
                 insightCard(title: "Per Second", value: EarnzaFormatters.currency(pace.second, code: scenario.currencyCode), subtitle: "Continuous rate for live accumulation", symbol: "hare", paceValue: pace.second)
@@ -102,17 +100,6 @@ struct LiveCanvasView: View {
         }
         .padding(.top, 4)
         .padding(.bottom, 30)
-    }
-
-    private var tickerItems: [String] {
-        let pace = salaryEngine.paceSummary(for: scenario, settings: settings)
-        return [
-            "Minute pace \(EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode))",
-            "Coffee in \(EarnzaFormatters.decimal(4.8 / max(pace.hourly, 0.01) * 60, fractionDigits: 1)) min",
-            "Paycheck \(EarnzaFormatters.currency(pace.paycheck, code: scenario.currencyCode, maximumFractionDigits: 0))",
-            "Hourly \(EarnzaFormatters.currency(pace.hourly, code: scenario.currencyCode))",
-            "Rent day every \(EarnzaFormatters.decimal(max(scenario.monthlyRent / 30, 1) / max(pace.hourly, 0.01), fractionDigits: 1)) hrs"
-        ]
     }
 
     private func insightCard(title: String, value: String, subtitle: String, symbol: String, paceValue: Double) -> some View {

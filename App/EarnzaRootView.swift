@@ -77,11 +77,15 @@ struct EarnzaRootView: View {
                 }
                 .overlay(alignment: .top) {
                     LinearGradient(
-                        colors: [palette.backgroundTop, palette.backgroundTop.opacity(0)],
+                        stops: [
+                            .init(color: palette.backgroundTop, location: 0),
+                            .init(color: palette.backgroundTop, location: 0.6),
+                            .init(color: palette.backgroundTop.opacity(0), location: 1)
+                        ],
                         startPoint: .top,
                         endPoint: .bottom
                     )
-                    .frame(height: 54)
+                    .frame(height: 110)
                     .ignoresSafeArea(edges: .top)
                     .allowsHitTesting(false)
                 }
