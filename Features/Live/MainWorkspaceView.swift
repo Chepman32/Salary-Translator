@@ -11,6 +11,11 @@ struct MainWorkspaceView: View {
     @Binding var sessionStartDate: Date
     let onOpenSheet: (RootSheet) -> Void
     @State private var canvasHeights: [CanvasSection: CGFloat] = [:]
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+
+    private var isRegularWidth: Bool { horizontalSizeClass == .regular }
+    private var horizontalPadding: CGFloat { isRegularWidth ? 32 : 20 }
+    private var canvasHeightFallback: CGFloat { isRegularWidth ? 900 : 720 }
 
     var body: some View {
         ScrollView {
@@ -91,15 +96,17 @@ struct MainWorkspaceView: View {
                     }
                     .tag(CanvasSection.gap)
                 }
-                .frame(height: canvasHeights[selectedCanvas] ?? 720)
+                .frame(height: canvasHeights[selectedCanvas] ?? canvasHeightFallback)
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .indexViewStyle(.page(backgroundDisplayMode: .never))
                 .animation(.spring(response: 0.38, dampingFraction: 0.86), value: selectedCanvas)
-                .animation(.spring(response: 0.34, dampingFraction: 0.84), value: canvasHeights[selectedCanvas] ?? 720)
+                .animation(.spring(response: 0.34, dampingFraction: 0.84), value: canvasHeights[selectedCanvas] ?? canvasHeightFallback)
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, horizontalPadding)
             .padding(.top, 14)
             .padding(.bottom, 8)
+            .frame(maxWidth: isRegularWidth ? 680 : .infinity)
+            .frame(maxWidth: .infinity)
         }
         .scrollIndicators(.hidden)
         .onPreferenceChange(CanvasHeightPreferenceKey.self) { heights in
@@ -165,8 +172,9 @@ struct MainWorkspaceView: View {
 
     private var previewStrip: some View {
         let pace = salaryEngine.paceSummary(for: scenario, settings: settings)
+        let columnCount = isRegularWidth ? 4 : 2
 
-        return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 2), spacing: 10) {
+        return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: columnCount), spacing: 10) {
             compactPaceCard(title: "Per Month", value: pace.monthly)
             compactPaceCard(title: "Per Day", value: pace.daily)
             compactPaceCard(title: "Per Hour", value: pace.hourly)
