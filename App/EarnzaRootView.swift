@@ -75,6 +75,16 @@ struct EarnzaRootView: View {
                             .transition(.opacity.combined(with: .scale(scale: 1.02)))
                     }
                 }
+                .overlay(alignment: .top) {
+                    LinearGradient(
+                        colors: [palette.backgroundTop, palette.backgroundTop.opacity(0)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .frame(height: 54)
+                    .ignoresSafeArea(edges: .top)
+                    .allowsHitTesting(false)
+                }
                 .preferredColorScheme(settings.selectedTheme.colorScheme)
                 .sheet(item: $activeSheet) { sheet in
                     switch sheet {
