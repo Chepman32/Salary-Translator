@@ -212,6 +212,15 @@ enum AppLanguage: String, Codable, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
+    static var pickerOptions: [AppLanguage] {
+        let sortedLanguages = allCases
+            .filter { $0 != .system }
+            .sorted {
+                $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending
+            }
+        return [.system] + sortedLanguages
+    }
+
     var title: String {
         switch self {
         case .system: L10n.s("settings.language.system", "System")

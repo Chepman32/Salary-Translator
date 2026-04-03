@@ -33,7 +33,7 @@ struct SettingsView: View {
                     Text(L10n.s("settings.language", "Language"))
                     Spacer()
                     Picker(L10n.s("settings.language", "Language"), selection: selectedAppLanguageBinding) {
-                        ForEach(AppLanguage.allCases) { language in
+                        ForEach(AppLanguage.pickerOptions) { language in
                             Text(language.title).tag(language)
                         }
                     }
