@@ -69,7 +69,7 @@ struct MoneyCounterView: View {
             .foregroundStyle(palette.textPrimary)
             .contentTransition(reduceMotion ? .opacity : .numericText(value: value))
             .animation(.spring(response: 0.35, dampingFraction: 0.86), value: value)
-            .accessibilityLabel("Value")
+            .accessibilityLabel(L10n.s("common.value", "Value"))
             .accessibilityValue(EarnzaFormatters.currency(value, code: currencyCode))
     }
 }
@@ -209,7 +209,7 @@ struct InsightCard: View {
         }
         .contextMenu {
             if let shareSnapshot, let onShare {
-                Button("Share Card", systemImage: "square.and.arrow.up") {
+                Button(L10n.s("common.share_card", "Share Card"), systemImage: "square.and.arrow.up") {
                     onShare(shareSnapshot)
                 }
             }
@@ -252,7 +252,7 @@ struct CityRankRow: View {
                     HStack {
                         Text(insight.comparisonBlurb)
                         Spacer()
-                        Text("\(EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1))/hr burgers")
+                        Text(L10n.f("cities.burgers_per_hour", "%@/hr burgers", EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)))
                     }
                     .font(.system(size: 11, weight: .medium))
                     .foregroundStyle(palette.textSecondary)
@@ -284,7 +284,7 @@ struct ComparatorPanel: View {
         GlassCard(palette: palette) {
             VStack(alignment: .leading, spacing: 18) {
                 HStack {
-                    Label("While you read this", systemImage: "text.viewfinder")
+                    Label(L10n.s("live.while_you_read_this", "While you read this"), systemImage: "text.viewfinder")
                         .font(.system(size: 14, weight: .semibold))
                     Spacer()
                     Text("\(EarnzaFormatters.decimal(ratio, fractionDigits: 1))x")
@@ -294,7 +294,7 @@ struct ComparatorPanel: View {
 
                 HStack(spacing: 12) {
                     VStack(alignment: .leading, spacing: 10) {
-                        Text("You")
+                        Text(L10n.s("common.you", "You"))
                             .font(.system(size: 13, weight: .semibold))
                             .foregroundStyle(palette.textSecondary)
                         MoneyCounterView(value: yourValue, currencyCode: currencyCode, fontSize: 28, weight: .bold, palette: palette)
@@ -365,12 +365,12 @@ struct SalaryInputCard: View {
         GlassCard(palette: palette) {
             VStack(alignment: .leading, spacing: 18) {
                 HStack {
-                    Text("Your salary, translated.")
+                    Text(L10n.s("salary_input.title", "Your salary, translated."))
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundStyle(palette.textPrimary)
                     Spacer()
                     Menu {
-                        Picker("Currency", selection: $scenario.currencyCode) {
+                        Picker(L10n.s("salary_input.currency", "Currency"), selection: $scenario.currencyCode) {
                             ForEach(["USD", "EUR", "GBP", "JPY", "PLN", "AED", "SGD", "AUD", "CAD", "THB", "RUB"], id: \.self) { code in
                                 Text(code).tag(code)
                             }
@@ -384,7 +384,7 @@ struct SalaryInputCard: View {
                     }
                 }
 
-                Picker("Input mode", selection: inputModeBinding) {
+                Picker(L10n.s("salary_input.input_mode", "Input mode"), selection: inputModeBinding) {
                     ForEach(SalaryInputMode.allCases) { mode in
                         Text(mode.title).tag(mode)
                     }
@@ -418,7 +418,7 @@ struct SalaryInputCard: View {
                         }
                         .accessibilityIdentifier("salary_input_field")
 
-                    Text("Based on \(scenario.payPeriodMode.title.lowercased()) input and saved work assumptions.")
+                    Text(L10n.f("salary_input.based_on", "Based on %@ input and saved work assumptions.", scenario.payPeriodMode.title.lowercased()))
                         .font(.system(size: 13, weight: .medium))
                         .foregroundStyle(palette.textSecondary)
                 }
@@ -436,7 +436,7 @@ struct SalaryInputCard: View {
 
                 Button(action: onEditAssumptions) {
                     HStack {
-                        Text("Edit assumptions")
+                        Text(L10n.s("salary_input.edit_assumptions", "Edit assumptions"))
                         Spacer()
                         Image(systemName: "slider.horizontal.3")
                     }

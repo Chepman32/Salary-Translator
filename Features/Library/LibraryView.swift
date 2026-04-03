@@ -32,7 +32,7 @@ struct LibraryView: View {
                             }
                             Spacer()
                             if settings.selectedScenarioID == scenario.id {
-                                Text("Current")
+                                Text(L10n.s("library.current", "Current"))
                                     .font(.system(size: 11, weight: .bold))
                                     .padding(.horizontal, 8)
                                     .padding(.vertical, 4)
@@ -40,7 +40,7 @@ struct LibraryView: View {
                             }
                         }
 
-                        Text("City: \(scenario.cityID)  Rent: \(EarnzaFormatters.currency(scenario.monthlyRent, code: scenario.currencyCode, maximumFractionDigits: 0))")
+                        Text(L10n.f("library.city_rent", "City: %@  Rent: %@", scenario.cityID, EarnzaFormatters.currency(scenario.monthlyRent, code: scenario.currencyCode, maximumFractionDigits: 0)))
                             .font(.system(size: 12, weight: .medium))
                             .foregroundStyle(.secondary)
                     }
@@ -52,13 +52,13 @@ struct LibraryView: View {
                         Button(role: .destructive) {
                             scenario.isArchived = true
                         } label: {
-                            Label("Archive", systemImage: "archivebox")
+                            Label(L10n.s("library.archive", "Archive"), systemImage: "archivebox")
                         }
 
                         Button {
                             duplicate(scenario)
                         } label: {
-                            Label("Duplicate", systemImage: "plus.square.on.square")
+                            Label(L10n.s("library.duplicate", "Duplicate"), systemImage: "plus.square.on.square")
                         }
                         .tint(.blue)
                     }
@@ -66,7 +66,7 @@ struct LibraryView: View {
                         Button {
                             toggleCompare(scenario.id)
                         } label: {
-                            Label("Compare", systemImage: selectedForCompare.contains(scenario.id) ? "checkmark.circle.fill" : "circle")
+                            Label(L10n.s("library.compare", "Compare"), systemImage: selectedForCompare.contains(scenario.id) ? "checkmark.circle.fill" : "circle")
                         }
                         .tint(.orange)
                     }
@@ -74,7 +74,7 @@ struct LibraryView: View {
             }
             .scrollContentBackground(.hidden)
             .background(EarnzaBackground(palette: palette))
-            .navigationTitle("Scenario Library")
+            .navigationTitle(L10n.s("library.title", "Scenario Library"))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -89,7 +89,7 @@ struct LibraryView: View {
     }
 
     private var compareSection: some View {
-        Section("Compare") {
+        Section {
             let selected = activeScenarios.filter { selectedForCompare.contains($0.id) }
             if selected.count == 2 {
                 let first = selected[0]
@@ -97,12 +97,14 @@ struct LibraryView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("\(first.name) vs \(second.name)")
                         .font(.system(size: 16, weight: .semibold))
-                    Text("Delta: \(EarnzaFormatters.currency(second.salaryAmount - first.salaryAmount, code: first.currencyCode, maximumFractionDigits: 0)) annually")
+                    Text(L10n.f("library.delta_annual", "Delta: %@ annually", EarnzaFormatters.currency(second.salaryAmount - first.salaryAmount, code: first.currencyCode, maximumFractionDigits: 0)))
                         .font(.system(size: 13, weight: .medium))
-                    Text("Rent difference: \(EarnzaFormatters.currency(second.monthlyRent - first.monthlyRent, code: first.currencyCode, maximumFractionDigits: 0)) per month")
+                    Text(L10n.f("library.rent_difference", "Rent difference: %@ per month", EarnzaFormatters.currency(second.monthlyRent - first.monthlyRent, code: first.currencyCode, maximumFractionDigits: 0)))
                         .font(.system(size: 13, weight: .medium))
                 }
             }
+        } header: {
+            Text(L10n.s("library.compare", "Compare"))
         }
     }
 
@@ -119,7 +121,7 @@ struct LibraryView: View {
 
     private func duplicate(_ scenario: Scenario) {
         let copy = Scenario(
-            name: "\(scenario.name) Copy",
+            name: Scenario.localizedDuplicateName(from: scenario.name),
             salaryAmount: scenario.salaryAmount,
             currencyCode: scenario.currencyCode,
             payPeriodMode: scenario.payPeriodMode,
@@ -140,7 +142,7 @@ struct LibraryView: View {
 
     private func createScenario() {
         let scenario = Scenario(
-            name: "New Scenario",
+            name: Scenario.localizedNewScenarioName,
             salaryAmount: 120_000,
             currencyCode: settings.defaultCurrencyCode,
             cityID: "berlin-de",

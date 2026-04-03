@@ -19,14 +19,14 @@ struct ShareStudioView: View {
                     SharePreviewCard(snapshot: snapshot, palette: palette, template: template, privacyMode: privacyMode)
                         .padding(.top, 8)
 
-                    Picker("Template", selection: $template) {
+                    Picker(L10n.s("share.template", "Template"), selection: $template) {
                         ForEach(ShareTemplate.allCases) { template in
                             Text(template.title).tag(template)
                         }
                     }
                     .pickerStyle(.menu)
 
-                    Picker("Privacy", selection: $privacyMode) {
+                    Picker(L10n.s("share.privacy", "Privacy"), selection: $privacyMode) {
                         ForEach(SharePrivacyMode.allCases) { mode in
                             Text(mode.title).tag(mode)
                         }
@@ -35,21 +35,21 @@ struct ShareStudioView: View {
 
                     if let shareURL {
                         ShareLink(item: shareURL) {
-                            Label("Export Card", systemImage: "square.and.arrow.up")
+                            Label(L10n.s("share.export_card", "Export Card"), systemImage: "square.and.arrow.up")
                                 .font(.system(size: 16, weight: .semibold))
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(palette.accent)
                     }
 
-                    Text("Still image export uses native rendering with the active theme and privacy controls.")
+                    Text(L10n.s("share.export_note", "Still image export uses native rendering with the active theme and privacy controls."))
                         .font(.system(size: 13, weight: .medium))
                         .foregroundStyle(palette.textSecondary)
                 }
                 .padding(20)
             }
             .background(EarnzaBackground(palette: palette))
-            .navigationTitle("Share Studio")
+            .navigationTitle(L10n.s("share.title", "Share Studio"))
             .navigationBarTitleDisplayMode(.inline)
         }
         .task(id: renderTaskID) {
@@ -71,7 +71,7 @@ struct SharePreviewCard: View {
         let protectedValue: String = switch privacyMode {
         case .exact: snapshot.value
         case .blurred: snapshot.value.map { $0 == " " ? " " : "•" }.reduce("", +)
-        case .hidden: "Hidden"
+        case .hidden: L10n.s("share_privacy.hidden_value", "Hidden")
         }
 
         GlassCard(palette: palette, padding: 26) {

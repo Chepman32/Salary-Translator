@@ -11,8 +11,8 @@ struct LiveCanvasView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             SectionTitle(
-                title: "Watch income turn visible.",
-                subtitle: "Continuous pace, reading-session accumulation, and shareable milestone moments.",
+                title: L10n.s("live.title", "Watch income turn visible."),
+                subtitle: L10n.s("live.subtitle", "Continuous pace, reading-session accumulation, and shareable milestone moments."),
                 palette: palette
             )
 
@@ -23,7 +23,7 @@ struct LiveCanvasView: View {
 
                 GlassCard(palette: palette, padding: 22) {
                     VStack(alignment: .leading, spacing: 16) {
-                        Text("You are earning now")
+                        Text(L10n.s("live.earning_now", "You are earning now"))
                             .font(.system(size: 14, weight: .semibold))
                             .foregroundStyle(palette.textSecondary)
 
@@ -35,14 +35,14 @@ struct LiveCanvasView: View {
                             palette: palette
                         )
 
-                        Text("While you read this, the number keeps resolving in real time.")
+                        Text(L10n.s("live.real_time_note", "While you read this, the number keeps resolving in real time."))
                             .font(.system(size: 13, weight: .medium))
                             .foregroundStyle(palette.textSecondary)
 
                         RatioBar(progress: min(accumulated / max(pace.hourly, 1), 1), palette: palette)
 
                         HStack {
-                            Text("Minute pace")
+                            Text(L10n.s("live.minute_pace", "Minute pace"))
                             Spacer()
                             Text(EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode))
                                 .monospacedDigit()
@@ -54,13 +54,13 @@ struct LiveCanvasView: View {
                 .onLongPressGesture {
                     onShare(
                         ShareSnapshot(
-                            title: "While you read this",
+                            title: L10n.s("live.while_you_read_this", "While you read this"),
                             value: EarnzaFormatters.currency(accumulated, code: scenario.currencyCode),
-                            subtitle: "Screen-session accumulation",
+                            subtitle: L10n.s("live.screen_session", "Screen-session accumulation"),
                             details: [
-                                "Per minute: \(EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode))",
-                                "Per hour: \(EarnzaFormatters.currency(pace.hourly, code: scenario.currencyCode))",
-                                "Scenario: \(scenario.name)"
+                                L10n.f("live.per_minute_value", "Per minute: %@", EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode)),
+                                L10n.f("live.per_hour_value", "Per hour: %@", EarnzaFormatters.currency(pace.hourly, code: scenario.currencyCode)),
+                                L10n.f("common.scenario_value", "Scenario: %@", scenario.name)
                             ],
                             symbolName: "timer",
                             theme: scenario.selectedTheme
@@ -71,17 +71,17 @@ struct LiveCanvasView: View {
 
             let pace = salaryEngine.paceSummary(for: scenario, settings: settings)
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 2), spacing: 12) {
-                insightCard(title: "Per Second", value: EarnzaFormatters.currency(pace.second, code: scenario.currencyCode), subtitle: "Continuous rate for live accumulation", symbol: "hare", paceValue: pace.second)
-                insightCard(title: "Per Minute", value: EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode), subtitle: "The clearest real-time heartbeat", symbol: "clock", paceValue: pace.minute)
-                insightCard(title: "Per Workday", value: EarnzaFormatters.currency(pace.daily, code: scenario.currencyCode), subtitle: "Saved work assumption applied", symbol: "briefcase", paceValue: pace.daily)
-                insightCard(title: "Per Paycheck", value: EarnzaFormatters.currency(pace.paycheck, code: scenario.currencyCode), subtitle: "Based on paychecks per year", symbol: "creditcard", paceValue: pace.paycheck)
-                insightCard(title: "Per Month", value: EarnzaFormatters.currency(pace.monthly, code: scenario.currencyCode, maximumFractionDigits: 0), subtitle: "Salary spread over 12 months", symbol: "calendar", paceValue: pace.monthly)
-                insightCard(title: "Reading Session", value: sessionInsightValue, subtitle: "Resets when the app becomes active again", symbol: "book.pages", paceValue: pace.minute)
+                insightCard(title: L10n.s("pace.per_second", "Per Second"), value: EarnzaFormatters.currency(pace.second, code: scenario.currencyCode), subtitle: L10n.s("live.per_second_subtitle", "Continuous rate for live accumulation"), symbol: "hare", paceValue: pace.second)
+                insightCard(title: L10n.s("pace.per_minute", "Per Minute"), value: EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode), subtitle: L10n.s("live.per_minute_subtitle", "The clearest real-time heartbeat"), symbol: "clock", paceValue: pace.minute)
+                insightCard(title: L10n.s("pace.per_workday", "Per Workday"), value: EarnzaFormatters.currency(pace.daily, code: scenario.currencyCode), subtitle: L10n.s("live.per_workday_subtitle", "Saved work assumption applied"), symbol: "briefcase", paceValue: pace.daily)
+                insightCard(title: L10n.s("pace.per_paycheck", "Per Paycheck"), value: EarnzaFormatters.currency(pace.paycheck, code: scenario.currencyCode), subtitle: L10n.s("live.per_paycheck_subtitle", "Based on paychecks per year"), symbol: "creditcard", paceValue: pace.paycheck)
+                insightCard(title: L10n.s("pace.per_month", "Per Month"), value: EarnzaFormatters.currency(pace.monthly, code: scenario.currencyCode, maximumFractionDigits: 0), subtitle: L10n.s("live.per_month_subtitle", "Salary spread over 12 months"), symbol: "calendar", paceValue: pace.monthly)
+                insightCard(title: L10n.s("live.reading_session", "Reading Session"), value: sessionInsightValue, subtitle: L10n.s("live.reading_session_subtitle", "Resets when the app becomes active again"), symbol: "book.pages", paceValue: pace.minute)
             }
 
             GlassCard(palette: palette) {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Milestones")
+                    Text(L10n.s("live.milestones", "Milestones"))
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(palette.textPrimary)
 
@@ -114,9 +114,9 @@ struct LiveCanvasView: View {
                 value: value,
                 subtitle: subtitle,
                 details: [
-                    "Scenario: \(scenario.name)",
-                    "Currency: \(scenario.currencyCode)",
-                    "Exact value: \(EarnzaFormatters.currency(paceValue, code: scenario.currencyCode))"
+                    L10n.f("common.scenario_value", "Scenario: %@", scenario.name),
+                    L10n.f("common.currency_value", "Currency: %@", scenario.currencyCode),
+                    L10n.f("common.exact_value", "Exact value: %@", EarnzaFormatters.currency(paceValue, code: scenario.currencyCode))
                 ],
                 symbolName: symbol,
                 theme: scenario.selectedTheme
@@ -139,6 +139,6 @@ struct LiveCanvasView: View {
         let checks = [0.5, 1, 5, 10, pace.minute, pace.hourly / 2]
             .filter { $0 > 0 }
             .sorted()
-        return checks.map { "Cross \(EarnzaFormatters.currency($0, code: scenario.currencyCode)) in the live session." }
+        return checks.map { L10n.f("live.cross_milestone", "Cross %@ in the live session.", EarnzaFormatters.currency($0, code: scenario.currencyCode)) }
     }
 }

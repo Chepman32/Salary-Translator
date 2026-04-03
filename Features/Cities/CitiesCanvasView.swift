@@ -30,8 +30,8 @@ struct CitiesCanvasView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             SectionTitle(
-                title: "See where the same salary bends differently.",
-                subtitle: "Local editorial indices, not tax promises.",
+                title: L10n.s("cities.title", "See where the same salary bends differently."),
+                subtitle: L10n.s("cities.subtitle", "Local editorial indices, not tax promises."),
                 palette: palette
             )
 
@@ -40,7 +40,7 @@ struct CitiesCanvasView: View {
                     VStack(alignment: .leading, spacing: 14) {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Your salary stretches furthest in")
+                                Text(L10n.s("cities.best_city_intro", "Your salary stretches furthest in"))
                                     .font(.system(size: 14, weight: .semibold))
                                     .foregroundStyle(palette.textSecondary)
                                 Text(best.city.cityName)
@@ -48,7 +48,7 @@ struct CitiesCanvasView: View {
                                     .foregroundStyle(palette.textPrimary)
                             }
                             Spacer()
-                            Button("Share") {
+                            Button(L10n.s("common.share", "Share")) {
                                 onShare(snapshot(for: best))
                             }
                             .buttonStyle(.plain)
@@ -64,10 +64,10 @@ struct CitiesCanvasView: View {
                 }
             }
 
-            TextField("Search city or country", text: $searchText)
+            TextField(L10n.s("cities.search", "Search city or country"), text: $searchText)
                 .textFieldStyle(.roundedBorder)
 
-            Picker("Sort", selection: $sortMode) {
+            Picker(L10n.s("cities.sort", "Sort"), selection: $sortMode) {
                 ForEach(CitySortMode.allCases) { mode in
                     Text(mode.title).tag(mode)
                 }
@@ -99,7 +99,7 @@ struct CitiesCanvasView: View {
                         Button {
                             togglePin(insight.id)
                         } label: {
-                            Label("Pin", systemImage: settings.pinnedCityIDs.contains(insight.id) ? "pin.slash" : "pin")
+                            Label(L10n.s("cities.pin", "Pin"), systemImage: settings.pinnedCityIDs.contains(insight.id) ? "pin.slash" : "pin")
                         }
                         .tint(.orange)
                     }
@@ -107,7 +107,7 @@ struct CitiesCanvasView: View {
                         Button {
                             onShare(snapshot(for: insight))
                         } label: {
-                            Label("Share", systemImage: "square.and.arrow.up")
+                            Label(L10n.s("common.share", "Share"), systemImage: "square.and.arrow.up")
                         }
                         .tint(Color(palette.accent))
                     }
@@ -134,12 +134,12 @@ struct CitiesCanvasView: View {
     private func snapshot(for insight: CityInsight) -> ShareSnapshot {
         ShareSnapshot(
             title: insight.city.cityName,
-            value: "Stretch score \(EarnzaFormatters.decimal(insight.rankScore, fractionDigits: 0))",
+            value: L10n.f("cities.stretch_score", "Stretch score %@", EarnzaFormatters.decimal(insight.rankScore, fractionDigits: 0)),
             subtitle: insight.comparisonBlurb,
             details: [
-                "Daily purchasing power: \(EarnzaFormatters.currency(insight.dailyPower, code: scenario.currencyCode))",
-                "Burger pace: \(EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)) per hour",
-                "Pressure index: \(EarnzaFormatters.decimal(insight.pressure, fractionDigits: 2))"
+                L10n.f("cities.daily_power_value", "Daily purchasing power: %@", EarnzaFormatters.currency(insight.dailyPower, code: scenario.currencyCode)),
+                L10n.f("cities.burger_pace", "Burger pace: %@ per hour", EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)),
+                L10n.f("cities.pressure_index", "Pressure index: %@", EarnzaFormatters.decimal(insight.pressure, fractionDigits: 2))
             ],
             symbolName: "building.2",
             theme: scenario.selectedTheme
@@ -159,23 +159,27 @@ private struct CityDetailSheet: View {
                 .font(.system(size: 15, weight: .medium))
                 .foregroundStyle(palette.textSecondary)
 
-            GroupBox("Affordability") {
+            GroupBox {
                 VStack(alignment: .leading, spacing: 12) {
-                    Text("Daily power: \(EarnzaFormatters.currency(insight.dailyPower, code: scenario.currencyCode))")
-                    Text("Housing pressure: \(EarnzaFormatters.decimal(insight.rentBurden, fractionDigits: 2))")
-                    Text("Tech affordability score: \(EarnzaFormatters.decimal(insight.techAffordability, fractionDigits: 1))")
-                    Text("Big Mac pace: \(EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)) per hour")
+                    Text(L10n.f("cities.daily_power", "Daily power: %@", EarnzaFormatters.currency(insight.dailyPower, code: scenario.currencyCode)))
+                    Text(L10n.f("cities.housing_pressure", "Housing pressure: %@", EarnzaFormatters.decimal(insight.rentBurden, fractionDigits: 2)))
+                    Text(L10n.f("cities.tech_affordability_score", "Tech affordability score: %@", EarnzaFormatters.decimal(insight.techAffordability, fractionDigits: 1)))
+                    Text(L10n.f("cities.big_mac_pace", "Big Mac pace: %@ per hour", EarnzaFormatters.decimal(insight.bigMacsPerHour, fractionDigits: 1)))
                 }
                 .font(.system(size: 14, weight: .medium))
+            } label: {
+                Text(L10n.s("cities.affordability", "Affordability"))
             }
 
-            GroupBox("Method") {
-                Text("Static local dataset. Editorial indices are applied to your saved scenario without pretending tax precision.")
+            GroupBox {
+                Text(L10n.s("cities.method_note", "Static local dataset. Editorial indices are applied to your saved scenario without pretending tax precision."))
                     .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(palette.textSecondary)
+            } label: {
+                Text(L10n.s("cities.method", "Method"))
             }
 
-            Button("Share City Card", action: onShare)
+            Button(L10n.s("cities.share_city_card", "Share City Card"), action: onShare)
                 .buttonStyle(.borderedProminent)
                 .tint(palette.accent)
         }

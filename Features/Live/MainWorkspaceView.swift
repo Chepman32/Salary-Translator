@@ -127,17 +127,17 @@ struct MainWorkspaceView: View {
 
             Spacer()
 
-            HeaderButton(title: "Scenario", systemName: "square.stack.3d.up", palette: palette) {
+            HeaderButton(title: L10n.s("header.scenario", "Scenario"), systemName: "square.stack.3d.up", palette: palette) {
                 onOpenSheet(.library)
             }
             .accessibilityIdentifier("open_library_button")
 
-            HeaderButton(title: "Share", systemName: "square.and.arrow.up", palette: palette) {
+            HeaderButton(title: L10n.s("header.share", "Share"), systemName: "square.and.arrow.up", palette: palette) {
                 onOpenSheet(.share(defaultShareSnapshot))
             }
             .accessibilityIdentifier("open_share_button")
 
-            HeaderButton(title: "Settings", systemName: "gearshape", palette: palette) {
+            HeaderButton(title: L10n.s("header.settings", "Settings"), systemName: "gearshape", palette: palette) {
                 onOpenSheet(.settings)
             }
             .accessibilityIdentifier("open_settings_button")
@@ -147,22 +147,22 @@ struct MainWorkspaceView: View {
     private var assumptionsRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 10) {
-                AssumptionChip(label: "Hours", value: EarnzaFormatters.decimal(scenario.workHoursPerWeek, fractionDigits: 0), palette: palette, systemName: "briefcase") {
+                AssumptionChip(label: L10n.s("assumption.hours", "Hours"), value: EarnzaFormatters.decimal(scenario.workHoursPerWeek, fractionDigits: 0), palette: palette, systemName: "briefcase") {
                     onOpenSheet(.assumptions)
                 }
-                AssumptionChip(label: "Weeks", value: EarnzaFormatters.decimal(scenario.workWeeksPerYear, fractionDigits: 0), palette: palette, systemName: "calendar") {
+                AssumptionChip(label: L10n.s("assumption.weeks", "Weeks"), value: EarnzaFormatters.decimal(scenario.workWeeksPerYear, fractionDigits: 0), palette: palette, systemName: "calendar") {
                     onOpenSheet(.assumptions)
                 }
-                AssumptionChip(label: "Rent", value: EarnzaFormatters.currency(scenario.monthlyRent, code: scenario.currencyCode, maximumFractionDigits: 0), palette: palette, systemName: "house") {
+                AssumptionChip(label: L10n.s("assumption.rent", "Rent"), value: EarnzaFormatters.currency(scenario.monthlyRent, code: scenario.currencyCode, maximumFractionDigits: 0), palette: palette, systemName: "house") {
                     onOpenSheet(.assumptions)
                 }
-                AssumptionChip(label: "Comparator", value: scenario.comparatorSalary > 0 ? EarnzaFormatters.compactCurrency(scenario.comparatorSalary, code: scenario.currencyCode) : "Off", palette: palette, systemName: "person.2") {
+                AssumptionChip(label: L10n.s("assumption.comparator", "Comparator"), value: scenario.comparatorSalary > 0 ? EarnzaFormatters.compactCurrency(scenario.comparatorSalary, code: scenario.currencyCode) : L10n.s("common.off", "Off"), palette: palette, systemName: "person.2") {
                     onOpenSheet(.assumptions)
                 }
-                AssumptionChip(label: "City", value: cityName, palette: palette, systemName: "globe") {
+                AssumptionChip(label: L10n.s("assumption.city", "City"), value: cityName, palette: palette, systemName: "globe") {
                     onOpenSheet(.assumptions)
                 }
-                AssumptionChip(label: "Basis", value: settings.selectedIncomeBasis.title, palette: palette, systemName: "scalemass") {
+                AssumptionChip(label: L10n.s("assumption.basis", "Basis"), value: settings.selectedIncomeBasis.title, palette: palette, systemName: "scalemass") {
                     onOpenSheet(.assumptions)
                 }
             }
@@ -175,10 +175,10 @@ struct MainWorkspaceView: View {
         let columnCount = isRegularWidth ? 4 : 2
 
         return LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: columnCount), spacing: 10) {
-            compactPaceCard(title: "Per Month", value: pace.monthly)
-            compactPaceCard(title: "Per Day", value: pace.daily)
-            compactPaceCard(title: "Per Hour", value: pace.hourly)
-            compactPaceCard(title: "Per Minute", value: pace.minute)
+            compactPaceCard(title: L10n.s("pace.per_month", "Per Month"), value: pace.monthly)
+            compactPaceCard(title: L10n.s("pace.per_day", "Per Day"), value: pace.daily)
+            compactPaceCard(title: L10n.s("pace.per_hour", "Per Hour"), value: pace.hourly)
+            compactPaceCard(title: L10n.s("pace.per_minute", "Per Minute"), value: pace.minute)
         }
     }
 
@@ -230,19 +230,19 @@ struct MainWorkspaceView: View {
     }
 
     private var cityName: String {
-        repository.cities.first(where: { $0.id == scenario.cityID })?.cityName ?? "Unset"
+        repository.cities.first(where: { $0.id == scenario.cityID })?.cityName ?? L10n.s("common.unset", "Unset")
     }
 
     private var defaultShareSnapshot: ShareSnapshot {
         let pace = salaryEngine.paceSummary(for: scenario, settings: settings)
         return ShareSnapshot(
-            title: "Your salary, translated.",
+            title: L10n.s("salary_input.title", "Your salary, translated."),
             value: EarnzaFormatters.currency(pace.minute, code: scenario.currencyCode),
-            subtitle: "You earn this much per minute.",
+            subtitle: L10n.s("share.default.subtitle", "You earn this much per minute."),
             details: [
-                "Hourly pace: \(EarnzaFormatters.currency(pace.hourly, code: scenario.currencyCode))",
-                "Monthly pace: \(EarnzaFormatters.currency(pace.monthly, code: scenario.currencyCode, maximumFractionDigits: 0))",
-                "Based on \(scenario.workHoursPerWeek.formatted()) hrs/week and \(scenario.workWeeksPerYear.formatted()) weeks/year"
+                L10n.f("share.default.hourly_pace", "Hourly pace: %@", EarnzaFormatters.currency(pace.hourly, code: scenario.currencyCode)),
+                L10n.f("share.default.monthly_pace", "Monthly pace: %@", EarnzaFormatters.currency(pace.monthly, code: scenario.currencyCode, maximumFractionDigits: 0)),
+                L10n.f("share.default.assumptions", "Based on %@ hrs/week and %@ weeks/year", scenario.workHoursPerWeek.formatted(), scenario.workWeeksPerYear.formatted())
             ],
             symbolName: "waveform.path.ecg",
             theme: scenario.selectedTheme
@@ -304,10 +304,10 @@ struct AssumptionsEditorView: View {
     private let repository = BundledDatasetRepository()
 
     var body: some View {
-        BottomSheetEditor(title: "Assumptions", palette: palette) {
-            GroupBox("Calculation Basis") {
+        BottomSheetEditor(title: L10n.s("assumptions.title", "Assumptions"), palette: palette) {
+            GroupBox {
                 VStack(alignment: .leading, spacing: 14) {
-                    Picker("Income basis", selection: $settings.selectedIncomeBasis) {
+                    Picker(L10n.s("settings.income_basis", "Income basis"), selection: $settings.selectedIncomeBasis) {
                         ForEach(IncomeBasis.allCases) { basis in
                             Text(basis.title).tag(basis)
                         }
@@ -316,7 +316,7 @@ struct AssumptionsEditorView: View {
 
                     if settings.selectedIncomeBasis == .takeHome {
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Manual take-home annual")
+                            Text(L10n.s("assumptions.manual_take_home_annual", "Manual take-home annual"))
                                 .font(.system(size: 13, weight: .semibold))
                             TextField("0", value: $scenario.manualTakeHomeAnnual, format: .number)
                                 .textFieldStyle(.roundedBorder)
@@ -324,35 +324,41 @@ struct AssumptionsEditorView: View {
                         }
                     }
                 }
+            } label: {
+                Text(L10n.s("assumptions.calculation_basis", "Calculation Basis"))
             }
 
-            GroupBox("Work Schedule") {
+            GroupBox {
                 VStack(spacing: 14) {
-                    labeledStepper(title: "Hours per week", value: $scenario.workHoursPerWeek, in: 10...80, step: 1)
-                    labeledStepper(title: "Weeks per year", value: $scenario.workWeeksPerYear, in: 20...52, step: 1)
-                    Stepper("Paychecks per year: \(scenario.paychecksPerYear)", value: $scenario.paychecksPerYear, in: 1...52)
+                    labeledStepper(title: L10n.s("assumptions.hours_per_week", "Hours per week"), value: $scenario.workHoursPerWeek, in: 10...80, step: 1)
+                    labeledStepper(title: L10n.s("assumptions.weeks_per_year", "Weeks per year"), value: $scenario.workWeeksPerYear, in: 20...52, step: 1)
+                    Stepper(L10n.f("assumptions.paychecks_per_year", "Paychecks per year: %@", "\(scenario.paychecksPerYear)"), value: $scenario.paychecksPerYear, in: 1...52)
                 }
+            } label: {
+                Text(L10n.s("assumptions.work_schedule", "Work Schedule"))
             }
 
-            GroupBox("Lifestyle Inputs") {
+            GroupBox {
                 VStack(alignment: .leading, spacing: 12) {
-                    TextField("Monthly rent", value: $scenario.monthlyRent, format: .number)
+                    TextField(L10n.s("assumptions.monthly_rent", "Monthly rent"), value: $scenario.monthlyRent, format: .number)
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.decimalPad)
 
-                    TextField("Comparator annual salary", value: $scenario.comparatorSalary, format: .number)
+                    TextField(L10n.s("assumptions.comparator_salary", "Comparator annual salary"), value: $scenario.comparatorSalary, format: .number)
                         .textFieldStyle(.roundedBorder)
                         .keyboardType(.decimalPad)
 
-                    TextField("Comparator label", text: $scenario.comparatorLabel)
+                    TextField(L10n.s("assumptions.comparator_label", "Comparator label"), text: $scenario.comparatorLabel)
                         .textFieldStyle(.roundedBorder)
 
-                    Picker("Home city", selection: $scenario.cityID) {
+                    Picker(L10n.s("assumptions.home_city", "Home city"), selection: $scenario.cityID) {
                         ForEach(repository.cities) { city in
                             Text(city.cityName).tag(city.id)
                         }
                     }
                 }
+            } label: {
+                Text(L10n.s("assumptions.lifestyle_inputs", "Lifestyle Inputs"))
             }
         }
     }

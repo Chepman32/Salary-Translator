@@ -12,10 +12,10 @@ enum SalaryInputMode: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .annual: "Annual"
-        case .monthly: "Monthly"
-        case .weekly: "Weekly"
-        case .hourly: "Hourly"
+        case .annual: L10n.s("salary_input.annual", "Annual")
+        case .monthly: L10n.s("salary_input.monthly", "Monthly")
+        case .weekly: L10n.s("salary_input.weekly", "Weekly")
+        case .hourly: L10n.s("salary_input.hourly", "Hourly")
         }
     }
 }
@@ -28,8 +28,8 @@ enum IncomeBasis: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .gross: "Gross"
-        case .takeHome: "Take-home"
+        case .gross: L10n.s("income_basis.gross", "Gross")
+        case .takeHome: L10n.s("income_basis.take_home", "Take-home")
         }
     }
 }
@@ -45,11 +45,11 @@ enum CanvasSection: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .live: "Live"
-        case .objects: "Objects"
-        case .work: "Work"
-        case .cities: "Cities"
-        case .gap: "Gap"
+        case .live: L10n.s("canvas.live", "Live")
+        case .objects: L10n.s("canvas.objects", "Objects")
+        case .work: L10n.s("canvas.work", "Work")
+        case .cities: L10n.s("canvas.cities", "Cities")
+        case .gap: L10n.s("canvas.gap", "Gap")
         }
     }
 
@@ -78,14 +78,14 @@ enum ObjectCategory: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .food: "Food"
-        case .tech: "Tech"
-        case .housing: "Housing"
-        case .transport: "Transport"
-        case .travel: "Travel"
-        case .lifestyle: "Lifestyle"
-        case .bills: "Bills"
-        case .custom: "Custom"
+        case .food: L10n.s("object_category.food", "Food")
+        case .tech: L10n.s("object_category.tech", "Tech")
+        case .housing: L10n.s("object_category.housing", "Housing")
+        case .transport: L10n.s("object_category.transport", "Transport")
+        case .travel: L10n.s("object_category.travel", "Travel")
+        case .lifestyle: L10n.s("object_category.lifestyle", "Lifestyle")
+        case .bills: L10n.s("object_category.bills", "Bills")
+        case .custom: L10n.s("object_category.custom", "Custom")
         }
     }
 }
@@ -102,12 +102,12 @@ enum CitySortMode: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .bestStretch: "Best Stretch"
-        case .bestHousingRatio: "Housing Ratio"
-        case .bestDailyPower: "Daily Power"
-        case .bestTechAffordability: "Tech Affordability"
-        case .closestToCurrent: "Closest Match"
-        case .highestPressure: "Lifestyle Pressure"
+        case .bestStretch: L10n.s("city_sort.best_stretch", "Best Stretch")
+        case .bestHousingRatio: L10n.s("city_sort.housing_ratio", "Housing Ratio")
+        case .bestDailyPower: L10n.s("city_sort.daily_power", "Daily Power")
+        case .bestTechAffordability: L10n.s("city_sort.tech_affordability", "Tech Affordability")
+        case .closestToCurrent: L10n.s("city_sort.closest_match", "Closest Match")
+        case .highestPressure: L10n.s("city_sort.lifestyle_pressure", "Lifestyle Pressure")
         }
     }
 }
@@ -124,12 +124,12 @@ enum ShareTemplate: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .boldNumber: "Bold Number"
-        case .comparisonSplit: "Comparison Split"
-        case .cityRanking: "City Ranking"
-        case .objectStatement: "Object Statement"
-        case .workTime: "Work Time"
-        case .multiSlide: "Summary Set"
+        case .boldNumber: L10n.s("share_template.bold_number", "Bold Number")
+        case .comparisonSplit: L10n.s("share_template.comparison_split", "Comparison Split")
+        case .cityRanking: L10n.s("share_template.city_ranking", "City Ranking")
+        case .objectStatement: L10n.s("share_template.object_statement", "Object Statement")
+        case .workTime: L10n.s("share_template.work_time", "Work Time")
+        case .multiSlide: L10n.s("share_template.summary_set", "Summary Set")
         }
     }
 }
@@ -143,9 +143,9 @@ enum SharePrivacyMode: String, Codable, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .exact: "Exact"
-        case .blurred: "Blurred"
-        case .hidden: "Hidden"
+        case .exact: L10n.s("share_privacy.exact", "Exact")
+        case .blurred: L10n.s("share_privacy.blurred", "Blurred")
+        case .hidden: L10n.s("share_privacy.hidden", "Hidden")
         }
     }
 }
@@ -159,13 +159,100 @@ enum ThemeStyle: String, Codable, CaseIterable, Identifiable {
     var id: String { rawValue }
 
     var title: String {
-        rawValue.capitalized
+        switch self {
+        case .light: L10n.s("theme.light", "Light")
+        case .dark: L10n.s("theme.dark", "Dark")
+        case .solar: L10n.s("theme.solar", "Solar")
+        case .mono: L10n.s("theme.mono", "Mono")
+        }
     }
 
     var colorScheme: ColorScheme {
         switch self {
         case .dark: .dark
         case .light, .solar, .mono: .light
+        }
+    }
+}
+
+enum AppLanguage: String, Codable, CaseIterable, Identifiable {
+    case system
+    case en
+    case zhHans = "zh-Hans"
+    case ja
+    case ko
+    case de
+    case fr
+    case esMX = "es-MX"
+    case ptBR = "pt-BR"
+    case ar
+    case ru
+    case it
+    case nl
+    case tr
+    case th
+    case vi
+    case id
+    case pl
+    case uk
+    case hi
+    case he
+    case sv
+    case no
+    case da
+    case fi
+    case cs
+    case hu
+    case ro
+    case el
+    case ms
+    case fil
+
+    static let storageKey = "selected_app_language"
+
+    var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .system: L10n.s("settings.language.system", "System")
+        case .en: "English"
+        case .zhHans: "简体中文"
+        case .ja: "日本語"
+        case .ko: "한국어"
+        case .de: "Deutsch"
+        case .fr: "Français"
+        case .esMX: "Español (México)"
+        case .ptBR: "Português (Brasil)"
+        case .ar: "العربية"
+        case .ru: "Русский"
+        case .it: "Italiano"
+        case .nl: "Nederlands"
+        case .tr: "Türkçe"
+        case .th: "ไทย"
+        case .vi: "Tiếng Việt"
+        case .id: "Bahasa Indonesia"
+        case .pl: "Polski"
+        case .uk: "Українська"
+        case .hi: "हिन्दी"
+        case .he: "עברית"
+        case .sv: "Svenska"
+        case .no: "Norsk"
+        case .da: "Dansk"
+        case .fi: "Suomi"
+        case .cs: "Čeština"
+        case .hu: "Magyar"
+        case .ro: "Română"
+        case .el: "Ελληνικά"
+        case .ms: "Bahasa Melayu"
+        case .fil: "Filipino"
+        }
+    }
+
+    var localeIdentifier: String? {
+        switch self {
+        case .system: nil
+        case .no: "nb"
+        default: rawValue
         }
     }
 }
@@ -346,7 +433,7 @@ final class Scenario {
 
     static func starter() -> Scenario {
         Scenario(
-            name: "Current Role",
+            name: Self.localizedStarterName,
             salaryAmount: 98000,
             currencyCode: "USD",
             payPeriodMode: .annual,
@@ -356,7 +443,7 @@ final class Scenario {
             monthlyRent: 2400,
             cityID: "new-york-us",
             comparatorSalary: 162000,
-            comparatorLabel: "Manager",
+            comparatorLabel: Self.localizedStarterComparator,
             selectedTheme: .dark
         )
     }

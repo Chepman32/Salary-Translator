@@ -27,8 +27,8 @@ struct WorkCanvasView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             SectionTitle(
-                title: "Feel the labor cost.",
-                subtitle: "Spatial time lanes turn price into real effort.",
+                title: L10n.s("work.title", "Feel the labor cost."),
+                subtitle: L10n.s("work.subtitle", "Spatial time lanes turn price into real effort."),
                 palette: palette
             )
 
@@ -38,7 +38,7 @@ struct WorkCanvasView: View {
                         HStack {
                             Label(selectedInsight.preset.localizedName, systemImage: selectedInsight.preset.iconName)
                             Spacer()
-                            Button("Share") {
+                            Button(L10n.s("common.share", "Share")) {
                                 onShare(snapshot(for: selectedInsight))
                             }
                             .buttonStyle(.plain)
@@ -47,7 +47,7 @@ struct WorkCanvasView: View {
                         .font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(palette.textPrimary)
 
-                        Text("\(EarnzaFormatters.decimal(selectedInsight.workHours, fractionDigits: 1)) hours")
+                        Text(L10n.f("objects.hours", "%@ hours", EarnzaFormatters.decimal(selectedInsight.workHours, fractionDigits: 1)))
                             .font(.system(size: 34, weight: .black, design: .rounded))
                             .foregroundStyle(palette.textPrimary)
 
@@ -119,13 +119,13 @@ struct WorkCanvasView: View {
 
     private func snapshot(for insight: ObjectInsight) -> ShareSnapshot {
         ShareSnapshot(
-            title: "You work this long for",
+            title: L10n.s("work.share.title", "You work this long for"),
             value: insight.preset.localizedName,
-            subtitle: "\(EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1)) hours of work",
+            subtitle: L10n.f("work.share.subtitle", "%@ hours of work", EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1)),
             details: [
                 EarnzaFormatters.duration(hours: insight.workHours),
                 salaryEngine.humanWorkDescription(hours: insight.workHours),
-                "Price: \(EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode))"
+                L10n.f("common.price_value", "Price: %@", EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode))
             ],
             symbolName: insight.preset.iconName,
             theme: scenario.selectedTheme

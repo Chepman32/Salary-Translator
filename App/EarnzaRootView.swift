@@ -20,6 +20,7 @@ enum RootSheet: Identifiable {
 struct EarnzaRootView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.scenePhase) private var scenePhase
+    @AppStorage(AppLanguage.storageKey) private var selectedAppLanguageRaw = AppLanguage.system.rawValue
 
     @Query(sort: \Scenario.updatedAt, order: .reverse)
     private var scenarios: [Scenario]
@@ -42,6 +43,7 @@ struct EarnzaRootView: View {
             if let settings = settingsRecords.first {
                 let activeScenario = resolvedScenario(using: settings)
                 let palette = EarnzaTheme.palette(for: settings.selectedTheme)
+                let appLocale = Locale(identifier: selectedAppLanguage.localeIdentifier ?? Locale.current.identifier)
 
                 ZStack {
                     EarnzaBackground(palette: palette)
@@ -89,6 +91,7 @@ struct EarnzaRootView: View {
                     .ignoresSafeArea(edges: .top)
                     .allowsHitTesting(false)
                 }
+                .environment(\.locale, appLocale)
                 .preferredColorScheme(settings.selectedTheme.colorScheme)
                 .sheet(item: $activeSheet) { sheet in
                     switch sheet {
@@ -170,6 +173,10 @@ struct EarnzaRootView: View {
         }
         return visible.first
     }
+
+    private var selectedAppLanguage: AppLanguage {
+        AppLanguage(rawValue: selectedAppLanguageRaw) ?? .system
+    }
 }
 
 private struct SplashExperienceView: View {
@@ -193,7 +200,7 @@ private struct SplashExperienceView: View {
                         .scaleEffect(1 + phase * 0.04)
                 }
 
-                Text("Turn salary into something you can actually feel.")
+                Text(L10n.s("app.tagline", "Turn salary into something you can actually feel."))
                     .font(.system(size: 15, weight: .medium))
                     .foregroundStyle(palette.textSecondary)
             }

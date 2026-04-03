@@ -2,16 +2,17 @@ import SwiftUI
 
 struct SettingsView: View {
     @Bindable var settings: AppSettings
+    @AppStorage(AppLanguage.storageKey) private var selectedAppLanguageRaw = AppLanguage.system.rawValue
     let repository: BundledDatasetRepository
     let palette: ThemePalette
 
     var body: some View {
-        BottomSheetEditor(title: "Settings", palette: palette) {
-            settingsSection("Appearance") {
+        BottomSheetEditor(title: L10n.s("settings.title", "Settings"), palette: palette) {
+            settingsSection(L10n.s("settings.appearance", "Appearance")) {
                 settingsRow {
-                    Text("Theme")
+                    Text(L10n.s("settings.theme", "Theme"))
                     Spacer()
-                    Picker("Theme", selection: $settings.selectedTheme) {
+                    Picker(L10n.s("settings.theme", "Theme"), selection: $settings.selectedTheme) {
                         ForEach(ThemeStyle.allCases) { theme in
                             Text(theme.title).tag(theme)
                         }
@@ -20,18 +21,30 @@ struct SettingsView: View {
                     .tint(palette.accent)
                 }
                 rowDivider
-                settingsToggle("Reduce motion", isOn: $settings.reduceMotionOverride)
+                settingsToggle(L10n.s("settings.reduce_motion", "Reduce motion"), isOn: $settings.reduceMotionOverride)
                 rowDivider
-                settingsToggle("Haptics", isOn: $settings.hapticsEnabled)
+                settingsToggle(L10n.s("settings.haptics", "Haptics"), isOn: $settings.hapticsEnabled)
                 rowDivider
-                settingsToggle("High contrast", isOn: $settings.highContrastEnabled)
+                settingsToggle(L10n.s("settings.high_contrast", "High contrast"), isOn: $settings.highContrastEnabled)
             }
 
-            settingsSection("Defaults") {
+            settingsSection(L10n.s("settings.defaults", "Defaults")) {
                 settingsRow {
-                    Text("Default currency")
+                    Text(L10n.s("settings.language", "Language"))
                     Spacer()
-                    Picker("Default currency", selection: $settings.defaultCurrencyCode) {
+                    Picker(L10n.s("settings.language", "Language"), selection: selectedAppLanguageBinding) {
+                        ForEach(AppLanguage.allCases) { language in
+                            Text(language.title).tag(language)
+                        }
+                    }
+                    .labelsHidden()
+                    .tint(palette.accent)
+                }
+                rowDivider
+                settingsRow {
+                    Text(L10n.s("settings.default_currency", "Default currency"))
+                    Spacer()
+                    Picker(L10n.s("settings.default_currency", "Default currency"), selection: $settings.defaultCurrencyCode) {
                         ForEach(["USD", "EUR", "GBP", "JPY", "PLN", "AED", "SGD", "AUD", "CAD", "THB", "RUB"], id: \.self) { code in
                             Text(code).tag(code)
                         }
@@ -41,9 +54,9 @@ struct SettingsView: View {
                 }
                 rowDivider
                 settingsRow {
-                    Text("Income basis")
+                    Text(L10n.s("settings.income_basis", "Income basis"))
                     Spacer()
-                    Picker("Income basis", selection: $settings.selectedIncomeBasis) {
+                    Picker(L10n.s("settings.income_basis", "Income basis"), selection: $settings.selectedIncomeBasis) {
                         ForEach(IncomeBasis.allCases) { basis in
                             Text(basis.title).tag(basis)
                         }
@@ -53,21 +66,21 @@ struct SettingsView: View {
                 }
             }
 
-            settingsSection("Dataset Info") {
-                infoRow(label: "Version", value: settings.datasetVersion)
+            settingsSection(L10n.s("settings.dataset_info", "Dataset Info")) {
+                infoRow(label: L10n.s("settings.version", "Version"), value: settings.datasetVersion)
                 rowDivider
-                infoRow(label: "Cities bundled", value: "\(repository.cities.count)")
+                infoRow(label: L10n.s("settings.cities_bundled", "Cities bundled"), value: "\(repository.cities.count)")
                 rowDivider
-                infoRow(label: "Objects bundled", value: "\(repository.objectCatalog.count + settings.customObjects.count)")
+                infoRow(label: L10n.s("settings.objects_bundled", "Objects bundled"), value: "\(repository.objectCatalog.count + settings.customObjects.count)")
                 rowDivider
-                Text("City stretch and item prices are local static references. They clarify assumptions instead of pretending absolute economic truth.")
+                Text(L10n.s("settings.dataset_note", "City stretch and item prices are local static references. They clarify assumptions instead of pretending absolute economic truth."))
                     .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(palette.textSecondary)
                     .padding(.top, 4)
             }
 
-            settingsSection("Privacy") {
-                Text("Earnza works fully offline. No account, no tracking, no remote dependency for the core product.")
+            settingsSection(L10n.s("settings.privacy", "Privacy")) {
+                Text(L10n.s("settings.privacy_note", "Earnza works fully offline. No account, no tracking, no remote dependency for the core product."))
                     .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(palette.textPrimary)
             }
@@ -129,5 +142,12 @@ struct SettingsView: View {
                 .foregroundStyle(palette.textSecondary)
         }
         .padding(.vertical, 12)
+    }
+
+    private var selectedAppLanguageBinding: Binding<AppLanguage> {
+        Binding(
+            get: { AppLanguage(rawValue: selectedAppLanguageRaw) ?? .system },
+            set: { selectedAppLanguageRaw = $0.rawValue }
+        )
     }
 }

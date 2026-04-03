@@ -7,7 +7,9 @@ final class BundledDatasetRepository: DatasetRepository {
 
     init(bundle: Bundle = .main) {
         self.cities = Self.load("cities", extension: "json", from: bundle, fallback: Self.fallbackCities)
+            .map(Self.localizedCity)
         self.objectCatalog = Self.load("objects", extension: "json", from: bundle, fallback: Self.fallbackObjects)
+            .map(Self.localizedObject)
         self.fxRates = Self.load("fx_rates", extension: "json", from: bundle, fallback: FXRates(base: "USD", rates: Self.fallbackRates))
     }
 
@@ -57,4 +59,35 @@ final class BundledDatasetRepository: DatasetRepository {
         .init(id: "berlin-de", cityName: "Berlin", countryName: "Germany", region: "Europe", rentIndex: 0.63, basketIndex: 0.78, burgerPrice: 6.8, coffeePrice: 4.2, techIndex: 0.94, stretchScore: 89, notes: "Balanced costs with strong transit.", datasetVersion: "2026.03"),
         .init(id: "warsaw-pl", cityName: "Warsaw", countryName: "Poland", region: "Europe", rentIndex: 0.42, basketIndex: 0.54, burgerPrice: 4.8, coffeePrice: 3.1, techIndex: 0.88, stretchScore: 96, notes: "Strong stretch profile.", datasetVersion: "2026.03")
     ]
+
+    private static func localizedObject(_ object: ObjectPreset) -> ObjectPreset {
+        ObjectPreset(
+            id: object.id,
+            localizedName: L10n.bundledObjectName(id: object.id, fallback: object.localizedName),
+            category: object.category,
+            iconName: object.iconName,
+            defaultPrice: object.defaultPrice,
+            currencyCode: object.currencyCode,
+            editableByUser: object.editableByUser,
+            sharePriority: object.sharePriority,
+            supportingLine: L10n.bundledObjectSupportingLine(id: object.id, fallback: object.supportingLine)
+        )
+    }
+
+    private static func localizedCity(_ city: CityDatasetEntry) -> CityDatasetEntry {
+        CityDatasetEntry(
+            id: city.id,
+            cityName: city.cityName,
+            countryName: city.countryName,
+            region: city.region,
+            rentIndex: city.rentIndex,
+            basketIndex: city.basketIndex,
+            burgerPrice: city.burgerPrice,
+            coffeePrice: city.coffeePrice,
+            techIndex: city.techIndex,
+            stretchScore: city.stretchScore,
+            notes: L10n.bundledCityNote(id: city.id, fallback: city.notes),
+            datasetVersion: city.datasetVersion
+        )
+    }
 }

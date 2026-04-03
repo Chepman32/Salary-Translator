@@ -8,8 +8,8 @@ private enum ObjectDisplayMode: String, CaseIterable, Identifiable {
 
     var title: String {
         switch self {
-        case .earn: "How many"
-        case .work: "Work for it"
+        case .earn: L10n.s("objects.mode.how_many", "How many")
+        case .work: L10n.s("objects.mode.work_for_it", "Work for it")
         }
     }
 }
@@ -48,8 +48,8 @@ struct ObjectsCanvasView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             SectionTitle(
-                title: "Translate salary into real things.",
-                subtitle: "Objects stay editable, local, and instantly shareable.",
+                title: L10n.s("objects.title", "Translate salary into real things."),
+                subtitle: L10n.s("objects.subtitle", "Objects stay editable, local, and instantly shareable."),
                 palette: palette
             )
 
@@ -61,7 +61,7 @@ struct ObjectsCanvasView: View {
                                 .font(.system(size: 16, weight: .semibold))
                                 .foregroundStyle(palette.textPrimary)
                             Spacer()
-                            Button("Share") {
+                            Button(L10n.s("common.share", "Share")) {
                                 onShare(snapshot(for: featuredInsight))
                             }
                             .buttonStyle(.borderless)
@@ -81,7 +81,7 @@ struct ObjectsCanvasView: View {
                 }
             }
 
-            Picker("Mode", selection: $displayMode) {
+            Picker(L10n.s("objects.mode", "Mode"), selection: $displayMode) {
                 ForEach(ObjectDisplayMode.allCases) { mode in
                     Text(mode.title).tag(mode)
                 }
@@ -116,7 +116,7 @@ struct ObjectsCanvasView: View {
             Button {
                 showingCustomObjectEditor = true
             } label: {
-                Label("Add Custom Object", systemImage: "plus.circle")
+                Label(L10n.s("objects.add_custom", "Add Custom Object"), systemImage: "plus.circle")
                     .font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(palette.textPrimary)
             }
@@ -139,7 +139,7 @@ struct ObjectsCanvasView: View {
                                 .font(.system(size: 22, weight: .bold, design: .rounded))
                                 .foregroundStyle(palette.textPrimary)
 
-                            Text(displayMode == .earn ? "Quantity earned on your current pace." : salaryEngine.humanWorkDescription(hours: insight.workHours))
+                            Text(displayMode == .earn ? L10n.s("objects.quantity_note", "Quantity earned on your current pace.") : salaryEngine.humanWorkDescription(hours: insight.workHours))
                                 .font(.system(size: 12, weight: .medium))
                                 .foregroundStyle(palette.textSecondary)
 
@@ -150,7 +150,7 @@ struct ObjectsCanvasView: View {
                         Button {
                             toggleFavorite(insight.id)
                         } label: {
-                            Label("Favorite", systemImage: scenario.favoriteObjectIDs.contains(insight.id) ? "star.slash" : "star")
+                            Label(L10n.s("objects.favorite", "Favorite"), systemImage: scenario.favoriteObjectIDs.contains(insight.id) ? "star.slash" : "star")
                         }
                         .tint(.yellow)
                     }
@@ -158,13 +158,13 @@ struct ObjectsCanvasView: View {
                         Button(role: .destructive) {
                             hide(insight.id)
                         } label: {
-                            Label("Hide", systemImage: "eye.slash")
+                            Label(L10n.s("common.hide", "Hide"), systemImage: "eye.slash")
                         }
 
                         Button {
                             onShare(snapshot(for: insight))
                         } label: {
-                            Label("Share", systemImage: "square.and.arrow.up")
+                            Label(L10n.s("common.share", "Share"), systemImage: "square.and.arrow.up")
                         }
                         .tint(Color(palette.accent))
                     }
@@ -183,7 +183,7 @@ struct ObjectsCanvasView: View {
     private func earnCopy(for insight: ObjectInsight) -> String {
         switch displayMode {
         case .earn:
-            return "\(EarnzaFormatters.decimal(insight.quantityPerHour, fractionDigits: 1)) per hour"
+            return L10n.f("objects.per_hour", "%@ per hour", EarnzaFormatters.decimal(insight.quantityPerHour, fractionDigits: 1))
         case .work:
             return workCopy(for: insight)
         }
@@ -191,16 +191,16 @@ struct ObjectsCanvasView: View {
 
     private func workCopy(for insight: ObjectInsight) -> String {
         if insight.workHours >= 8 {
-            return "\(EarnzaFormatters.decimal(insight.workDays, fractionDigits: 1)) workdays"
+            return L10n.f("objects.workdays", "%@ workdays", EarnzaFormatters.decimal(insight.workDays, fractionDigits: 1))
         }
-        return "\(EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1)) hours"
+        return L10n.f("objects.hours", "%@ hours", EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1))
     }
 
     private func heroStatement(for insight: ObjectInsight) -> String {
         if displayMode == .earn {
-            return "You earn \(EarnzaFormatters.decimal(insight.quantityPerHour, fractionDigits: 1)) \(insight.preset.localizedName) per hour."
+            return L10n.f("objects.hero_earn", "You earn %@ %@ per hour.", EarnzaFormatters.decimal(insight.quantityPerHour, fractionDigits: 1), insight.preset.localizedName)
         }
-        return "One \(insight.preset.localizedName) costs \(EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1)) work hours."
+        return L10n.f("objects.hero_work", "One %@ costs %@ work hours.", insight.preset.localizedName, EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1))
     }
 
     private func toggleFavorite(_ id: String) {
@@ -227,10 +227,10 @@ struct ObjectsCanvasView: View {
         ShareSnapshot(
             title: insight.preset.localizedName,
             value: displayMode == .earn ? earnCopy(for: insight) : workCopy(for: insight),
-            subtitle: displayMode == .earn ? "How many you earn at current pace." : "How long you work for it.",
+            subtitle: displayMode == .earn ? L10n.s("objects.share.earn_subtitle", "How many you earn at current pace.") : L10n.s("objects.share.work_subtitle", "How long you work for it."),
             details: [
-                "Price: \(EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode))",
-                "Per day: \(EarnzaFormatters.decimal(insight.quantityPerDay, fractionDigits: 1))",
+                L10n.f("common.price_value", "Price: %@", EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode)),
+                L10n.f("objects.per_day", "Per day: %@", EarnzaFormatters.decimal(insight.quantityPerDay, fractionDigits: 1)),
                 salaryEngine.humanWorkDescription(hours: insight.workHours)
             ],
             symbolName: insight.preset.iconName,
@@ -249,28 +249,28 @@ private struct CustomObjectEditorView: View {
     @State private var symbolName = "shippingbox"
 
     var body: some View {
-        BottomSheetEditor(title: "Custom Object", palette: palette) {
-            TextField("Name", text: $name)
+        BottomSheetEditor(title: L10n.s("objects.custom.title", "Custom Object"), palette: palette) {
+            TextField(L10n.s("objects.custom.name", "Name"), text: $name)
                 .textFieldStyle(.roundedBorder)
 
-            TextField("Price", value: $price, format: .number)
+            TextField(L10n.s("objects.custom.price", "Price"), value: $price, format: .number)
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.decimalPad)
 
-            TextField("SF Symbol", text: $symbolName)
+            TextField(L10n.s("objects.custom.sf_symbol", "SF Symbol"), text: $symbolName)
                 .textFieldStyle(.roundedBorder)
 
-            Button("Save Object") {
+            Button(L10n.s("objects.custom.save", "Save Object")) {
                 let object = ObjectPreset(
                     id: UUID().uuidString,
-                    localizedName: name.isEmpty ? "Custom Object" : name,
+                    localizedName: name.isEmpty ? L10n.s("objects.custom.default_name", "Custom Object") : name,
                     category: .custom,
                     iconName: symbolName.isEmpty ? "shippingbox" : symbolName,
                     defaultPrice: price,
                     currencyCode: "USD",
                     editableByUser: true,
                     sharePriority: 2,
-                    supportingLine: "User-defined salary benchmark."
+                    supportingLine: L10n.s("objects.custom.supporting_line", "User-defined salary benchmark.")
                 )
                 onSave(object)
                 dismiss()

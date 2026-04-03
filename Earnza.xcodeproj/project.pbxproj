@@ -19,6 +19,9 @@
 		5E62E988C6DD111448CC7036 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E3E9A67B88C5723B0FD3D5 /* Foundation.framework */; };
 		5F738CB8A15A762A7C5221EC /* EarnzaRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5FD85058A4CCB2CE8A6B32 /* EarnzaRootView.swift */; };
 		5FF2BCF57A43D65D8618C520 /* cities.json in Resources */ = {isa = PBXBuildFile; fileRef = 16D05896B41082E502BA8A22 /* cities.json */; };
+		60112233445566778899AABB /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70112233445566778899AABB /* L10n.swift */; };
+		60112233445566778899AABC /* LocalizationCatalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70112233445566778899AABC /* LocalizationCatalog.swift */; };
+		60112233445566778899AABD /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 70112233445566778899AABD /* Localizable.xcstrings */; };
 		668AC54ADE4F35DCA54F0F60 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14722043984ED9BE964D8948 /* Protocols.swift */; };
 		6E75E5F969920DC074983761 /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C8EB7CD883F949A9410B5D /* Formatters.swift */; };
 		72EFD2D34DA2689E68FD81A9 /* MainWorkspaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A015D457BFB248A04BCDEF52 /* MainWorkspaceView.swift */; };
@@ -81,6 +84,9 @@
 		732DB59FD439598A1C5EC58E /* ShareStudioView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShareStudioView.swift; sourceTree = "<group>"; };
 		7828E4AC74707248C9529D84 /* EarnzaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarnzaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		791A9F3C835A356CF2815BC2 /* LibraryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		70112233445566778899AABB /* L10n.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		70112233445566778899AABC /* LocalizationCatalog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalizationCatalog.swift; sourceTree = "<group>"; };
+		70112233445566778899AABD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		91D9FE91BBB862B0EF99C40C /* BundledDatasetRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BundledDatasetRepository.swift; sourceTree = "<group>"; };
 		93C5546D0CAE0F7C9D0ACD8D /* ObjectsCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ObjectsCanvasView.swift; sourceTree = "<group>"; };
 		98CDC0CC67F1DBC4839442A0 /* EarnzaCityEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarnzaCityEngineTests.swift; sourceTree = "<group>"; };
@@ -215,6 +221,8 @@
 			children = (
 				E72A9B3CAA74984AC0FBB447 /* Engines.swift */,
 				56C8EB7CD883F949A9410B5D /* Formatters.swift */,
+				70112233445566778899AABB /* L10n.swift */,
+				70112233445566778899AABC /* LocalizationCatalog.swift */,
 				47C9C6D69C708B4238BEB2F9 /* Models.swift */,
 				14722043984ED9BE964D8948 /* Protocols.swift */,
 			);
@@ -269,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				6057C4813EB544C4D68EFDC6 /* Assets.xcassets */,
+				70112233445566778899AABD /* Localizable.xcstrings */,
 				EDB021FC6AF0FA7CCA3B3A5F /* MockData */,
 			);
 			path = Resources;
@@ -417,8 +426,37 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				ar,
+				cs,
+				da,
+				de,
+				el,
 				en,
+				es-MX,
+				fi,
+				fil,
+				fr,
+				he,
+				hi,
+				hu,
+				id,
+				it,
+				ja,
+				ko,
+				ms,
+				nl,
+				no,
+				pl,
+				pt-BR,
+				ro,
+				ru,
+				sv,
+				th,
+				tr,
+				uk,
 				Base,
+				vi,
+				zh-Hans,
 			);
 			mainGroup = 834F193AB42B283AA0E00CB0;
 			productRefGroup = 5E58BB91BC1DEA673F7688D7 /* Products */;
@@ -445,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99DC9D419357D7F88274693C /* Assets.xcassets in Resources */,
+				60112233445566778899AABD /* Localizable.xcstrings in Resources */,
 				5FF2BCF57A43D65D8618C520 /* cities.json in Resources */,
 				0C295C1433E807BC955CD28C /* fx_rates.json in Resources */,
 				BD69B18833A3E42FA723E888 /* objects.json in Resources */,
@@ -496,6 +535,8 @@
 				6E75E5F969920DC074983761 /* Formatters.swift in Sources */,
 				D45C04DFF560B99AE8896914 /* GapCanvasView.swift in Sources */,
 				0CC5750C70BBCCD3EDE0FCBC /* LibraryView.swift in Sources */,
+				60112233445566778899AABB /* L10n.swift in Sources */,
+				60112233445566778899AABC /* LocalizationCatalog.swift in Sources */,
 				EB7994A3C03D04F82C6B6C27 /* LiveCanvasView.swift in Sources */,
 				72EFD2D34DA2689E68FD81A9 /* MainWorkspaceView.swift in Sources */,
 				EF3204D90BAB4C491B11BB36 /* Models.swift in Sources */,

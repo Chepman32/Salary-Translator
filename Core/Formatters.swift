@@ -39,7 +39,7 @@ enum EarnzaFormatters {
         formatter.numberStyle = .decimal
         formatter.maximumFractionDigits = fractionDigits
         formatter.minimumFractionDigits = 0
-        formatter.locale = .current
+        formatter.locale = L10n.locale
         return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
     }
 
@@ -48,6 +48,7 @@ enum EarnzaFormatters {
         formatter.numberStyle = .percent
         formatter.maximumFractionDigits = fractionDigits
         formatter.minimumFractionDigits = 0
+        formatter.locale = L10n.locale
         return formatter.string(from: NSNumber(value: value)) ?? "\(value)"
     }
 
@@ -65,6 +66,6 @@ enum EarnzaFormatters {
         Locale.availableIdentifiers
             .lazy
             .compactMap { Locale(identifier: $0) }
-            .first(where: { $0.currency?.identifier == code }) ?? .current
+            .first(where: { $0.currency?.identifier == code }) ?? L10n.locale
     }
 }

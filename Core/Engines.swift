@@ -121,19 +121,19 @@ struct DefaultSalaryTranslationEngine: SalaryTranslationEngine {
     func humanWorkDescription(hours: Double) -> String {
         switch hours {
         case ..<0.25:
-            return "Less than a coffee break"
+            return L10n.s("work_desc.coffee_break", "Less than a coffee break")
         case ..<1:
-            return "About a lunch stretch"
+            return L10n.s("work_desc.lunch_stretch", "About a lunch stretch")
         case ..<4:
-            return "Part of a focused work block"
+            return L10n.s("work_desc.focus_block", "Part of a focused work block")
         case ..<8:
-            return "Roughly half a workday"
+            return L10n.s("work_desc.half_day", "Roughly half a workday")
         case ..<16:
-            return "More than one full day"
+            return L10n.s("work_desc.more_than_day", "More than one full day")
         case ..<40:
-            return "Close to a working week"
+            return L10n.s("work_desc.week", "Close to a working week")
         default:
-            return "A serious chunk of labor time"
+            return L10n.s("work_desc.serious_chunk", "A serious chunk of labor time")
         }
     }
 
@@ -172,9 +172,11 @@ struct DefaultCityComparisonEngine: CityComparisonEngine {
 
             if let homeCity {
                 let delta = (homeCity.rentIndex + homeCity.basketIndex) - (city.rentIndex + city.basketIndex)
-                comparisonBlurb = delta > 0 ? "This salary stretches further." : "This city feels tighter."
+                comparisonBlurb = delta > 0
+                    ? L10n.s("city_comparison.stretches_further", "This salary stretches further.")
+                    : L10n.s("city_comparison.feels_tighter", "This city feels tighter.")
             } else {
-                comparisonBlurb = "Based on the saved assumptions."
+                comparisonBlurb = L10n.s("city_comparison.saved_assumptions", "Based on the saved assumptions.")
             }
 
             return CityInsight(

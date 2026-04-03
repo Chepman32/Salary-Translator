@@ -6,17 +6,17 @@ struct OnboardingFlowView: View {
     @State private var selection = 0
 
     private let pages: [(title: String, subtitle: String, symbol: String, stat: String, statLabel: String)] = [
-        ("See what your salary really means.", "Translate income into time, objects, rent, and real-world context.", "sparkles.rectangle.stack", "$0.43 / min", "Coffee in 18.4 minutes"),
-        ("See how long things really cost.", "Translate any purchase into hours of your life.", "gamecontroller", "6.2 hrs", "PS5 costs you 6.2 hours of work"),
-        ("Compare your pay across 50 cities.", "Understand how far the same salary stretches elsewhere.", "building.2.crop.circle", "3× further", "Same salary, Austin vs. San Francisco"),
-        ("Private by design.", "All calculations stay on your device. No account required.", "lock.shield", "100% local", "Zero data ever leaves your device")
+        (L10n.s("onboarding.page1.title", "See what your salary really means."), L10n.s("onboarding.page1.subtitle", "Translate income into time, objects, rent, and real-world context."), "sparkles.rectangle.stack", L10n.s("onboarding.page1.stat", "$0.43 / min"), L10n.s("onboarding.page1.label", "Coffee in 18.4 minutes")),
+        (L10n.s("onboarding.page2.title", "See how long things really cost."), L10n.s("onboarding.page2.subtitle", "Translate any purchase into hours of your life."), "gamecontroller", L10n.s("onboarding.page2.stat", "6.2 hrs"), L10n.s("onboarding.page2.label", "PS5 costs you 6.2 hours of work")),
+        (L10n.s("onboarding.page3.title", "Compare your pay across 50 cities."), L10n.s("onboarding.page3.subtitle", "Understand how far the same salary stretches elsewhere."), "building.2.crop.circle", L10n.s("onboarding.page3.stat", "3× further"), L10n.s("onboarding.page3.label", "Same salary, Austin vs. San Francisco")),
+        (L10n.s("onboarding.page4.title", "Private by design."), L10n.s("onboarding.page4.subtitle", "All calculations stay on your device. No account required."), "lock.shield", L10n.s("onboarding.page4.stat", "100% local"), L10n.s("onboarding.page4.label", "Zero data ever leaves your device"))
     ]
 
     var body: some View {
         VStack(spacing: 0) {
             HStack {
                 Spacer()
-                Button("Skip", action: onFinish)
+                Button(L10n.s("common.skip", "Skip"), action: onFinish)
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(palette.textSecondary)
             }
@@ -49,7 +49,7 @@ struct OnboardingFlowView: View {
                     }
                 }
 
-                Button(selection == pages.count - 1 ? "Translate My Salary" : "Continue") {
+                Button(selection == pages.count - 1 ? L10n.s("onboarding.cta.finish", "Translate My Salary") : L10n.s("common.continue", "Continue")) {
                     if selection == pages.count - 1 {
                         onFinish()
                     } else {
