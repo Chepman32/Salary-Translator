@@ -350,6 +350,7 @@ struct BottomSheetEditor<Content: View>: View {
 }
 
 struct SalaryInputCard: View {
+    @Environment(\.locale) private var locale
     @Bindable var scenario: Scenario
     let settings: AppSettings
     let palette: ThemePalette
@@ -371,7 +372,7 @@ struct SalaryInputCard: View {
                     Spacer()
                     Menu {
                         Picker(L10n.s("salary_input.currency", "Currency"), selection: $scenario.currencyCode) {
-                            ForEach(["USD", "EUR", "GBP", "JPY", "PLN", "AED", "SGD", "AUD", "CAD", "THB", "RUB"], id: \.self) { code in
+                            ForEach(CurrencyCatalog.orderedCodes(for: locale), id: \.self) { code in
                                 Text(code).tag(code)
                             }
                         }

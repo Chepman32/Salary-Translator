@@ -45,7 +45,7 @@ struct SettingsView: View {
                     Text(L10n.s("settings.default_currency", "Default currency"))
                     Spacer()
                     Picker(L10n.s("settings.default_currency", "Default currency"), selection: $settings.defaultCurrencyCode) {
-                        ForEach(["USD", "EUR", "GBP", "JPY", "PLN", "AED", "SGD", "AUD", "CAD", "THB", "RUB"], id: \.self) { code in
+                        ForEach(CurrencyCatalog.orderedCodes(for: appLocale), id: \.self) { code in
                             Text(code).tag(code)
                         }
                     }
@@ -91,6 +91,11 @@ struct SettingsView: View {
         Rectangle()
             .fill(palette.divider)
             .frame(height: 1)
+    }
+
+    private var appLocale: Locale {
+        let language = AppLanguage(rawValue: selectedAppLanguageRaw) ?? .system
+        return Locale(identifier: language.localeIdentifier ?? Locale.current.identifier)
     }
 
     private func settingsSection<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {

@@ -29,10 +29,12 @@
 		842F1FCB09494B3CD5AA830B /* ObjectsCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93C5546D0CAE0F7C9D0ACD8D /* ObjectsCanvasView.swift */; };
 		89F9DD2F48572BC66A6D09D1 /* EarnzaCityEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CDC0CC67F1DBC4839442A0 /* EarnzaCityEngineTests.swift */; };
 		99DC9D419357D7F88274693C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6057C4813EB544C4D68EFDC6 /* Assets.xcassets */; };
+		A1B2C3D4E5F6A7B8C9D0E1F2 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A6B7C8D9E0F1A2 /* SnapshotHelper.swift */; };
 		A758F17FBE5635FCB60C6DE5 /* CitiesCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536EC7FF7519C62E1C766312 /* CitiesCanvasView.swift */; };
 		A990084AE27C03FF857C9440 /* BundledDatasetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9FE91BBB862B0EF99C40C /* BundledDatasetRepository.swift */; };
 		B3323BF6611F856FE87602C8 /* EarnzaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C07EE99014055749BC974B /* EarnzaApp.swift */; };
 		BD69B18833A3E42FA723E888 /* objects.json in Resources */ = {isa = PBXBuildFile; fileRef = 16227FC548BE329E37DC1DEB /* objects.json */; };
+		C3D4E5F6A7B8C9D0E1F2A3B4 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6A7B8C9D0E1F2A3B4C5 /* ScreenshotTests.swift */; };
 		CB7948EF642247CB0E6B78F1 /* ShareStudioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732DB59FD439598A1C5EC58E /* ShareStudioView.swift */; };
 		D45C04DFF560B99AE8896914 /* GapCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA3E6B02421C10FB1135209 /* GapCanvasView.swift */; };
 		D75759E2E4002B75D7098B71 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD8953A41A16F719B4C8591 /* SettingsView.swift */; };
@@ -43,8 +45,6 @@
 		F00904C5A3D9915E319B87A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E3E9A67B88C5723B0FD3D5 /* Foundation.framework */; };
 		F09F302E6072348596B12395 /* fx_rates.json in Resources */ = {isa = PBXBuildFile; fileRef = F8231AE438A7417A844185DA /* fx_rates.json */; };
 		F3FE9D03798BD7000D4F24E5 /* EarnzaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68CF954AD09420D76F5412 /* EarnzaUITests.swift */; };
-		A1B2C3D4E5F6A7B8C9D0E1F2 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C2D3E4F5A6B7C8D9E0F1A2 /* SnapshotHelper.swift */; };
-		C3D4E5F6A7B8C9D0E1F2A3B4 /* ScreenshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E5F6A7B8C9D0E1F2A3B4C5 /* ScreenshotTests.swift */; };
 		FC3D38AA6B2B1F59A940EA5D /* WorkCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235C449AAD72892F0D121494 /* WorkCanvasView.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,12 +81,12 @@
 		6057C4813EB544C4D68EFDC6 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65D629667214D158984F06CD /* EarnzaDataTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarnzaDataTests.swift; sourceTree = "<group>"; };
 		6EA3E6B02421C10FB1135209 /* GapCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GapCanvasView.swift; sourceTree = "<group>"; };
-		732DB59FD439598A1C5EC58E /* ShareStudioView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShareStudioView.swift; sourceTree = "<group>"; };
-		7828E4AC74707248C9529D84 /* EarnzaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarnzaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		791A9F3C835A356CF2815BC2 /* LibraryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		70112233445566778899AABB /* L10n.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		70112233445566778899AABC /* LocalizationCatalog.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LocalizationCatalog.swift; sourceTree = "<group>"; };
 		70112233445566778899AABD /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		732DB59FD439598A1C5EC58E /* ShareStudioView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShareStudioView.swift; sourceTree = "<group>"; };
+		7828E4AC74707248C9529D84 /* EarnzaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarnzaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		791A9F3C835A356CF2815BC2 /* LibraryView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		91D9FE91BBB862B0EF99C40C /* BundledDatasetRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BundledDatasetRepository.swift; sourceTree = "<group>"; };
 		93C5546D0CAE0F7C9D0ACD8D /* ObjectsCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ObjectsCanvasView.swift; sourceTree = "<group>"; };
 		98CDC0CC67F1DBC4839442A0 /* EarnzaCityEngineTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarnzaCityEngineTests.swift; sourceTree = "<group>"; };
@@ -96,10 +96,10 @@
 		ACF3D5A1A4203850427CE7CD /* Theme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		AD0C790BBCE3FDBA14BAF01E /* OnboardingFlow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OnboardingFlow.swift; sourceTree = "<group>"; };
 		AD5FD85058A4CCB2CE8A6B32 /* EarnzaRootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarnzaRootView.swift; sourceTree = "<group>"; };
-		BF68CF954AD09420D76F5412 /* EarnzaUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarnzaUITests.swift; sourceTree = "<group>"; };
 		B1C2D3E4F5A6B7C8D9E0F1A2 /* SnapshotHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		D4E5F6A7B8C9D0E1F2A3B4C5 /* ScreenshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
+		BF68CF954AD09420D76F5412 /* EarnzaUITests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EarnzaUITests.swift; sourceTree = "<group>"; };
 		CC3B35916E3B5CC3C17EC496 /* LiveCanvasView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveCanvasView.swift; sourceTree = "<group>"; };
+		D4E5F6A7B8C9D0E1F2A3B4C5 /* ScreenshotTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ScreenshotTests.swift; sourceTree = "<group>"; };
 		E72A9B3CAA74984AC0FBB447 /* Engines.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Engines.swift; sourceTree = "<group>"; };
 		ECD8953A41A16F719B4C8591 /* SettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F8231AE438A7417A844185DA /* fx_rates.json */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.json; path = fx_rates.json; sourceTree = "<group>"; };
@@ -432,7 +432,7 @@
 				de,
 				el,
 				en,
-				es-MX,
+				"es-MX",
 				fi,
 				fil,
 				fr,
@@ -447,7 +447,7 @@
 				nl,
 				no,
 				pl,
-				pt-BR,
+				"pt-BR",
 				ro,
 				ru,
 				sv,
@@ -456,7 +456,7 @@
 				uk,
 				Base,
 				vi,
-				zh-Hans,
+				"zh-Hans",
 			);
 			mainGroup = 834F193AB42B283AA0E00CB0;
 			productRefGroup = 5E58BB91BC1DEA673F7688D7 /* Products */;
@@ -694,7 +694,7 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = Resources/PreviewContent;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = RUYUP6W3YT;
@@ -706,8 +706,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
@@ -732,7 +732,7 @@
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = Resources/PreviewContent;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = RUYUP6W3YT;
@@ -744,8 +744,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
-				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad" = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				"INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone" = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;

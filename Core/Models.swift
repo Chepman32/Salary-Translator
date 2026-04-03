@@ -266,6 +266,52 @@ enum AppLanguage: String, Codable, CaseIterable, Identifiable {
     }
 }
 
+enum CurrencyCatalog {
+    static let supportedCodes = ["USD", "EUR", "GBP", "JPY", "PLN", "AED", "SGD", "AUD", "CAD", "THB", "RUB"]
+
+    static func orderedCodes(for locale: Locale) -> [String] {
+        let preferredCode = preferredCode(for: locale)
+        return supportedCodes.sorted { lhs, rhs in
+            if lhs == preferredCode { return true }
+            if rhs == preferredCode { return false }
+            return supportedCodes.firstIndex(of: lhs)! < supportedCodes.firstIndex(of: rhs)!
+        }
+    }
+
+    private static func preferredCode(for locale: Locale) -> String? {
+        if let regionIdentifier = locale.region?.identifier {
+            switch regionIdentifier {
+            case "RU": return "RUB"
+            case "JP": return "JPY"
+            case "PL": return "PLN"
+            case "AE": return "AED"
+            case "SG": return "SGD"
+            case "AU": return "AUD"
+            case "CA": return "CAD"
+            case "TH": return "THB"
+            case "GB": return "GBP"
+            case "US": return "USD"
+            default: break
+            }
+        }
+
+        let languageCode = locale.language.languageCode?.identifier
+            ?? locale.identifier.split(separator: "-").first.map(String.init)
+
+        switch languageCode {
+        case "ru": return "RUB"
+        case "ja": return "JPY"
+        case "pl": return "PLN"
+        case "ar": return "AED"
+        case "th": return "THB"
+        case "en": return "USD"
+        case "de", "fr", "it", "nl", "fi", "el", "pt", "es": return "EUR"
+        case "uk": return "PLN"
+        default: return nil
+        }
+    }
+}
+
 struct CityDatasetEntry: Codable, Identifiable, Hashable {
     let id: String
     let cityName: String
