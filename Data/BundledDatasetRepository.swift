@@ -77,8 +77,8 @@ final class BundledDatasetRepository: DatasetRepository {
     private static func localizedCity(_ city: CityDatasetEntry) -> CityDatasetEntry {
         CityDatasetEntry(
             id: city.id,
-            cityName: city.cityName,
-            countryName: city.countryName,
+            cityName: L10n.bundledCityName(id: city.id, fallback: city.cityName),
+            countryName: L10n.bundledCountryName(id: city.id, fallback: city.countryName),
             region: city.region,
             rentIndex: city.rentIndex,
             basketIndex: city.basketIndex,

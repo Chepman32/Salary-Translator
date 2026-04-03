@@ -67,6 +67,111 @@ enum L10n {
         }
     }
 
+    static func bundledCityName(id: String, fallback: String) -> String {
+        guard locale.language.languageCode?.identifier == "ru" else { return fallback }
+
+        return switch id {
+        case "new-york-us": "Нью-Йорк"
+        case "san-francisco-us": "Сан-Франциско"
+        case "seattle-us": "Сиэтл"
+        case "austin-us": "Остин"
+        case "miami-us": "Майами"
+        case "toronto-ca": "Торонто"
+        case "vancouver-ca": "Ванкувер"
+        case "mexico-city-mx": "Мехико"
+        case "london-gb": "Лондон"
+        case "manchester-gb": "Манчестер"
+        case "dublin-ie": "Дублин"
+        case "amsterdam-nl": "Амстердам"
+        case "berlin-de": "Берлин"
+        case "munich-de": "Мюнхен"
+        case "paris-fr": "Париж"
+        case "lisbon-pt": "Лиссабон"
+        case "madrid-es": "Мадрид"
+        case "barcelona-es": "Барселона"
+        case "rome-it": "Рим"
+        case "milan-it": "Милан"
+        case "zurich-ch": "Цюрих"
+        case "vienna-at": "Вена"
+        case "prague-cz": "Прага"
+        case "warsaw-pl": "Варшава"
+        case "budapest-hu": "Будапешт"
+        case "athens-gr": "Афины"
+        case "dubai-ae": "Дубай"
+        case "abu-dhabi-ae": "Абу-Даби"
+        case "doha-qa": "Доха"
+        case "riyadh-sa": "Эр-Рияд"
+        case "singapore-sg": "Сингапур"
+        case "tokyo-jp": "Токио"
+        case "osaka-jp": "Осака"
+        case "seoul-kr": "Сеул"
+        case "hong-kong-hk": "Гонконг"
+        case "bangkok-th": "Бангкок"
+        case "kuala-lumpur-my": "Куала-Лумпур"
+        case "jakarta-id": "Джакарта"
+        case "bengaluru-in": "Бенгалуру"
+        case "mumbai-in": "Мумбаи"
+        case "sydney-au": "Сидней"
+        case "melbourne-au": "Мельбурн"
+        case "auckland-nz": "Окленд"
+        case "cape-town-za": "Кейптаун"
+        case "johannesburg-za": "Йоханнесбург"
+        case "nairobi-ke": "Найроби"
+        case "lagos-ng": "Лагос"
+        case "sao-paulo-br": "Сан-Паулу"
+        case "rio-de-janeiro-br": "Рио-де-Жанейро"
+        case "buenos-aires-ar": "Буэнос-Айрес"
+        case "santiago-cl": "Сантьяго"
+        case "bogota-co": "Богота"
+        default: fallback
+        }
+    }
+
+    static func bundledCountryName(id: String, fallback: String) -> String {
+        guard locale.language.languageCode?.identifier == "ru" else { return fallback }
+
+        return switch id {
+        case "new-york-us", "san-francisco-us", "seattle-us", "austin-us", "miami-us": "США"
+        case "toronto-ca", "vancouver-ca": "Канада"
+        case "mexico-city-mx": "Мексика"
+        case "london-gb", "manchester-gb": "Великобритания"
+        case "dublin-ie": "Ирландия"
+        case "amsterdam-nl": "Нидерланды"
+        case "berlin-de", "munich-de": "Германия"
+        case "paris-fr": "Франция"
+        case "lisbon-pt": "Португалия"
+        case "madrid-es", "barcelona-es": "Испания"
+        case "rome-it", "milan-it": "Италия"
+        case "zurich-ch": "Швейцария"
+        case "vienna-at": "Австрия"
+        case "prague-cz": "Чехия"
+        case "warsaw-pl": "Польша"
+        case "budapest-hu": "Венгрия"
+        case "athens-gr": "Греция"
+        case "dubai-ae", "abu-dhabi-ae": "ОАЭ"
+        case "doha-qa": "Катар"
+        case "riyadh-sa": "Саудовская Аравия"
+        case "singapore-sg": "Сингапур"
+        case "tokyo-jp", "osaka-jp": "Япония"
+        case "seoul-kr": "Южная Корея"
+        case "hong-kong-hk": "Гонконг"
+        case "bangkok-th": "Таиланд"
+        case "kuala-lumpur-my": "Малайзия"
+        case "jakarta-id": "Индонезия"
+        case "bengaluru-in", "mumbai-in": "Индия"
+        case "sydney-au", "melbourne-au": "Австралия"
+        case "auckland-nz": "Новая Зеландия"
+        case "cape-town-za", "johannesburg-za": "ЮАР"
+        case "nairobi-ke": "Кения"
+        case "lagos-ng": "Нигерия"
+        case "sao-paulo-br", "rio-de-janeiro-br": "Бразилия"
+        case "buenos-aires-ar": "Аргентина"
+        case "santiago-cl": "Чили"
+        case "bogota-co": "Колумбия"
+        default: fallback
+        }
+    }
+
     static var locale: Locale {
         guard let effectiveAppLanguage else { return .current }
         return Locale(identifier: effectiveAppLanguage.localeIdentifier ?? Locale.current.identifier)
