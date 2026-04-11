@@ -163,7 +163,7 @@ struct MoneyCounterView: View {
             .kerning(-0.8)
             .foregroundStyle(palette.textPrimary)
             .contentTransition(reduceMotion ? .opacity : .numericText(value: value))
-            .animation(.spring(response: 0.35, dampingFraction: 0.86), value: value)
+            .animation(reduceMotion ? nil : .linear(duration: 0.1), value: value)
             .accessibilityLabel(L10n.s("common.value", "Value"))
             .accessibilityValue(EarnzaFormatters.currency(value, code: currencyCode))
     }

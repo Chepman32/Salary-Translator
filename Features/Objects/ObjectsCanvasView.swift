@@ -76,25 +76,17 @@ struct ObjectsCanvasView: View {
             if let featuredInsight {
                 GlassCard(palette: palette, padding: 22) {
                     VStack(alignment: .leading, spacing: 14) {
-                        HStack {
-                            HStack(spacing: 10) {
-                                ObjectIconView(
-                                    symbolName: featuredInsight.preset.iconName,
-                                    customImageFileName: featuredInsight.preset.customImageFileName,
-                                    palette: palette
-                                )
+                        HStack(spacing: 10) {
+                            ObjectIconView(
+                                symbolName: featuredInsight.preset.iconName,
+                                customImageFileName: featuredInsight.preset.customImageFileName,
+                                palette: palette
+                            )
 
-                                Text(featuredInsight.preset.localizedName)
-                            }
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundStyle(palette.textPrimary)
-                            Spacer()
-                            Button(L10n.s("common.share", "Share")) {
-                                onShare(snapshot(for: featuredInsight))
-                            }
-                            .buttonStyle(.borderless)
-                            .foregroundStyle(palette.accent)
+                            Text(featuredInsight.preset.localizedName)
                         }
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(palette.textPrimary)
 
                         Text(heroStatement(for: featuredInsight))
                             .font(.system(size: 28, weight: .bold, design: .rounded))
@@ -289,17 +281,37 @@ struct ObjectsCanvasView: View {
     }
 
     private func workCopy(for insight: ObjectInsight) -> String {
-        if insight.workHours >= 8 {
+        workDurationCopy(for: insight)
+    }
+
+    private func workDurationCopy(for insight: ObjectInsight) -> String {
+        let hoursPerWeek = max(scenario.workHoursPerWeek, 1)
+        let weeksPerYear = max(scenario.workWeeksPerYear, 1)
+        let annualWorkHours = hoursPerWeek * weeksPerYear
+        let workYears = insight.workHours / annualWorkHours
+        let workMonths = workYears * 12
+
+        if insight.workHours < 1 {
+            let minutes = max(insight.workHours * 60, 1)
+            return L10n.f("objects.minutes", "%@ minutes", EarnzaFormatters.decimal(minutes, fractionDigits: 0))
+        }
+        if insight.workHours < 8 {
+            return L10n.f("objects.hours", "%@ hours", EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1))
+        }
+        if insight.workDays < 20 {
             return L10n.f("objects.workdays", "%@ workdays", EarnzaFormatters.decimal(insight.workDays, fractionDigits: 1))
         }
-        return L10n.f("objects.hours", "%@ hours", EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1))
+        if workYears < 1 {
+            return L10n.f("objects.work_months", "%@ work-months", EarnzaFormatters.decimal(workMonths, fractionDigits: 1))
+        }
+        return L10n.f("objects.work_years", "%@ work-years", EarnzaFormatters.decimal(workYears, fractionDigits: 1))
     }
 
     private func heroStatement(for insight: ObjectInsight) -> String {
         if displayMode == .earn {
             return L10n.f("objects.hero_earn", "You earn %@ %@ per hour.", EarnzaFormatters.decimal(insight.quantityPerHour, fractionDigits: 1), insight.preset.localizedName)
         }
-        return L10n.f("objects.hero_work", "One %@ costs %@ work hours.", insight.preset.localizedName, EarnzaFormatters.decimal(insight.workHours, fractionDigits: 1))
+        return L10n.f("objects.hero_work_duration", "One %@ ≈ %@ of work.", insight.preset.localizedName, workDurationCopy(for: insight))
     }
 
     private func toggleFavorite(_ id: String) {

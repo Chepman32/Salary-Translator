@@ -221,6 +221,12 @@ enum AppLanguage: String, Codable, CaseIterable, Identifiable {
         return [.system] + sortedLanguages
     }
 
+    static func bootstrapDefaultSelectionIfNeeded(userDefaults: UserDefaults = .standard) {
+        guard userDefaults.string(forKey: storageKey) == nil else { return }
+        let detectedLanguage = Locale.preferredLanguages.lazy.compactMap(resolvePreferredLanguage).first ?? .en
+        userDefaults.set(detectedLanguage.rawValue, forKey: storageKey)
+    }
+
     var title: String {
         switch self {
         case .system: L10n.s("settings.language.system", "System")
@@ -262,6 +268,51 @@ enum AppLanguage: String, Codable, CaseIterable, Identifiable {
         case .system: nil
         case .no: "nb"
         default: rawValue
+        }
+    }
+
+    private static func resolvePreferredLanguage(from identifier: String) -> AppLanguage? {
+        if let directMatch = AppLanguage(rawValue: identifier) {
+            return directMatch
+        }
+
+        let normalized = identifier.replacingOccurrences(of: "_", with: "-")
+        if normalized.hasPrefix("zh-Hans") { return .zhHans }
+        if normalized.hasPrefix("es-MX") { return .esMX }
+        if normalized.hasPrefix("pt-BR") { return .ptBR }
+        if normalized.hasPrefix("nb") || normalized.hasPrefix("no") { return .no }
+
+        let languageCode = Locale(identifier: normalized).language.languageCode?.identifier
+            ?? normalized.split(separator: "-").first.map(String.init)
+
+        return switch languageCode {
+        case "en": .en
+        case "ja": .ja
+        case "ko": .ko
+        case "de": .de
+        case "fr": .fr
+        case "ar": .ar
+        case "ru": .ru
+        case "it": .it
+        case "nl": .nl
+        case "tr": .tr
+        case "th": .th
+        case "vi": .vi
+        case "id": .id
+        case "pl": .pl
+        case "uk": .uk
+        case "hi": .hi
+        case "he": .he
+        case "sv": .sv
+        case "da": .da
+        case "fi": .fi
+        case "cs": .cs
+        case "hu": .hu
+        case "ro": .ro
+        case "el": .el
+        case "ms": .ms
+        case "fil": .fil
+        default: nil
         }
     }
 }

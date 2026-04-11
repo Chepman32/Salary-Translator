@@ -3,6 +3,10 @@ import SwiftUI
 
 @main
 struct EarnzaApp: App {
+    init() {
+        AppLanguage.bootstrapDefaultSelectionIfNeeded()
+    }
+
     private let container: ModelContainer = {
         let isUITesting = ProcessInfo.processInfo.arguments.contains("-ui-testing-reset")
         let schema = Schema([
