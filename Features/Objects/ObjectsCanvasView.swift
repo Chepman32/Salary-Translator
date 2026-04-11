@@ -25,7 +25,7 @@ struct ObjectsCanvasView: View {
     let onShare: (ShareSnapshot) -> Void
 
     @State private var selectedCategory: ObjectCategory = .food
-    @State private var displayMode: ObjectDisplayMode = .earn
+    @State private var displayMode: ObjectDisplayMode = .work
     @State private var showingCustomObjectEditor = false
     @State private var showingCustomObjectManager = false
     @State private var editingCustomObject: ObjectPreset?
@@ -120,28 +120,29 @@ struct ObjectsCanvasView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 8) {
                         ForEach(ObjectCategory.allCases) { category in
-                            Text(category.title)
-                                .font(.system(size: 13, weight: .semibold))
-                                .foregroundStyle(category == selectedCategory ? palette.textPrimary : palette.textSecondary)
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 10)
-                                .background(
-                                    Capsule(style: .continuous)
-                                        .fill(category == selectedCategory ? palette.cardFill : .clear)
-                                        .overlay(
-                                            Capsule(style: .continuous)
-                                                .stroke(category == selectedCategory ? palette.accent.opacity(0.35) : palette.divider, lineWidth: 1)
-                                        )
-                                )
-                                .contentShape(Rectangle())
-                                .highPriorityGesture(
-                                    TapGesture().onEnded {
-                                        withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
-                                            selectedCategory = category
-                                        }
-                                    }
-                                )
-                                .id(category.id)
+                            Button {
+                                withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
+                                    selectedCategory = category
+                                    proxy.scrollTo(category.id, anchor: .center)
+                                }
+                            } label: {
+                                Text(category.title)
+                                    .font(.system(size: 13, weight: .semibold))
+                                    .foregroundStyle(category == selectedCategory ? palette.textPrimary : palette.textSecondary)
+                                    .padding(.horizontal, 14)
+                                    .padding(.vertical, 10)
+                                    .background(
+                                        Capsule(style: .continuous)
+                                            .fill(category == selectedCategory ? palette.cardFill : .clear)
+                                            .overlay(
+                                                Capsule(style: .continuous)
+                                                    .stroke(category == selectedCategory ? palette.accent.opacity(0.35) : palette.divider, lineWidth: 1)
+                                            )
+                                    )
+                                    .contentShape(Rectangle())
+                            }
+                            .buttonStyle(.plain)
+                            .id(category.id)
                         }
                     }
                     .padding(.horizontal, 1)
