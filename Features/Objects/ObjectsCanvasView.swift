@@ -40,12 +40,24 @@ struct ObjectsCanvasView: View {
     }
 
     private var filteredInsights: [ObjectInsight] {
-        salaryEngine.objectInsights(
+        let insights = salaryEngine.objectInsights(
             for: scenario,
             settings: settings,
             objects: objects.filter { selectedCategory == .custom ? $0.category == .custom : $0.category == selectedCategory },
             fxRates: repository.fxRates
         )
+
+        guard isCustomCategorySelected else { return insights }
+
+        let customOrder = Dictionary(
+            uniqueKeysWithValues: settings.customObjects.enumerated().map { index, object in
+                (object.id, index)
+            }
+        )
+
+        return insights.sorted { lhs, rhs in
+            customOrder[lhs.id, default: .max] < customOrder[rhs.id, default: .max]
+        }
     }
 
     private var featuredInsight: ObjectInsight? {
@@ -122,12 +134,13 @@ struct ObjectsCanvasView: View {
                                         )
                                 )
                                 .contentShape(Rectangle())
-                                .onTapGesture {
-                                    withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
-                                        selectedCategory = category
-                                        proxy.scrollTo(category.id, anchor: .center)
+                                .highPriorityGesture(
+                                    TapGesture().onEnded {
+                                        withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
+                                            selectedCategory = category
+                                        }
                                     }
-                                }
+                                )
                                 .id(category.id)
                         }
                     }
