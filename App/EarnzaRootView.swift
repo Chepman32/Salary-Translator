@@ -135,18 +135,70 @@ struct EarnzaRootView: View {
         guard !didBootstrap else { return }
         didBootstrap = true
 
+        let preferredCurrencyCode = CurrencyCatalog.preferredCode(for: appLocale)
+        let settings: AppSettings
+
         if settingsRecords.isEmpty {
-            let settings = AppSettings()
-            modelContext.insert(settings)
+            let settingsRecord = AppSettings(defaultCurrencyCode: preferredCurrencyCode)
+            modelContext.insert(settingsRecord)
+            settings = settingsRecord
+        } else {
+            settings = settingsRecords[0]
+        }
+
+        if shouldAdoptDetectedCurrency(for: settings, preferredCurrencyCode: preferredCurrencyCode) {
+            settings.defaultCurrencyCode = preferredCurrencyCode
         }
 
         if scenarios.isEmpty {
-            let scenario = Scenario.starter()
+            let scenario = Scenario.starter(currencyCode: preferredCurrencyCode, fxRates: repository.fxRates)
             modelContext.insert(scenario)
-            settingsRecords.first?.selectedScenarioID = scenario.id
-        } else if let settings = settingsRecords.first, settings.selectedScenarioID.isEmpty {
-            settings.selectedScenarioID = scenarios.first?.id ?? ""
+            settings.selectedScenarioID = scenario.id
+        } else {
+            migrateSeededScenarioCurrencyIfNeeded(preferredCurrencyCode: preferredCurrencyCode)
+            if settings.selectedScenarioID.isEmpty {
+                settings.selectedScenarioID = scenarios.first?.id ?? ""
+            }
         }
+    }
+
+    private func migrateSeededScenarioCurrencyIfNeeded(preferredCurrencyCode: String) {
+        guard preferredCurrencyCode != "USD" else { return }
+        guard let seededScenario = scenarios.first(where: isLegacyStarterScenario) else { return }
+
+        let migrated = Scenario.starter(currencyCode: preferredCurrencyCode, fxRates: repository.fxRates)
+        seededScenario.currencyCode = migrated.currencyCode
+        seededScenario.salaryAmount = migrated.salaryAmount
+        seededScenario.monthlyRent = migrated.monthlyRent
+        seededScenario.comparatorSalary = migrated.comparatorSalary
+        seededScenario.touch()
+    }
+
+    private func shouldAdoptDetectedCurrency(for settings: AppSettings, preferredCurrencyCode: String) -> Bool {
+        guard preferredCurrencyCode != "USD", settings.defaultCurrencyCode == "USD" else { return false }
+        return !settings.hasCompletedOnboarding || scenarios.contains(where: isLegacyStarterScenario)
+    }
+
+    private func isLegacyStarterScenario(_ scenario: Scenario) -> Bool {
+        scenario.currencyCode == "USD"
+            && scenario.cityID == "new-york-us"
+            && scenario.payPeriodMode == .annual
+            && scenario.workHoursPerWeek == 40
+            && scenario.workWeeksPerYear == 48
+            && scenario.paychecksPerYear == 24
+            && scenario.monthlyRent == 2_400
+            && scenario.salaryAmount == 98_000
+            && scenario.comparatorSalary == 162_000
+            && scenario.manualTakeHomeAnnual == 0
+            && !scenario.isArchived
+    }
+
+    private var appLocale: Locale {
+        Locale(identifier: selectedAppLanguage.localeIdentifier ?? Locale.current.identifier)
+    }
+
+    private var selectedAppLanguage: AppLanguage {
+        AppLanguage(rawValue: selectedAppLanguageRaw) ?? .system
     }
 
     private func triggerSplash() {
@@ -174,9 +226,6 @@ struct EarnzaRootView: View {
         return visible.first
     }
 
-    private var selectedAppLanguage: AppLanguage {
-        AppLanguage(rawValue: selectedAppLanguageRaw) ?? .system
-    }
 }
 
 private struct SplashExperienceView: View {

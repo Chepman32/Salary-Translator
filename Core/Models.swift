@@ -320,6 +320,10 @@ enum AppLanguage: String, Codable, CaseIterable, Identifiable {
 enum CurrencyCatalog {
     static let supportedCodes = ["USD", "EUR", "GBP", "JPY", "PLN", "AED", "SGD", "AUD", "CAD", "THB", "RUB"]
 
+    static func preferredCode(for locale: Locale) -> String {
+        detectedPreferredCode(for: locale) ?? "USD"
+    }
+
     static func orderedCodes(for locale: Locale) -> [String] {
         let preferredCode = preferredCode(for: locale)
         return supportedCodes.sorted { lhs, rhs in
@@ -329,7 +333,7 @@ enum CurrencyCatalog {
         }
     }
 
-    private static func preferredCode(for locale: Locale) -> String? {
+    private static func detectedPreferredCode(for locale: Locale) -> String? {
         if let regionIdentifier = locale.region?.identifier {
             switch regionIdentifier {
             case "RU": return "RUB"
@@ -540,20 +544,56 @@ final class Scenario {
     }
 
     static func starter() -> Scenario {
-        Scenario(
+        starter(currencyCode: "USD")
+    }
+
+    static func starter(currencyCode: String, fxRates: FXRates? = nil) -> Scenario {
+        let salaryAmount = seededAmount(98_000, from: "USD", to: currencyCode, fxRates: fxRates, roundingStep: salaryRoundingStep(for: currencyCode))
+        let comparatorSalary = seededAmount(162_000, from: "USD", to: currencyCode, fxRates: fxRates, roundingStep: salaryRoundingStep(for: currencyCode))
+        let monthlyRent = seededAmount(2_400, from: "USD", to: currencyCode, fxRates: fxRates, roundingStep: rentRoundingStep(for: currencyCode))
+
+        return Scenario(
             name: Self.localizedStarterName,
-            salaryAmount: 98000,
-            currencyCode: "USD",
+            salaryAmount: salaryAmount,
+            currencyCode: currencyCode,
             payPeriodMode: .annual,
             workHoursPerWeek: 40,
             workWeeksPerYear: 48,
             paychecksPerYear: 24,
-            monthlyRent: 2400,
+            monthlyRent: monthlyRent,
             cityID: "new-york-us",
-            comparatorSalary: 162000,
+            comparatorSalary: comparatorSalary,
             comparatorLabel: Self.localizedStarterComparator,
             selectedTheme: .dark
         )
+    }
+
+    private static func seededAmount(
+        _ amount: Double,
+        from sourceCode: String,
+        to targetCode: String,
+        fxRates: FXRates?,
+        roundingStep: Double
+    ) -> Double {
+        guard sourceCode != targetCode, let fxRates else { return amount }
+        let sourceRate = fxRates.rates[sourceCode] ?? 1
+        let targetRate = fxRates.rates[targetCode] ?? 1
+        let converted = amount / max(sourceRate, 0.0001) * targetRate
+        return (converted / roundingStep).rounded() * roundingStep
+    }
+
+    private static func salaryRoundingStep(for currencyCode: String) -> Double {
+        switch currencyCode {
+        case "JPY", "RUB": 1_000
+        default: 100
+        }
+    }
+
+    private static func rentRoundingStep(for currencyCode: String) -> Double {
+        switch currencyCode {
+        case "JPY", "RUB": 100
+        default: 10
+        }
     }
 
     private static func decodeArray(from raw: String) -> [String] {
