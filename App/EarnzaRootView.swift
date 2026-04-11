@@ -63,7 +63,7 @@ struct EarnzaRootView: View {
                                     onOpenSheet: { activeSheet = $0 }
                                 )
                             } else {
-                                OnboardingFlowView(palette: palette) {
+                                OnboardingFlowView(scenario: activeScenario, settings: settings, palette: palette) {
                                     settings.hasCompletedOnboarding = true
                                     activeScenario.touch()
                                 }

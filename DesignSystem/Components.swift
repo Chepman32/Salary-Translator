@@ -489,30 +489,46 @@ struct SalaryInputCard: View {
                 .accessibilityIdentifier("salary_input_mode_picker")
 
                 VStack(alignment: .leading, spacing: 10) {
-                    TextField("0", text: $draftValue)
-                        .keyboardType(.decimalPad)
-                        .textInputAutocapitalization(.never)
-                        .autocorrectionDisabled()
-                        .focused($isFocused)
-                        .font(.system(size: 42, weight: .bold, design: .rounded))
-                        .monospacedDigit()
-                        .foregroundStyle(palette.textPrimary)
-                        .onAppear { syncDisplayState() }
-                        .onChange(of: scenario.payPeriodModeRaw) { _, _ in syncDisplayState() }
-                        .onChange(of: scenario.salaryAmount) { _, _ in
-                            if !isFocused { syncDisplayState() }
-                        }
-                        .onChange(of: scenario.workHoursPerWeek) { _, _ in syncIfNeeded() }
-                        .onChange(of: scenario.workWeeksPerYear) { _, _ in syncIfNeeded() }
-                        .onChange(of: draftValue) { _, newValue in
-                            if suppressedDraftValue == newValue {
-                                suppressedDraftValue = nil
-                                return
+                    ZStack(alignment: .trailing) {
+                        TextField("0", text: $draftValue)
+                            .keyboardType(.decimalPad)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .focused($isFocused)
+                            .font(.system(size: 42, weight: .bold, design: .rounded))
+                            .monospacedDigit()
+                            .foregroundStyle(palette.textPrimary)
+                            .padding(.trailing, 52)
+                            .onAppear { syncDisplayState() }
+                            .onChange(of: scenario.payPeriodModeRaw) { _, _ in syncDisplayState() }
+                            .onChange(of: scenario.salaryAmount) { _, _ in
+                                if !isFocused { syncDisplayState() }
                             }
-                            guard let parsed = Self.parseAmount(newValue) else { return }
-                            applyDisplayedAmount(parsed, updateDraft: false)
+                            .onChange(of: scenario.workHoursPerWeek) { _, _ in syncIfNeeded() }
+                            .onChange(of: scenario.workWeeksPerYear) { _, _ in syncIfNeeded() }
+                            .onChange(of: draftValue) { _, newValue in
+                                if suppressedDraftValue == newValue {
+                                    suppressedDraftValue = nil
+                                    return
+                                }
+                                guard let parsed = Self.parseAmount(newValue) else { return }
+                                applyDisplayedAmount(parsed, updateDraft: false)
+                            }
+                            .accessibilityIdentifier("salary_input_field")
+
+                        Button {
+                            isFocused = true
+                        } label: {
+                            Image(systemName: "pencil")
+                                .font(.system(size: 14, weight: .bold))
+                                .foregroundStyle(palette.textPrimary)
+                                .frame(width: 36, height: 36)
+                                .background(Circle().fill(palette.cardFill))
                         }
-                        .accessibilityIdentifier("salary_input_field")
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(L10n.s("common.edit", "Edit"))
+                        .accessibilityIdentifier("salary_input_edit_button")
+                    }
 
                     Text(L10n.f("salary_input.based_on", "Based on %@ input and saved work assumptions.", scenario.payPeriodMode.title.lowercased()))
                         .font(.system(size: 13, weight: .medium))
@@ -541,6 +557,15 @@ struct SalaryInputCard: View {
                     .padding(.top, 2)
                 }
                 .buttonStyle(.plain)
+            }
+        }
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button(L10n.s("common.done", "Done")) {
+                    isFocused = false
+                }
+                .font(.system(size: 16, weight: .semibold))
             }
         }
     }
