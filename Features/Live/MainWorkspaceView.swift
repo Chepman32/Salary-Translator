@@ -403,9 +403,26 @@ private struct AssumptionSliderRow: View {
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var isDragging = false
+    @State private var draftValue: Double = 0
+
+    private static let thumbSize: CGFloat = 26
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        let fillGradient = LinearGradient(
+            colors: [palette.accent.opacity(0.96), palette.accentSecondary.opacity(0.9)],
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+        let thumbGradient = LinearGradient(
+            colors: [
+                palette.textPrimary.opacity(0.98),
+                palette.textPrimary.opacity(0.82)
+            ],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+
+        return VStack(alignment: .leading, spacing: 12) {
             HStack(alignment: .center, spacing: 12) {
                 Text(title)
                     .font(.system(size: 16, weight: .semibold))
@@ -428,8 +445,6 @@ private struct AssumptionSliderRow: View {
                                     .stroke(isDragging ? palette.accent.opacity(0.40) : palette.divider, lineWidth: 1)
                             )
                     )
-                    .contentTransition(reduceMotion ? .opacity : .numericText(value: value))
-                    .animation(reduceMotion ? .easeOut(duration: 0.12) : .snappy(duration: 0.18), value: value)
                     .scaleEffect(isDragging && !reduceMotion ? 1.03 : 1)
             }
 
@@ -442,43 +457,21 @@ private struct AssumptionSliderRow: View {
                         .frame(height: 12)
 
                     Capsule(style: .continuous)
-                        .fill(
-                            LinearGradient(
-                                colors: [palette.accent.opacity(0.96), palette.accentSecondary.opacity(0.9)],
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
+                        .fill(fillGradient)
                         .frame(width: metrics.fillWidth, height: 12)
-                        .overlay(alignment: .trailing) {
-                            Circle()
-                                .fill(.white.opacity(0.32))
-                                .frame(width: 14, height: 14)
-                                .blur(radius: 5)
-                                .opacity(metrics.progress > 0 ? 1 : 0)
-                        }
 
                     Circle()
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    palette.textPrimary.opacity(0.98),
-                                    palette.textPrimary.opacity(0.82)
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
+                        .fill(thumbGradient)
                         .overlay(
                             Circle()
                                 .stroke(.white.opacity(0.22), lineWidth: 1)
                         )
-                        .frame(width: metrics.thumbSize, height: metrics.thumbSize)
-                        .shadow(color: palette.shadow.opacity(isDragging ? 1 : 0.65), radius: isDragging ? 12 : 7, y: isDragging ? 6 : 3)
+                        .frame(width: Self.thumbSize, height: Self.thumbSize)
+                        .shadow(color: palette.shadow.opacity(0.7), radius: 8, y: 4)
                         .offset(x: metrics.thumbOffset)
                         .scaleEffect(isDragging && !reduceMotion ? 1.08 : 1)
                 }
-                .frame(height: metrics.thumbSize)
+                .frame(height: Self.thumbSize)
                 .contentShape(Rectangle())
                 .gesture(
                     DragGesture(minimumDistance: 0)
@@ -488,10 +481,13 @@ private struct AssumptionSliderRow: View {
                                     isDragging = true
                                 }
                             }
-                            updateValue(with: gesture.location.x, width: proxy.size.width)
+                            updateDraft(with: gesture.location.x, width: proxy.size.width)
                         }
                         .onEnded { gesture in
-                            updateValue(with: gesture.location.x, width: proxy.size.width)
+                            updateDraft(with: gesture.location.x, width: proxy.size.width)
+                            if value != draftValue {
+                                value = draftValue
+                            }
                             withAnimation(dragAnimation) {
                                 isDragging = false
                             }
@@ -511,6 +507,12 @@ private struct AssumptionSliderRow: View {
                 )
         )
         .animation(dragAnimation, value: isDragging)
+        .onAppear { draftValue = snappedValue(value) }
+        .onChange(of: value) { _, newValue in
+            if !isDragging {
+                draftValue = snappedValue(newValue)
+            }
+        }
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(title)
         .accessibilityValue(displayValue)
@@ -527,39 +529,42 @@ private struct AssumptionSliderRow: View {
     }
 
     private var displayValue: String {
-        valueFormatter(snappedValue(value))
+        valueFormatter(snappedValue(draftValue))
     }
 
     private var dragAnimation: Animation {
         reduceMotion ? .easeOut(duration: 0.16) : .spring(response: 0.24, dampingFraction: 0.82)
     }
 
-    private func sliderMetrics(for width: CGFloat) -> (progress: CGFloat, fillWidth: CGFloat, thumbOffset: CGFloat, thumbSize: CGFloat) {
-        let thumbSize: CGFloat = isDragging ? 28 : 24
-        let usableWidth = max(width - thumbSize, 1)
+    private func sliderMetrics(for width: CGFloat) -> (progress: CGFloat, fillWidth: CGFloat, thumbOffset: CGFloat) {
+        let usableWidth = max(width - Self.thumbSize, 1)
         let progress = CGFloat(normalizedProgress)
         let thumbOffset = usableWidth * progress
-        let fillWidth = max(thumbSize / 2, thumbOffset + thumbSize / 2)
-        return (progress, fillWidth, thumbOffset, thumbSize)
+        let fillWidth = max(Self.thumbSize / 2, thumbOffset + Self.thumbSize / 2)
+        return (progress, fillWidth, thumbOffset)
     }
 
     private var normalizedProgress: Double {
         let distance = range.upperBound - range.lowerBound
         guard distance > 0 else { return 0 }
-        return min(max((snappedValue(value) - range.lowerBound) / distance, 0), 1)
+        return min(max((snappedValue(draftValue) - range.lowerBound) / distance, 0), 1)
     }
 
-    private func updateValue(with locationX: CGFloat, width: CGFloat) {
-        let thumbSize: CGFloat = isDragging ? 28 : 24
-        let usableWidth = max(width - thumbSize, 1)
-        let adjustedX = min(max(locationX - thumbSize / 2, 0), usableWidth)
+    private func updateDraft(with locationX: CGFloat, width: CGFloat) {
+        let usableWidth = max(width - Self.thumbSize, 1)
+        let adjustedX = min(max(locationX - Self.thumbSize / 2, 0), usableWidth)
         let progress = adjustedX / usableWidth
         let rawValue = range.lowerBound + Double(progress) * (range.upperBound - range.lowerBound)
-        value = snappedValue(rawValue)
+        let snapped = snappedValue(rawValue)
+        if draftValue != snapped {
+            draftValue = snapped
+        }
     }
 
     private func adjustValue(by delta: Double) {
-        value = snappedValue(value + delta)
+        let next = snappedValue(draftValue + delta)
+        draftValue = next
+        value = next
     }
 
     private func snappedValue(_ rawValue: Double) -> Double {
