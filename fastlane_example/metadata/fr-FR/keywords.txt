@@ -1,1 +1,0 @@
-battements,jalons,âge,calculateur,compteur,chronologie,souffles,secondes,naissance,pas,jours,lune

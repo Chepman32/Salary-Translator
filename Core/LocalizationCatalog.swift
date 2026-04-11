@@ -4,7 +4,8 @@ enum LocalizationCatalog {
     static let supplementalTranslations: [String: [String: String]] = [
         "en": [
             "settings.language": "Language",
-            "settings.language.system": "System"
+            "settings.language.system": "System",
+            "assumptions.paychecks_per_year_label": "Paychecks per year"
         ],
         "ru": [
             "settings.language": "Язык",
@@ -180,6 +181,7 @@ enum LocalizationCatalog {
             "assumptions.hours_per_week": "Часов в неделю",
             "assumptions.weeks_per_year": "Недель в году",
             "assumptions.paychecks_per_year": "Выплат в год: %@",
+            "assumptions.paychecks_per_year_label": "Выплат в год",
             "assumptions.work_schedule": "График работы",
             "assumptions.monthly_rent": "Аренда в месяц",
             "assumptions.comparator_salary": "Годовая зарплата для сравнения",

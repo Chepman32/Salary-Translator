@@ -1,1 +1,0 @@
-batimentos,marcos,idade,calculadora,contador,cronologia,respirações,segundos,nascimento,passos,dias,lua

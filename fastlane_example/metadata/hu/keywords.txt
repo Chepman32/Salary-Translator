@@ -1,1 +1,0 @@
-szívdobbanások,mérföldkövek,életkor,számológép,számláló,idővonal,légzések,másodpercek,születés,lépések,napok,hold

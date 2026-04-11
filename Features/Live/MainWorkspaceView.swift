@@ -329,10 +329,39 @@ struct AssumptionsEditorView: View {
             }
 
             GroupBox {
-                VStack(spacing: 14) {
-                    labeledStepper(title: L10n.s("assumptions.hours_per_week", "Hours per week"), value: $scenario.workHoursPerWeek, in: 10...80, step: 1)
-                    labeledStepper(title: L10n.s("assumptions.weeks_per_year", "Weeks per year"), value: $scenario.workWeeksPerYear, in: 20...52, step: 1)
-                    Stepper(L10n.f("assumptions.paychecks_per_year", "Paychecks per year: %@", "\(scenario.paychecksPerYear)"), value: $scenario.paychecksPerYear, in: 1...52)
+                VStack(spacing: 12) {
+                    AssumptionSliderRow(
+                        title: L10n.s("assumptions.hours_per_week", "Hours per week"),
+                        value: $scenario.workHoursPerWeek,
+                        range: 10...80,
+                        step: 1,
+                        palette: palette
+                    ) { value in
+                        EarnzaFormatters.decimal(value, fractionDigits: 0)
+                    }
+
+                    AssumptionSliderRow(
+                        title: L10n.s("assumptions.weeks_per_year", "Weeks per year"),
+                        value: $scenario.workWeeksPerYear,
+                        range: 20...52,
+                        step: 1,
+                        palette: palette
+                    ) { value in
+                        EarnzaFormatters.decimal(value, fractionDigits: 0)
+                    }
+
+                    AssumptionSliderRow(
+                        title: L10n.s("assumptions.paychecks_per_year_label", "Paychecks per year"),
+                        value: Binding(
+                            get: { Double(scenario.paychecksPerYear) },
+                            set: { scenario.paychecksPerYear = Int($0.rounded()) }
+                        ),
+                        range: 1...52,
+                        step: 1,
+                        palette: palette
+                    ) { value in
+                        "\(Int(value.rounded()))"
+                    }
                 }
             } label: {
                 Text(L10n.s("assumptions.work_schedule", "Work Schedule"))
@@ -362,14 +391,182 @@ struct AssumptionsEditorView: View {
             }
         }
     }
+}
 
-    private func labeledStepper(title: String, value: Binding<Double>, in range: ClosedRange<Double>, step: Double) -> some View {
-        Stepper {
-            Text("\(title): \(EarnzaFormatters.decimal(value.wrappedValue, fractionDigits: 0))")
-        } onIncrement: {
-            value.wrappedValue = min(range.upperBound, value.wrappedValue + step)
-        } onDecrement: {
-            value.wrappedValue = max(range.lowerBound, value.wrappedValue - step)
+private struct AssumptionSliderRow: View {
+    let title: String
+    @Binding var value: Double
+    let range: ClosedRange<Double>
+    let step: Double
+    let palette: ThemePalette
+    let valueFormatter: (Double) -> String
+
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var isDragging = false
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(alignment: .center, spacing: 12) {
+                Text(title)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(palette.textPrimary)
+                    .lineLimit(2)
+
+                Spacer(minLength: 12)
+
+                Text(displayValue)
+                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                    .monospacedDigit()
+                    .foregroundStyle(isDragging ? palette.textPrimary : palette.textSecondary)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(
+                        Capsule(style: .continuous)
+                            .fill(isDragging ? palette.accent.opacity(0.20) : palette.cardFill)
+                            .overlay(
+                                Capsule(style: .continuous)
+                                    .stroke(isDragging ? palette.accent.opacity(0.40) : palette.divider, lineWidth: 1)
+                            )
+                    )
+                    .contentTransition(reduceMotion ? .opacity : .numericText(value: value))
+                    .animation(reduceMotion ? .easeOut(duration: 0.12) : .snappy(duration: 0.18), value: value)
+                    .scaleEffect(isDragging && !reduceMotion ? 1.03 : 1)
+            }
+
+            GeometryReader { proxy in
+                let metrics = sliderMetrics(for: proxy.size.width)
+
+                ZStack(alignment: .leading) {
+                    Capsule(style: .continuous)
+                        .fill(palette.divider.opacity(0.42))
+                        .frame(height: 12)
+
+                    Capsule(style: .continuous)
+                        .fill(
+                            LinearGradient(
+                                colors: [palette.accent.opacity(0.96), palette.accentSecondary.opacity(0.9)],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .frame(width: metrics.fillWidth, height: 12)
+                        .overlay(alignment: .trailing) {
+                            Circle()
+                                .fill(.white.opacity(0.32))
+                                .frame(width: 14, height: 14)
+                                .blur(radius: 5)
+                                .opacity(metrics.progress > 0 ? 1 : 0)
+                        }
+
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    palette.textPrimary.opacity(0.98),
+                                    palette.textPrimary.opacity(0.82)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .overlay(
+                            Circle()
+                                .stroke(.white.opacity(0.22), lineWidth: 1)
+                        )
+                        .frame(width: metrics.thumbSize, height: metrics.thumbSize)
+                        .shadow(color: palette.shadow.opacity(isDragging ? 1 : 0.65), radius: isDragging ? 12 : 7, y: isDragging ? 6 : 3)
+                        .offset(x: metrics.thumbOffset)
+                        .scaleEffect(isDragging && !reduceMotion ? 1.08 : 1)
+                }
+                .frame(height: metrics.thumbSize)
+                .contentShape(Rectangle())
+                .gesture(
+                    DragGesture(minimumDistance: 0)
+                        .onChanged { gesture in
+                            if !isDragging {
+                                withAnimation(dragAnimation) {
+                                    isDragging = true
+                                }
+                            }
+                            updateValue(with: gesture.location.x, width: proxy.size.width)
+                        }
+                        .onEnded { gesture in
+                            updateValue(with: gesture.location.x, width: proxy.size.width)
+                            withAnimation(dragAnimation) {
+                                isDragging = false
+                            }
+                        }
+                )
+            }
+            .frame(height: 30)
         }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 14)
+        .background(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .fill(isDragging ? palette.cardFill.opacity(1.18) : palette.cardFill)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .stroke(isDragging ? palette.accent.opacity(0.24) : palette.divider, lineWidth: 1)
+                )
+        )
+        .animation(dragAnimation, value: isDragging)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(title)
+        .accessibilityValue(displayValue)
+        .accessibilityAdjustableAction { direction in
+            switch direction {
+            case .increment:
+                adjustValue(by: step)
+            case .decrement:
+                adjustValue(by: -step)
+            @unknown default:
+                break
+            }
+        }
+    }
+
+    private var displayValue: String {
+        valueFormatter(snappedValue(value))
+    }
+
+    private var dragAnimation: Animation {
+        reduceMotion ? .easeOut(duration: 0.16) : .spring(response: 0.24, dampingFraction: 0.82)
+    }
+
+    private func sliderMetrics(for width: CGFloat) -> (progress: CGFloat, fillWidth: CGFloat, thumbOffset: CGFloat, thumbSize: CGFloat) {
+        let thumbSize: CGFloat = isDragging ? 28 : 24
+        let usableWidth = max(width - thumbSize, 1)
+        let progress = CGFloat(normalizedProgress)
+        let thumbOffset = usableWidth * progress
+        let fillWidth = max(thumbSize / 2, thumbOffset + thumbSize / 2)
+        return (progress, fillWidth, thumbOffset, thumbSize)
+    }
+
+    private var normalizedProgress: Double {
+        let distance = range.upperBound - range.lowerBound
+        guard distance > 0 else { return 0 }
+        return min(max((snappedValue(value) - range.lowerBound) / distance, 0), 1)
+    }
+
+    private func updateValue(with locationX: CGFloat, width: CGFloat) {
+        let thumbSize: CGFloat = isDragging ? 28 : 24
+        let usableWidth = max(width - thumbSize, 1)
+        let adjustedX = min(max(locationX - thumbSize / 2, 0), usableWidth)
+        let progress = adjustedX / usableWidth
+        let rawValue = range.lowerBound + Double(progress) * (range.upperBound - range.lowerBound)
+        value = snappedValue(rawValue)
+    }
+
+    private func adjustValue(by delta: Double) {
+        value = snappedValue(value + delta)
+    }
+
+    private func snappedValue(_ rawValue: Double) -> Double {
+        let clampedValue = min(max(rawValue, range.lowerBound), range.upperBound)
+        guard step > 0 else { return clampedValue }
+
+        let steppedValue = ((clampedValue - range.lowerBound) / step).rounded() * step + range.lowerBound
+        return min(max(steppedValue, range.lowerBound), range.upperBound)
     }
 }
