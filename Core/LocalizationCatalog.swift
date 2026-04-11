@@ -5,7 +5,14 @@ enum LocalizationCatalog {
         "en": [
             "settings.language": "Language",
             "settings.language.system": "System",
-            "assumptions.paychecks_per_year_label": "Paychecks per year"
+            "assumptions.paychecks_per_year_label": "Paychecks per year",
+            "common.ok": "OK",
+            "objects.custom.image_picker": "Choose image",
+            "objects.custom.change_image": "Change image",
+            "objects.custom.image_hint": "Pick a photo from your library. It will be cropped into a square icon.",
+            "objects.custom.image_error_title": "Image unavailable",
+            "objects.custom.image_error": "Couldn't load this image. Try a different photo.",
+            "objects.custom.save_error": "Couldn't save this image on your device."
         ],
         "ru": [
             "settings.language": "Язык",
@@ -68,6 +75,7 @@ enum LocalizationCatalog {
             "common.price_value": "Цена: %@",
             "common.share_card": "Поделиться карточкой",
             "common.currency": "Валюта",
+            "common.ok": "ОК",
             "share.default.subtitle": "Столько вы зарабатываете за минуту.",
             "share.default.hourly_pace": "Темп в час: %@",
             "share.default.monthly_pace": "Темп в месяц: %@",
@@ -109,6 +117,12 @@ enum LocalizationCatalog {
             "objects.custom.name": "Название",
             "objects.custom.price": "Цена",
             "objects.custom.sf_symbol": "SF Symbol",
+            "objects.custom.image_picker": "Выбрать изображение",
+            "objects.custom.change_image": "Сменить изображение",
+            "objects.custom.image_hint": "Фото возьмётся из медиатеки и будет обрезано до квадратной иконки.",
+            "objects.custom.image_error_title": "Изображение недоступно",
+            "objects.custom.image_error": "Не удалось загрузить это изображение. Попробуйте другое фото.",
+            "objects.custom.save_error": "Не удалось сохранить изображение на устройстве.",
             "objects.custom.save": "Сохранить объект",
             "objects.custom.default_name": "Свой объект",
             "objects.custom.supporting_line": "Пользовательский ориентир для сравнения с зарплатой.",

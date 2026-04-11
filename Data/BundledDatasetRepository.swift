@@ -66,6 +66,7 @@ final class BundledDatasetRepository: DatasetRepository {
             localizedName: L10n.bundledObjectName(id: object.id, fallback: object.localizedName),
             category: object.category,
             iconName: object.iconName,
+            customImageFileName: object.customImageFileName,
             defaultPrice: object.defaultPrice,
             currencyCode: object.currencyCode,
             editableByUser: object.editableByUser,

@@ -1,4 +1,6 @@
+import PhotosUI
 import SwiftUI
+import UIKit
 
 private enum ObjectDisplayMode: String, CaseIterable, Identifiable {
     case earn
@@ -57,9 +59,17 @@ struct ObjectsCanvasView: View {
                 GlassCard(palette: palette, padding: 22) {
                     VStack(alignment: .leading, spacing: 14) {
                         HStack {
-                            Label(featuredInsight.preset.localizedName, systemImage: featuredInsight.preset.iconName)
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundStyle(palette.textPrimary)
+                            HStack(spacing: 10) {
+                                ObjectIconView(
+                                    symbolName: featuredInsight.preset.iconName,
+                                    customImageFileName: featuredInsight.preset.customImageFileName,
+                                    palette: palette
+                                )
+
+                                Text(featuredInsight.preset.localizedName)
+                            }
+                            .font(.system(size: 16, weight: .semibold))
+                            .foregroundStyle(palette.textPrimary)
                             Spacer()
                             Button(L10n.s("common.share", "Share")) {
                                 onShare(snapshot(for: featuredInsight))
@@ -82,7 +92,7 @@ struct ObjectsCanvasView: View {
             }
 
             Picker(L10n.s("objects.mode", "Mode"), selection: $displayMode) {
-                ForEach(ObjectDisplayMode.allCases) { mode in
+                ForEach([ObjectDisplayMode.work, .earn], id: \.self) { mode in
                     Text(mode.title).tag(mode)
                 }
             }
@@ -127,8 +137,16 @@ struct ObjectsCanvasView: View {
                     GlassCard(palette: palette, padding: 16) {
                         VStack(alignment: .leading, spacing: 12) {
                             HStack {
-                                Label(insight.preset.localizedName, systemImage: insight.preset.iconName)
-                                    .font(.system(size: 16, weight: .semibold))
+                                HStack(spacing: 10) {
+                                    ObjectIconView(
+                                        symbolName: insight.preset.iconName,
+                                        customImageFileName: insight.preset.customImageFileName,
+                                        palette: palette
+                                    )
+
+                                    Text(insight.preset.localizedName)
+                                }
+                                .font(.system(size: 16, weight: .semibold))
                                 Spacer()
                                 Text(EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode, maximumFractionDigits: 0))
                                     .font(.system(size: 13, weight: .semibold, design: .monospaced))
@@ -175,7 +193,13 @@ struct ObjectsCanvasView: View {
         .padding(.bottom, 30)
         .sheet(isPresented: $showingCustomObjectEditor) {
             CustomObjectEditorView(palette: palette) { newObject in
-                settings.customObjects.append(newObject)
+                var customObjects = settings.customObjects
+                customObjects.append(newObject)
+                settings.customObjects = customObjects
+
+                withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
+                    selectedCategory = .custom
+                }
             }
         }
     }
@@ -234,7 +258,8 @@ struct ObjectsCanvasView: View {
                 salaryEngine.humanWorkDescription(hours: insight.workHours)
             ],
             symbolName: insight.preset.iconName,
-            theme: scenario.selectedTheme
+            theme: scenario.selectedTheme,
+            customImageFileName: insight.preset.customImageFileName
         )
     }
 }
@@ -246,10 +271,71 @@ private struct CustomObjectEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var name = ""
     @State private var price = 0.0
-    @State private var symbolName = "shippingbox"
+    @State private var showingImagePicker = false
+    @State private var selectedPhotoItem: PhotosPickerItem?
+    @State private var selectedImageData: Data?
+    @State private var previewImage: UIImage?
+    @State private var isLoadingImage = false
+    @State private var errorMessage: String?
 
     var body: some View {
         BottomSheetEditor(title: L10n.s("objects.custom.title", "Custom Object"), palette: palette) {
+            Button {
+                showingImagePicker = true
+            } label: {
+                VStack(alignment: .leading, spacing: 12) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 22, style: .continuous)
+                            .fill(palette.cardFill)
+
+                        if let previewImage {
+                            Image(uiImage: previewImage)
+                                .resizable()
+                                .scaledToFill()
+                        } else {
+                            VStack(spacing: 12) {
+                                Image(systemName: "photo.badge.plus")
+                                    .font(.system(size: 26, weight: .semibold))
+                                    .foregroundStyle(palette.accent)
+
+                                Text(L10n.s("objects.custom.image_picker", "Choose image"))
+                                    .font(.system(size: 17, weight: .semibold))
+                                    .foregroundStyle(palette.textPrimary)
+
+                                Text(L10n.s("objects.custom.image_hint", "Pick a photo from your library. It will be cropped into a square icon."))
+                                    .font(.system(size: 13, weight: .medium))
+                                    .multilineTextAlignment(.center)
+                                    .foregroundStyle(palette.textSecondary)
+                                    .padding(.horizontal, 18)
+                            }
+                        }
+                    }
+                    .frame(height: 180)
+                    .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 22, style: .continuous)
+                            .stroke(palette.divider, lineWidth: 1)
+                    )
+
+                    HStack {
+                        Text(previewImage == nil ? L10n.s("objects.custom.image_picker", "Choose image") : L10n.s("objects.custom.change_image", "Change image"))
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundStyle(palette.textPrimary)
+                        Spacer()
+                        if isLoadingImage {
+                            ProgressView()
+                                .tint(palette.accent)
+                        } else {
+                            Image(systemName: "chevron.right")
+                                .font(.system(size: 12, weight: .bold))
+                                .foregroundStyle(palette.textSecondary)
+                        }
+                    }
+                }
+            }
+            .buttonStyle(.plain)
+            .photosPicker(isPresented: $showingImagePicker, selection: $selectedPhotoItem, matching: .images)
+
             TextField(L10n.s("objects.custom.name", "Name"), text: $name)
                 .textFieldStyle(.roundedBorder)
 
@@ -257,26 +343,75 @@ private struct CustomObjectEditorView: View {
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.decimalPad)
 
-            TextField(L10n.s("objects.custom.sf_symbol", "SF Symbol"), text: $symbolName)
-                .textFieldStyle(.roundedBorder)
-
             Button(L10n.s("objects.custom.save", "Save Object")) {
-                let object = ObjectPreset(
-                    id: UUID().uuidString,
-                    localizedName: name.isEmpty ? L10n.s("objects.custom.default_name", "Custom Object") : name,
-                    category: .custom,
-                    iconName: symbolName.isEmpty ? "shippingbox" : symbolName,
-                    defaultPrice: price,
-                    currencyCode: "USD",
-                    editableByUser: true,
-                    sharePriority: 2,
-                    supportingLine: L10n.s("objects.custom.supporting_line", "User-defined salary benchmark.")
-                )
-                onSave(object)
-                dismiss()
+                saveObject()
             }
             .buttonStyle(.borderedProminent)
             .tint(palette.accent)
+            .disabled(selectedImageData == nil || isLoadingImage)
+        }
+        .task(id: selectedPhotoItem) {
+            await loadSelectedImage()
+        }
+        .alert(
+            L10n.s("objects.custom.image_error_title", "Image unavailable"),
+            isPresented: Binding(
+                get: { errorMessage != nil },
+                set: { if !$0 { errorMessage = nil } }
+            )
+        ) {
+            Button(L10n.s("common.ok", "OK"), role: .cancel) {
+                errorMessage = nil
+            }
+        } message: {
+            Text(errorMessage ?? "")
+        }
+    }
+
+    @MainActor
+    private func loadSelectedImage() async {
+        guard let selectedPhotoItem else { return }
+        isLoadingImage = true
+        defer { isLoadingImage = false }
+
+        do {
+            guard let data = try await selectedPhotoItem.loadTransferable(type: Data.self),
+                  let image = UIImage(data: data)
+            else {
+                errorMessage = L10n.s("objects.custom.image_error", "Couldn't load this image. Try a different photo.")
+                return
+            }
+
+            selectedImageData = data
+            previewImage = image
+        } catch {
+            errorMessage = L10n.s("objects.custom.image_error", "Couldn't load this image. Try a different photo.")
+        }
+    }
+
+    private func saveObject() {
+        guard let selectedImageData else { return }
+
+        let objectID = UUID().uuidString
+
+        do {
+            let fileName = try CustomObjectImageStore.saveImageData(selectedImageData, id: objectID)
+            let object = ObjectPreset(
+                id: objectID,
+                localizedName: name.isEmpty ? L10n.s("objects.custom.default_name", "Custom Object") : name,
+                category: .custom,
+                iconName: "shippingbox",
+                customImageFileName: fileName,
+                defaultPrice: price,
+                currencyCode: "USD",
+                editableByUser: true,
+                sharePriority: 2,
+                supportingLine: L10n.s("objects.custom.supporting_line", "User-defined salary benchmark.")
+            )
+            onSave(object)
+            dismiss()
+        } catch {
+            errorMessage = L10n.s("objects.custom.save_error", "Couldn't save this image on your device.")
         }
     }
 }

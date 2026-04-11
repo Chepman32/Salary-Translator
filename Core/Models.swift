@@ -332,6 +332,7 @@ struct ObjectPreset: Codable, Identifiable, Hashable {
     let localizedName: String
     let category: ObjectCategory
     let iconName: String
+    var customImageFileName: String? = nil
     let defaultPrice: Double
     let currencyCode: String
     let editableByUser: Bool
@@ -396,6 +397,7 @@ struct ShareSnapshot: Identifiable, Hashable {
     let details: [String]
     let symbolName: String
     let theme: ThemeStyle
+    var customImageFileName: String? = nil
 }
 
 @Model

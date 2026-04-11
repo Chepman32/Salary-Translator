@@ -1,4 +1,91 @@
+import Foundation
 import SwiftUI
+import UIKit
+
+enum CustomObjectImageStore {
+    private static let directoryName = "CustomObjectImages"
+
+    static func saveImageData(_ data: Data, id: String) throws -> String {
+        guard let normalizedData = normalizedSquareImageData(from: data) else {
+            throw CocoaError(.coderReadCorrupt)
+        }
+
+        let fileName = "\(id).png"
+        let url = try directoryURL().appendingPathComponent(fileName, isDirectory: false)
+        try normalizedData.write(to: url, options: .atomic)
+        return fileName
+    }
+
+    static func image(named fileName: String?) -> UIImage? {
+        guard let fileName, let url = try? directoryURL().appendingPathComponent(fileName, isDirectory: false) else {
+            return nil
+        }
+        return UIImage(contentsOfFile: url.path)
+    }
+
+    private static func directoryURL() throws -> URL {
+        let fileManager = FileManager.default
+        let baseURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first ?? fileManager.temporaryDirectory
+        let directoryURL = baseURL.appendingPathComponent(directoryName, isDirectory: true)
+
+        if !fileManager.fileExists(atPath: directoryURL.path) {
+            try fileManager.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+        }
+
+        return directoryURL
+    }
+
+    private static func normalizedSquareImageData(from data: Data) -> Data? {
+        guard let image = UIImage(data: data) else { return nil }
+
+        let targetSize = CGSize(width: 512, height: 512)
+        let scale = max(targetSize.width / image.size.width, targetSize.height / image.size.height)
+        let drawSize = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+        let drawOrigin = CGPoint(
+            x: (targetSize.width - drawSize.width) / 2,
+            y: (targetSize.height - drawSize.height) / 2
+        )
+
+        let format = UIGraphicsImageRendererFormat.default()
+        format.scale = 1
+        format.opaque = false
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize, format: format)
+        return renderer.pngData { _ in
+            image.draw(in: CGRect(origin: drawOrigin, size: drawSize))
+        }
+    }
+}
+
+struct ObjectIconView: View {
+    let symbolName: String
+    let customImageFileName: String?
+    let palette: ThemePalette
+    var size: CGFloat = 26
+
+    var body: some View {
+        ZStack {
+            if let uiImage = CustomObjectImageStore.image(named: customImageFileName) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+            } else {
+                RoundedRectangle(cornerRadius: size * 0.32, style: .continuous)
+                    .fill(palette.accent.opacity(0.14))
+
+                Image(systemName: symbolName)
+                    .font(.system(size: size * 0.58, weight: .semibold))
+                    .foregroundStyle(palette.accent)
+            }
+        }
+        .frame(width: size, height: size)
+        .clipShape(RoundedRectangle(cornerRadius: size * 0.32, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: size * 0.32, style: .continuous)
+                .stroke(palette.divider, lineWidth: 1)
+        )
+    }
+}
 
 struct GlassCard<Content: View>: View {
     let palette: ThemePalette

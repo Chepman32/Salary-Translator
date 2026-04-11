@@ -36,7 +36,15 @@ struct WorkCanvasView: View {
                 GlassCard(palette: palette, padding: 22) {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack {
-                            Label(selectedInsight.preset.localizedName, systemImage: selectedInsight.preset.iconName)
+                            HStack(spacing: 10) {
+                                ObjectIconView(
+                                    symbolName: selectedInsight.preset.iconName,
+                                    customImageFileName: selectedInsight.preset.customImageFileName,
+                                    palette: palette
+                                )
+
+                                Text(selectedInsight.preset.localizedName)
+                            }
                             Spacer()
                             Button(L10n.s("common.share", "Share")) {
                                 onShare(snapshot(for: selectedInsight))
@@ -128,7 +136,8 @@ struct WorkCanvasView: View {
                 L10n.f("common.price_value", "Price: %@", EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode))
             ],
             symbolName: insight.preset.iconName,
-            theme: scenario.selectedTheme
+            theme: scenario.selectedTheme,
+            customImageFileName: insight.preset.customImageFileName
         )
     }
 }

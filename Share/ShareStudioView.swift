@@ -1,5 +1,4 @@
 import SwiftUI
-import UIKit
 
 struct ShareStudioView: View {
     let snapshot: ShareSnapshot
@@ -77,8 +76,17 @@ struct SharePreviewCard: View {
         GlassCard(palette: palette, padding: 26) {
             VStack(alignment: .leading, spacing: 18) {
                 HStack {
-                    Label("Earnza", systemImage: snapshot.symbolName)
-                        .font(.system(size: 15, weight: .semibold))
+                    HStack(spacing: 10) {
+                        ObjectIconView(
+                            symbolName: snapshot.symbolName,
+                            customImageFileName: snapshot.customImageFileName,
+                            palette: palette,
+                            size: 22
+                        )
+
+                        Text("Earnza")
+                    }
+                    .font(.system(size: 15, weight: .semibold))
                     Spacer()
                     Text(template.title)
                         .font(.system(size: 12, weight: .medium))
