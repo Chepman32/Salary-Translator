@@ -27,10 +27,16 @@ struct ObjectsCanvasView: View {
     @State private var selectedCategory: ObjectCategory = .food
     @State private var displayMode: ObjectDisplayMode = .earn
     @State private var showingCustomObjectEditor = false
+    @State private var showingCustomObjectManager = false
+    @State private var editingCustomObject: ObjectPreset?
 
     private var objects: [ObjectPreset] {
         (repository.objectCatalog + settings.customObjects)
             .filter { !scenario.hiddenObjectIDs.contains($0.id) }
+    }
+
+    private var isCustomCategorySelected: Bool {
+        selectedCategory == .custom
     }
 
     private var filteredInsights: [ObjectInsight] {
@@ -98,12 +104,10 @@ struct ObjectsCanvasView: View {
             }
             .pickerStyle(.segmented)
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8) {
-                    ForEach(ObjectCategory.allCases) { category in
-                        Button {
-                            selectedCategory = category
-                        } label: {
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 8) {
+                        ForEach(ObjectCategory.allCases) { category in
                             Text(category.title)
                                 .font(.system(size: 13, weight: .semibold))
                                 .foregroundStyle(category == selectedCategory ? palette.textPrimary : palette.textSecondary)
@@ -117,20 +121,49 @@ struct ObjectsCanvasView: View {
                                                 .stroke(category == selectedCategory ? palette.accent.opacity(0.35) : palette.divider, lineWidth: 1)
                                         )
                                 )
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
+                                        selectedCategory = category
+                                        proxy.scrollTo(category.id, anchor: .center)
+                                    }
+                                }
+                                .id(category.id)
                         }
-                        .buttonStyle(.plain)
+                    }
+                    .padding(.horizontal, 1)
+                    .padding(.trailing, 20)
+                }
+                .onChange(of: selectedCategory) { _, category in
+                    withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
+                        proxy.scrollTo(category.id, anchor: .center)
                     }
                 }
             }
 
-            Button {
-                showingCustomObjectEditor = true
-            } label: {
-                Label(L10n.s("objects.add_custom", "Add Custom Object"), systemImage: "plus.circle")
-                    .font(.system(size: 14, weight: .semibold))
-                    .foregroundStyle(palette.textPrimary)
+            HStack(spacing: 12) {
+                Button {
+                    showingCustomObjectEditor = true
+                } label: {
+                    Label(L10n.s("objects.add_custom", "Add Custom Object"), systemImage: "plus.circle")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(palette.textPrimary)
+                }
+                .buttonStyle(.plain)
+
+                if isCustomCategorySelected, !settings.customObjects.isEmpty {
+                    Spacer()
+
+                    Button {
+                        showingCustomObjectManager = true
+                    } label: {
+                        Label(L10n.s("common.edit", "Edit"), systemImage: "pencil")
+                            .font(.system(size: 14, weight: .semibold))
+                            .foregroundStyle(palette.accent)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
-            .buttonStyle(.plain)
 
             LazyVStack(spacing: 12) {
                 ForEach(filteredInsights) { insight in
@@ -148,8 +181,29 @@ struct ObjectsCanvasView: View {
                                 }
                                 .font(.system(size: 16, weight: .semibold))
                                 Spacer()
-                                Text(EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode, maximumFractionDigits: 0))
-                                    .font(.system(size: 13, weight: .semibold, design: .monospaced))
+
+                                HStack(spacing: 10) {
+                                    Text(EarnzaFormatters.currency(insight.priceInScenarioCurrency, code: scenario.currencyCode, maximumFractionDigits: 0))
+                                        .font(.system(size: 13, weight: .semibold, design: .monospaced))
+
+                                    if isCustomCategorySelected, insight.preset.editableByUser {
+                                        Button {
+                                            editingCustomObject = insight.preset
+                                        } label: {
+                                            Image(systemName: "pencil")
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundStyle(palette.accent)
+                                                .padding(8)
+                                                .background(
+                                                    Circle()
+                                                        .fill(palette.cardFill)
+                                                        .overlay(Circle().stroke(palette.divider, lineWidth: 1))
+                                                )
+                                        }
+                                        .buttonStyle(.plain)
+                                        .accessibilityLabel(L10n.s("common.edit", "Edit"))
+                                    }
+                                }
                             }
                             .foregroundStyle(palette.textPrimary)
 
@@ -193,14 +247,21 @@ struct ObjectsCanvasView: View {
         .padding(.bottom, 30)
         .sheet(isPresented: $showingCustomObjectEditor) {
             CustomObjectEditorView(palette: palette) { newObject in
-                var customObjects = settings.customObjects
-                customObjects.append(newObject)
-                settings.customObjects = customObjects
-
-                withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
-                    selectedCategory = .custom
-                }
+                upsertCustomObject(newObject)
             }
+        }
+        .sheet(item: $editingCustomObject) { object in
+            CustomObjectEditorView(palette: palette, object: object) { updatedObject in
+                upsertCustomObject(updatedObject)
+            }
+        }
+        .sheet(isPresented: $showingCustomObjectManager) {
+            CustomObjectManagerView(
+                palette: palette,
+                objects: settings.customObjects,
+                onMove: moveCustomObjects,
+                onDelete: deleteCustomObjects
+            )
         }
     }
 
@@ -247,6 +308,62 @@ struct ObjectsCanvasView: View {
         }
     }
 
+    private func upsertCustomObject(_ object: ObjectPreset) {
+        var customObjects = settings.customObjects
+
+        if let index = customObjects.firstIndex(where: { $0.id == object.id }) {
+            customObjects[index] = object
+        } else {
+            customObjects.append(object)
+        }
+
+        settings.customObjects = customObjects
+
+        withAnimation(.spring(response: 0.34, dampingFraction: 0.84)) {
+            selectedCategory = .custom
+        }
+    }
+
+    private func moveCustomObjects(from source: IndexSet, to destination: Int) {
+        var customObjects = settings.customObjects
+        customObjects.move(fromOffsets: source, toOffset: destination)
+        settings.customObjects = customObjects
+    }
+
+    private func deleteCustomObjects(at offsets: IndexSet) {
+        var customObjects = settings.customObjects
+        let removedObjects = offsets.map { customObjects[$0] }
+        customObjects.remove(atOffsets: offsets)
+        settings.customObjects = customObjects
+        cleanupRemovedCustomObjects(removedObjects)
+    }
+
+    private func cleanupRemovedCustomObjects(_ removedObjects: [ObjectPreset]) {
+        guard !removedObjects.isEmpty else { return }
+
+        let removedIDs = Set(removedObjects.map(\.id))
+        let originalFavorites = scenario.favoriteObjectIDs
+        let originalHidden = scenario.hiddenObjectIDs
+        let filteredFavorites = originalFavorites.filter { !removedIDs.contains($0) }
+        let filteredHidden = originalHidden.filter { !removedIDs.contains($0) }
+
+        removedObjects.forEach { object in
+            CustomObjectImageStore.deleteImage(named: object.customImageFileName)
+        }
+
+        if filteredFavorites != originalFavorites {
+            scenario.favoriteObjectIDs = filteredFavorites
+        }
+
+        if filteredHidden != originalHidden {
+            scenario.hiddenObjectIDs = filteredHidden
+        }
+
+        if filteredFavorites != originalFavorites || filteredHidden != originalHidden {
+            scenario.touch()
+        }
+    }
+
     private func snapshot(for insight: ObjectInsight) -> ShareSnapshot {
         ShareSnapshot(
             title: insight.preset.localizedName,
@@ -264,13 +381,74 @@ struct ObjectsCanvasView: View {
     }
 }
 
+private struct CustomObjectManagerView: View {
+    let palette: ThemePalette
+    let objects: [ObjectPreset]
+    let onMove: (IndexSet, Int) -> Void
+    let onDelete: (IndexSet) -> Void
+
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            List {
+                Section {
+                    ForEach(objects) { object in
+                        HStack(spacing: 12) {
+                            ObjectIconView(
+                                symbolName: object.iconName,
+                                customImageFileName: object.customImageFileName,
+                                palette: palette,
+                                size: 36
+                            )
+
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text(object.localizedName)
+                                    .font(.system(size: 16, weight: .semibold))
+                                    .foregroundStyle(palette.textPrimary)
+
+                                Text(EarnzaFormatters.currency(object.defaultPrice, code: object.currencyCode, maximumFractionDigits: 0))
+                                    .font(.system(size: 13, weight: .medium, design: .monospaced))
+                                    .foregroundStyle(palette.textSecondary)
+                            }
+                        }
+                        .padding(.vertical, 4)
+                        .listRowBackground(Color.clear)
+                    }
+                    .onMove(perform: onMove)
+                    .onDelete(perform: onDelete)
+                } footer: {
+                    Text(L10n.s("objects.custom.manage_hint", "Drag to reorder. Swipe left or tap Delete to remove an object."))
+                        .foregroundStyle(palette.textSecondary)
+                }
+            }
+            .listStyle(.insetGrouped)
+            .environment(\.editMode, .constant(.active))
+            .scrollContentBackground(.hidden)
+            .background(EarnzaBackground(palette: palette))
+            .navigationTitle(L10n.s("objects.custom.manage_title", "Edit Custom Objects"))
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(L10n.s("common.done", "Done")) {
+                        dismiss()
+                    }
+                }
+            }
+        }
+        .presentationDragIndicator(.visible)
+        .presentationDetents([.medium, .large])
+    }
+}
+
 private struct CustomObjectEditorView: View {
     let palette: ThemePalette
+    let existingObject: ObjectPreset?
     let onSave: (ObjectPreset) -> Void
 
     @Environment(\.dismiss) private var dismiss
-    @State private var name = ""
-    @State private var price = 0.0
+    @State private var name: String
+    @State private var price: Double
     @State private var showingImagePicker = false
     @State private var selectedPhotoItem: PhotosPickerItem?
     @State private var selectedImageData: Data?
@@ -278,8 +456,26 @@ private struct CustomObjectEditorView: View {
     @State private var isLoadingImage = false
     @State private var errorMessage: String?
 
+    init(palette: ThemePalette, object: ObjectPreset? = nil, onSave: @escaping (ObjectPreset) -> Void) {
+        self.palette = palette
+        self.existingObject = object
+        self.onSave = onSave
+        _name = State(initialValue: object?.localizedName ?? "")
+        _price = State(initialValue: object?.defaultPrice ?? 0)
+        _previewImage = State(initialValue: CustomObjectImageStore.image(named: object?.customImageFileName))
+    }
+
+    private var canSave: Bool {
+        (selectedImageData != nil || existingObject?.customImageFileName != nil) && !isLoadingImage
+    }
+
     var body: some View {
-        BottomSheetEditor(title: L10n.s("objects.custom.title", "Custom Object"), palette: palette) {
+        BottomSheetEditor(
+            title: existingObject == nil
+                ? L10n.s("objects.custom.title", "Custom Object")
+                : L10n.s("objects.custom.edit_title", "Edit Object"),
+            palette: palette
+        ) {
             Button {
                 showingImagePicker = true
             } label: {
@@ -343,12 +539,12 @@ private struct CustomObjectEditorView: View {
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.decimalPad)
 
-            Button(L10n.s("objects.custom.save", "Save Object")) {
+            Button(existingObject == nil ? L10n.s("objects.custom.save", "Save Object") : L10n.s("objects.custom.update", "Update Object")) {
                 saveObject()
             }
             .buttonStyle(.borderedProminent)
             .tint(palette.accent)
-            .disabled(selectedImageData == nil || isLoadingImage)
+            .disabled(!canSave)
         }
         .task(id: selectedPhotoItem) {
             await loadSelectedImage()
@@ -390,22 +586,26 @@ private struct CustomObjectEditorView: View {
     }
 
     private func saveObject() {
-        guard let selectedImageData else { return }
-
-        let objectID = UUID().uuidString
+        let objectID = existingObject?.id ?? UUID().uuidString
 
         do {
-            let fileName = try CustomObjectImageStore.saveImageData(selectedImageData, id: objectID)
+            let fileName: String?
+            if let selectedImageData {
+                fileName = try CustomObjectImageStore.saveImageData(selectedImageData, id: objectID)
+            } else {
+                fileName = existingObject?.customImageFileName
+            }
+
             let object = ObjectPreset(
                 id: objectID,
                 localizedName: name.isEmpty ? L10n.s("objects.custom.default_name", "Custom Object") : name,
                 category: .custom,
-                iconName: "shippingbox",
+                iconName: existingObject?.iconName ?? "shippingbox",
                 customImageFileName: fileName,
                 defaultPrice: price,
-                currencyCode: "USD",
+                currencyCode: existingObject?.currencyCode ?? "USD",
                 editableByUser: true,
-                sharePriority: 2,
+                sharePriority: existingObject?.sharePriority ?? 2,
                 supportingLine: L10n.s("objects.custom.supporting_line", "User-defined salary benchmark.")
             )
             onSave(object)

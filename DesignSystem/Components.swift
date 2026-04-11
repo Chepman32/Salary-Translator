@@ -23,6 +23,14 @@ enum CustomObjectImageStore {
         return UIImage(contentsOfFile: url.path)
     }
 
+    static func deleteImage(named fileName: String?) {
+        guard let fileName, let url = try? directoryURL().appendingPathComponent(fileName, isDirectory: false) else {
+            return
+        }
+
+        try? FileManager.default.removeItem(at: url)
+    }
+
     private static func directoryURL() throws -> URL {
         let fileManager = FileManager.default
         let baseURL = fileManager.urls(for: .applicationSupportDirectory, in: .userDomainMask).first ?? fileManager.temporaryDirectory
