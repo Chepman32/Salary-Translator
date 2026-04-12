@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>給料を本当に実感できるものに変えよう。</string>
+	<key>assumptions.title</key>
+	<string>前提条件</string>
+	<key>cities.title</key>
+	<string>同じ給料でも街によってどう変わるかを見る。</string>
+	<key>common.continue</key>
+	<string>続ける</string>
+	<key>common.hide</key>
+	<string>非表示</string>
+	<key>common.share</key>
+	<string>共有</string>
+	<key>common.skip</key>
+	<string>スキップ</string>
+	<key>gap.title</key>
+	<string>ドラマではなく、ペースを比べよう。</string>
+	<key>library.title</key>
+	<string>シナリオライブラリ</string>
+	<key>objects.title</key>
+	<string>給料をリアルなモノに変換する。</string>
+	<key>onboarding.cta.finish</key>
+	<string>給料を変換する</string>
+	<key>salary_input.title</key>
+	<string>あなたの給料を見える化。</string>
+	<key>settings.title</key>
+	<string>設定</string>
+	<key>share.export_card</key>
+	<string>カードを書き出す</string>
+	<key>share.privacy</key>
+	<string>プライバシー</string>
+	<key>share.template</key>
+	<string>テンプレート</string>
+	<key>share.title</key>
+	<string>共有スタジオ</string>
+	<key>work.title</key>
+	<string>働いて得る重みを感じる。</string>
+</dict>
+</plist>

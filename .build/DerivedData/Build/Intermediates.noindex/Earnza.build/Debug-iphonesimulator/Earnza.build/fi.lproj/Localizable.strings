@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Muuta palkka joksikin, jonka voi oikeasti tuntea.</string>
+	<key>assumptions.title</key>
+	<string>Oletukset</string>
+	<key>cities.title</key>
+	<string>Näe, missä sama palkka joustaa eri tavoin.</string>
+	<key>common.continue</key>
+	<string>Jatka</string>
+	<key>common.hide</key>
+	<string>Piilota</string>
+	<key>common.share</key>
+	<string>Jaa</string>
+	<key>common.skip</key>
+	<string>Ohita</string>
+	<key>gap.title</key>
+	<string>Vertaa tahtia, älä draamaa.</string>
+	<key>library.title</key>
+	<string>Skenaariokirjasto</string>
+	<key>objects.title</key>
+	<string>Muuta palkka oikeiksi asioiksi.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Käännä palkkani</string>
+	<key>salary_input.title</key>
+	<string>Palkkasi, käännettynä.</string>
+	<key>settings.title</key>
+	<string>Asetukset</string>
+	<key>share.export_card</key>
+	<string>Vie kortti</string>
+	<key>share.privacy</key>
+	<string>Tietosuoja</string>
+	<key>share.template</key>
+	<string>Malli</string>
+	<key>share.title</key>
+	<string>Jakostudio</string>
+	<key>work.title</key>
+	<string>Tunne työn hinta.</string>
+</dict>
+</plist>

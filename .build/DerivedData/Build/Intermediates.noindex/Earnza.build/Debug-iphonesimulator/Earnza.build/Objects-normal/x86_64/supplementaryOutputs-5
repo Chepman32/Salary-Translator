@@ -1,0 +1,18 @@
+"/Users/antonchepur/Documents/Earnza/Features/Objects/ObjectsCanvasView.swift":
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/ObjectsCanvasView.d"
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/ObjectsCanvasView.swiftconstvalues"
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/ObjectsCanvasView.swiftdeps"
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/ObjectsCanvasView.o"
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/ObjectsCanvasView.dia"
+"/Users/antonchepur/Documents/Earnza/App/EarnzaApp.swift":
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/EarnzaApp.d"
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/EarnzaApp.swiftconstvalues"
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/EarnzaApp.swiftdeps"
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/EarnzaApp.o"
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/EarnzaApp.dia"
+"/Users/antonchepur/Documents/Earnza/Features/Onboarding/OnboardingFlow.swift":
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/OnboardingFlow.swiftdeps"
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/OnboardingFlow.dia"
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/OnboardingFlow.o"
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/OnboardingFlow.d"
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/OnboardingFlow.swiftconstvalues"

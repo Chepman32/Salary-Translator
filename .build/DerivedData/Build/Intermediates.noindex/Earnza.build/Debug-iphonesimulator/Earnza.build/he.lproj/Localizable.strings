@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>הפכו את המשכורת למשהו שאפשר ממש להרגיש.</string>
+	<key>assumptions.title</key>
+	<string>הנחות</string>
+	<key>cities.title</key>
+	<string>ראו איפה אותה משכורת מרגישה אחרת.</string>
+	<key>common.continue</key>
+	<string>המשך</string>
+	<key>common.hide</key>
+	<string>הסתר</string>
+	<key>common.share</key>
+	<string>שתף</string>
+	<key>common.skip</key>
+	<string>דלג</string>
+	<key>gap.title</key>
+	<string>השוו את הקצב, לא את הדרמה.</string>
+	<key>library.title</key>
+	<string>ספריית תרחישים</string>
+	<key>objects.title</key>
+	<string>הפכו משכורת לדברים אמיתיים.</string>
+	<key>onboarding.cta.finish</key>
+	<string>תרגם את המשכורת שלי</string>
+	<key>salary_input.title</key>
+	<string>המשכורת שלך, מתורגמת.</string>
+	<key>settings.title</key>
+	<string>הגדרות</string>
+	<key>share.export_card</key>
+	<string>ייצוא כרטיס</string>
+	<key>share.privacy</key>
+	<string>פרטיות</string>
+	<key>share.template</key>
+	<string>תבנית</string>
+	<key>share.title</key>
+	<string>סטודיו שיתוף</string>
+	<key>work.title</key>
+	<string>הרגישו את עלות העבודה.</string>
+</dict>
+</plist>

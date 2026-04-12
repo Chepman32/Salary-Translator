@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Перетворіть зарплату на те, що справді відчувається.</string>
+	<key>assumptions.title</key>
+	<string>Припущення</string>
+	<key>cities.title</key>
+	<string>Подивіться, де одна й та сама зарплата відчувається інакше.</string>
+	<key>common.continue</key>
+	<string>Продовжити</string>
+	<key>common.hide</key>
+	<string>Приховати</string>
+	<key>common.share</key>
+	<string>Поділитися</string>
+	<key>common.skip</key>
+	<string>Пропустити</string>
+	<key>gap.title</key>
+	<string>Порівнюйте темп, а не драму.</string>
+	<key>library.title</key>
+	<string>Бібліотека сценаріїв</string>
+	<key>objects.title</key>
+	<string>Переведіть зарплату в реальні речі.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Перекласти мою зарплату</string>
+	<key>salary_input.title</key>
+	<string>Ваша зарплата, перекладена на зрозумілу мову.</string>
+	<key>settings.title</key>
+	<string>Налаштування</string>
+	<key>share.export_card</key>
+	<string>Експортувати картку</string>
+	<key>share.privacy</key>
+	<string>Приватність</string>
+	<key>share.template</key>
+	<string>Шаблон</string>
+	<key>share.title</key>
+	<string>Студія поширення</string>
+	<key>work.title</key>
+	<string>Відчуйте ціну праці.</string>
+</dict>
+</plist>

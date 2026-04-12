@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Gawing isang bagay na talagang mararamdaman ang suweldo mo.</string>
+	<key>assumptions.title</key>
+	<string>Mga Palagay</string>
+	<key>cities.title</key>
+	<string>Tingnan kung saan iba ang abot ng parehong suweldo.</string>
+	<key>common.continue</key>
+	<string>Magpatuloy</string>
+	<key>common.hide</key>
+	<string>Itago</string>
+	<key>common.share</key>
+	<string>Ibahagi</string>
+	<key>common.skip</key>
+	<string>Laktawan</string>
+	<key>gap.title</key>
+	<string>Ihambing ang bilis, hindi ang drama.</string>
+	<key>library.title</key>
+	<string>Library ng Scenario</string>
+	<key>objects.title</key>
+	<string>Gawing totoong bagay ang suweldo.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Isalin ang suweldo ko</string>
+	<key>salary_input.title</key>
+	<string>Isinaling suweldo mo.</string>
+	<key>settings.title</key>
+	<string>Mga Setting</string>
+	<key>share.export_card</key>
+	<string>I-export ang card</string>
+	<key>share.privacy</key>
+	<string>Privacy</string>
+	<key>share.template</key>
+	<string>Template</string>
+	<key>share.title</key>
+	<string>Share Studio</string>
+	<key>work.title</key>
+	<string>Damhin ang halaga ng oras ng trabaho.</string>
+</dict>
+</plist>

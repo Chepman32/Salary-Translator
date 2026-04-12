@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Biến mức lương của bạn thành thứ bạn thật sự cảm nhận được.</string>
+	<key>assumptions.title</key>
+	<string>Giả định</string>
+	<key>cities.title</key>
+	<string>Xem cùng một mức lương thay đổi ra sao ở từng nơi.</string>
+	<key>common.continue</key>
+	<string>Tiếp tục</string>
+	<key>common.hide</key>
+	<string>Ẩn</string>
+	<key>common.share</key>
+	<string>Chia sẻ</string>
+	<key>common.skip</key>
+	<string>Bỏ qua</string>
+	<key>gap.title</key>
+	<string>So nhịp độ, đừng so kịch tính.</string>
+	<key>library.title</key>
+	<string>Thư viện kịch bản</string>
+	<key>objects.title</key>
+	<string>Biến lương thành những món đồ thực tế.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Diễn giải lương của tôi</string>
+	<key>salary_input.title</key>
+	<string>Mức lương của bạn, được diễn giải rõ ràng.</string>
+	<key>settings.title</key>
+	<string>Cài đặt</string>
+	<key>share.export_card</key>
+	<string>Xuất thẻ</string>
+	<key>share.privacy</key>
+	<string>Quyền riêng tư</string>
+	<key>share.template</key>
+	<string>Mẫu</string>
+	<key>share.title</key>
+	<string>Studio chia sẻ</string>
+	<key>work.title</key>
+	<string>Cảm nhận cái giá của lao động.</string>
+</dict>
+</plist>

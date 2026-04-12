@@ -387,7 +387,7 @@ struct ComparatorPanel: View {
                 }
                 .foregroundStyle(palette.textPrimary)
 
-                HStack(spacing: 12) {
+                HStack(alignment: .top, spacing: 16) {
                     VStack(alignment: .leading, spacing: 10) {
                         Text(L10n.s("common.you", "You"))
                             .font(.system(size: 13, weight: .semibold))
@@ -396,8 +396,9 @@ struct ComparatorPanel: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                    Divider()
-                        .overlay(palette.divider)
+                    Rectangle()
+                        .fill(palette.divider)
+                        .frame(width: 1, height: 74)
 
                     VStack(alignment: .leading, spacing: 10) {
                         Text(label)
@@ -407,6 +408,7 @@ struct ComparatorPanel: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
 
                 RatioBar(progress: min(ratio / 4, 1), palette: palette)
             }

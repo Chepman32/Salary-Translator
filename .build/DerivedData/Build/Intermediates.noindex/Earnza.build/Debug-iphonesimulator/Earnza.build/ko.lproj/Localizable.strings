@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>급여를 실제로 체감되는 것으로 바꾸세요.</string>
+	<key>assumptions.title</key>
+	<string>가정</string>
+	<key>cities.title</key>
+	<string>같은 급여가 어디서 다르게 느껴지는지 확인하세요.</string>
+	<key>common.continue</key>
+	<string>계속</string>
+	<key>common.hide</key>
+	<string>숨기기</string>
+	<key>common.share</key>
+	<string>공유</string>
+	<key>common.skip</key>
+	<string>건너뛰기</string>
+	<key>gap.title</key>
+	<string>감정이 아니라 속도를 비교하세요.</string>
+	<key>library.title</key>
+	<string>시나리오 보관함</string>
+	<key>objects.title</key>
+	<string>급여를 현실의 물건으로 바꿔 보세요.</string>
+	<key>onboarding.cta.finish</key>
+	<string>내 급여 변환하기</string>
+	<key>salary_input.title</key>
+	<string>당신의 급여, 풀어 보여주기.</string>
+	<key>settings.title</key>
+	<string>설정</string>
+	<key>share.export_card</key>
+	<string>카드 내보내기</string>
+	<key>share.privacy</key>
+	<string>개인정보</string>
+	<key>share.template</key>
+	<string>템플릿</string>
+	<key>share.title</key>
+	<string>공유 스튜디오</string>
+	<key>work.title</key>
+	<string>노동의 비용을 체감하세요.</string>
+</dict>
+</plist>

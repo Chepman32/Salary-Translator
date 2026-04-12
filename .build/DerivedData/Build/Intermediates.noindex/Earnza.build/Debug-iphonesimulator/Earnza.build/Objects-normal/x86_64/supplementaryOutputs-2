@@ -1,0 +1,18 @@
+"/Users/antonchepur/Documents/Earnza/Core/Formatters.swift":
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Formatters.o"
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Formatters.swiftconstvalues"
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Formatters.d"
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Formatters.swiftdeps"
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Formatters.dia"
+"/Users/antonchepur/Documents/Earnza/Core/Engines.swift":
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Engines.dia"
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Engines.d"
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Engines.swiftconstvalues"
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Engines.o"
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/Engines.swiftdeps"
+"/Users/antonchepur/Documents/Earnza/Features/Gap/GapCanvasView.swift":
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/GapCanvasView.swiftconstvalues"
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/GapCanvasView.swiftdeps"
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/GapCanvasView.dia"
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/GapCanvasView.o"
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/GapCanvasView.d"

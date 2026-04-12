@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Transformă salariul în ceva ce chiar poți simți.</string>
+	<key>assumptions.title</key>
+	<string>Presupuneri</string>
+	<key>cities.title</key>
+	<string>Vezi unde același salariu se simte diferit.</string>
+	<key>common.continue</key>
+	<string>Continuă</string>
+	<key>common.hide</key>
+	<string>Ascunde</string>
+	<key>common.share</key>
+	<string>Partajează</string>
+	<key>common.skip</key>
+	<string>Omite</string>
+	<key>gap.title</key>
+	<string>Compară ritmul, nu drama.</string>
+	<key>library.title</key>
+	<string>Biblioteca de scenarii</string>
+	<key>objects.title</key>
+	<string>Transformă salariul în lucruri concrete.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Tradu salariul meu</string>
+	<key>salary_input.title</key>
+	<string>Salariul tău, tradus.</string>
+	<key>settings.title</key>
+	<string>Setări</string>
+	<key>share.export_card</key>
+	<string>Exportă cardul</string>
+	<key>share.privacy</key>
+	<string>Confidențialitate</string>
+	<key>share.template</key>
+	<string>Șablon</string>
+	<key>share.title</key>
+	<string>Studio de partajare</string>
+	<key>work.title</key>
+	<string>Simte costul muncii.</string>
+</dict>
+</plist>

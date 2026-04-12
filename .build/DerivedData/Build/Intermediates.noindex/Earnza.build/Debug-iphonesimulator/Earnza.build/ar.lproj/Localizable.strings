@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>حوّل راتبك إلى شيء يمكنك أن تشعر به فعلاً.</string>
+	<key>assumptions.title</key>
+	<string>الافتراضات</string>
+	<key>cities.title</key>
+	<string>اعرف أين يتمدد الراتب نفسه بشكل مختلف.</string>
+	<key>common.continue</key>
+	<string>متابعة</string>
+	<key>common.hide</key>
+	<string>إخفاء</string>
+	<key>common.share</key>
+	<string>مشاركة</string>
+	<key>common.skip</key>
+	<string>تخطي</string>
+	<key>gap.title</key>
+	<string>قارن الوتيرة لا الدراما.</string>
+	<key>library.title</key>
+	<string>مكتبة السيناريوهات</string>
+	<key>objects.title</key>
+	<string>حوّل الراتب إلى أشياء حقيقية.</string>
+	<key>onboarding.cta.finish</key>
+	<string>ابدأ ترجمة راتبي</string>
+	<key>salary_input.title</key>
+	<string>راتبك، مترجم.</string>
+	<key>settings.title</key>
+	<string>الإعدادات</string>
+	<key>share.export_card</key>
+	<string>تصدير البطاقة</string>
+	<key>share.privacy</key>
+	<string>الخصوصية</string>
+	<key>share.template</key>
+	<string>القالب</string>
+	<key>share.title</key>
+	<string>استوديو المشاركة</string>
+	<key>work.title</key>
+	<string>اشعر بتكلفة العمل.</string>
+</dict>
+</plist>

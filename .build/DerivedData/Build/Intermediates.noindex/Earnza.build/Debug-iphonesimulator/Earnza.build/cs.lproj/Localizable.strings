@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Proměňte plat v něco, co opravdu pocítíte.</string>
+	<key>assumptions.title</key>
+	<string>Předpoklady</string>
+	<key>cities.title</key>
+	<string>Podívejte se, kde se stejný plat chová jinak.</string>
+	<key>common.continue</key>
+	<string>Pokračovat</string>
+	<key>common.hide</key>
+	<string>Skrýt</string>
+	<key>common.share</key>
+	<string>Sdílet</string>
+	<key>common.skip</key>
+	<string>Přeskočit</string>
+	<key>gap.title</key>
+	<string>Porovnejte tempo, ne drama.</string>
+	<key>library.title</key>
+	<string>Knihovna scénářů</string>
+	<key>objects.title</key>
+	<string>Převeďte plat na skutečné věci.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Přeložit můj plat</string>
+	<key>salary_input.title</key>
+	<string>Váš plat, přeložený.</string>
+	<key>settings.title</key>
+	<string>Nastavení</string>
+	<key>share.export_card</key>
+	<string>Exportovat kartu</string>
+	<key>share.privacy</key>
+	<string>Soukromí</string>
+	<key>share.template</key>
+	<string>Šablona</string>
+	<key>share.title</key>
+	<string>Studio sdílení</string>
+	<key>work.title</key>
+	<string>Pociťte cenu práce.</string>
+</dict>
+</plist>

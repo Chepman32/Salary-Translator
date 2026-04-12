@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>把薪水变成你真正能感受到的东西。</string>
+	<key>assumptions.title</key>
+	<string>假设</string>
+	<key>cities.title</key>
+	<string>看看同样的薪水在不同城市会有怎样的差别。</string>
+	<key>common.continue</key>
+	<string>继续</string>
+	<key>common.hide</key>
+	<string>隐藏</string>
+	<key>common.share</key>
+	<string>分享</string>
+	<key>common.skip</key>
+	<string>跳过</string>
+	<key>gap.title</key>
+	<string>比较节奏，而不是情绪化的戏剧感。</string>
+	<key>library.title</key>
+	<string>场景库</string>
+	<key>objects.title</key>
+	<string>把薪水换算成真实的东西。</string>
+	<key>onboarding.cta.finish</key>
+	<string>开始解读我的薪水</string>
+	<key>salary_input.title</key>
+	<string>你的薪水，翻译成人能感受到的样子。</string>
+	<key>settings.title</key>
+	<string>设置</string>
+	<key>share.export_card</key>
+	<string>导出卡片</string>
+	<key>share.privacy</key>
+	<string>隐私</string>
+	<key>share.template</key>
+	<string>模板</string>
+	<key>share.title</key>
+	<string>分享工作室</string>
+	<key>work.title</key>
+	<string>感受劳动成本。</string>
+</dict>
+</plist>

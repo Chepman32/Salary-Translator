@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Gjør lønnen til noe du faktisk kan kjenne på.</string>
+	<key>assumptions.title</key>
+	<string>Forutsetninger</string>
+	<key>cities.title</key>
+	<string>Se hvor den samme lønnen strekker seg ulikt.</string>
+	<key>common.continue</key>
+	<string>Fortsett</string>
+	<key>common.hide</key>
+	<string>Skjul</string>
+	<key>common.share</key>
+	<string>Del</string>
+	<key>common.skip</key>
+	<string>Hopp over</string>
+	<key>gap.title</key>
+	<string>Sammenlign tempoet, ikke dramaet.</string>
+	<key>library.title</key>
+	<string>Scenariobibliotek</string>
+	<key>objects.title</key>
+	<string>Gjør lønnen om til virkelige ting.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Oversett lønnen min</string>
+	<key>salary_input.title</key>
+	<string>Lønnen din, oversatt.</string>
+	<key>settings.title</key>
+	<string>Innstillinger</string>
+	<key>share.export_card</key>
+	<string>Eksporter kort</string>
+	<key>share.privacy</key>
+	<string>Personvern</string>
+	<key>share.template</key>
+	<string>Mal</string>
+	<key>share.title</key>
+	<string>Delestudio</string>
+	<key>work.title</key>
+	<string>Kjenn kostnaden av arbeidet.</string>
+</dict>
+</plist>

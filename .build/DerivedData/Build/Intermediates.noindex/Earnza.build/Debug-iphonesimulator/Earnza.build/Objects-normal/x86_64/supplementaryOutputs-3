@@ -1,0 +1,18 @@
+"/Users/antonchepur/Documents/Earnza/Features/Library/LibraryView.swift":
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LibraryView.o"
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LibraryView.dia"
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LibraryView.swiftdeps"
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LibraryView.d"
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LibraryView.swiftconstvalues"
+"/Users/antonchepur/Documents/Earnza/Core/L10n.swift":
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/L10n.dia"
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/L10n.d"
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/L10n.swiftconstvalues"
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/L10n.swiftdeps"
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/L10n.o"
+"/Users/antonchepur/Documents/Earnza/Core/LocalizationCatalog.swift":
+  object: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LocalizationCatalog.o"
+  swift-dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LocalizationCatalog.swiftdeps"
+  dependencies: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LocalizationCatalog.d"
+  const-values: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LocalizationCatalog.swiftconstvalues"
+  diagnostics: "/Users/antonchepur/Documents/Earnza/.build/DerivedData/Build/Intermediates.noindex/Earnza.build/Debug-iphonesimulator/Earnza.build/Objects-normal/x86_64/LocalizationCatalog.dia"

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Tedd a fizetésedet valami olyanná, amit tényleg érezni lehet.</string>
+	<key>assumptions.title</key>
+	<string>Feltételezések</string>
+	<key>cities.title</key>
+	<string>Nézd meg, hol nyúlik másképp ugyanaz a fizetés.</string>
+	<key>common.continue</key>
+	<string>Tovább</string>
+	<key>common.hide</key>
+	<string>Elrejtés</string>
+	<key>common.share</key>
+	<string>Megosztás</string>
+	<key>common.skip</key>
+	<string>Kihagyás</string>
+	<key>gap.title</key>
+	<string>A tempót hasonlítsd, ne a drámát.</string>
+	<key>library.title</key>
+	<string>Forgatókönyv-könyvtár</string>
+	<key>objects.title</key>
+	<string>Fordítsd le a fizetést valódi dolgokra.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Fordítsd le a fizetésem</string>
+	<key>salary_input.title</key>
+	<string>A fizetésed, lefordítva.</string>
+	<key>settings.title</key>
+	<string>Beállítások</string>
+	<key>share.export_card</key>
+	<string>Kártya exportálása</string>
+	<key>share.privacy</key>
+	<string>Adatvédelem</string>
+	<key>share.template</key>
+	<string>Sablon</string>
+	<key>share.title</key>
+	<string>Megosztó stúdió</string>
+	<key>work.title</key>
+	<string>Érezd a munka árát.</string>
+</dict>
+</plist>

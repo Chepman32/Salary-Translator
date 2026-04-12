@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Transformez votre salaire en quelque chose de concret.</string>
+	<key>assumptions.title</key>
+	<string>Hypothèses</string>
+	<key>cities.title</key>
+	<string>Voyez où le même salaire se vit différemment.</string>
+	<key>common.continue</key>
+	<string>Continuer</string>
+	<key>common.hide</key>
+	<string>Masquer</string>
+	<key>common.share</key>
+	<string>Partager</string>
+	<key>common.skip</key>
+	<string>Passer</string>
+	<key>gap.title</key>
+	<string>Comparez le rythme, pas le drama.</string>
+	<key>library.title</key>
+	<string>Bibliothèque de scénarios</string>
+	<key>objects.title</key>
+	<string>Transformez le salaire en choses concrètes.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Traduire mon salaire</string>
+	<key>salary_input.title</key>
+	<string>Votre salaire, traduit.</string>
+	<key>settings.title</key>
+	<string>Réglages</string>
+	<key>share.export_card</key>
+	<string>Exporter la carte</string>
+	<key>share.privacy</key>
+	<string>Confidentialité</string>
+	<key>share.template</key>
+	<string>Modèle</string>
+	<key>share.title</key>
+	<string>Studio de partage</string>
+	<key>work.title</key>
+	<string>Ressentez le coût du travail.</string>
+</dict>
+</plist>

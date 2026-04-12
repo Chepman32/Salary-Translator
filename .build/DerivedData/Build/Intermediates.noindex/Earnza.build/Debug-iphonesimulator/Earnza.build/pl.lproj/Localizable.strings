@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Zamień pensję w coś, co naprawdę da się odczuć.</string>
+	<key>assumptions.title</key>
+	<string>Założenia</string>
+	<key>cities.title</key>
+	<string>Zobacz, gdzie ta sama pensja daje inny efekt.</string>
+	<key>common.continue</key>
+	<string>Dalej</string>
+	<key>common.hide</key>
+	<string>Ukryj</string>
+	<key>common.share</key>
+	<string>Udostępnij</string>
+	<key>common.skip</key>
+	<string>Pomiń</string>
+	<key>gap.title</key>
+	<string>Porównuj tempo, nie dramat.</string>
+	<key>library.title</key>
+	<string>Biblioteka scenariuszy</string>
+	<key>objects.title</key>
+	<string>Przelicz pensję na realne rzeczy.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Przelicz moją pensję</string>
+	<key>salary_input.title</key>
+	<string>Twoja pensja, przeliczona.</string>
+	<key>settings.title</key>
+	<string>Ustawienia</string>
+	<key>share.export_card</key>
+	<string>Eksportuj kartę</string>
+	<key>share.privacy</key>
+	<string>Prywatność</string>
+	<key>share.template</key>
+	<string>Szablon</string>
+	<key>share.title</key>
+	<string>Studio udostępniania</string>
+	<key>work.title</key>
+	<string>Poczuj koszt swojej pracy.</string>
+</dict>
+</plist>

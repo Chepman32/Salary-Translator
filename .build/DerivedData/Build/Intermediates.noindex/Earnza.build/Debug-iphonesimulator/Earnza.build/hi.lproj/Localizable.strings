@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>अपनी सैलरी को ऐसी चीज़ में बदलें जिसे आप सच में महसूस कर सकें।</string>
+	<key>assumptions.title</key>
+	<string>मान्यताएँ</string>
+	<key>cities.title</key>
+	<string>देखें कि वही सैलरी कहाँ अलग तरह से चलती है।</string>
+	<key>common.continue</key>
+	<string>जारी रखें</string>
+	<key>common.hide</key>
+	<string>छिपाएँ</string>
+	<key>common.share</key>
+	<string>शेयर करें</string>
+	<key>common.skip</key>
+	<string>छोड़ें</string>
+	<key>gap.title</key>
+	<string>ड्रामा नहीं, रफ़्तार की तुलना करें।</string>
+	<key>library.title</key>
+	<string>सिनेरियो लाइब्रेरी</string>
+	<key>objects.title</key>
+	<string>सैलरी को असली चीज़ों में बदलें।</string>
+	<key>onboarding.cta.finish</key>
+	<string>मेरी सैलरी समझाएँ</string>
+	<key>salary_input.title</key>
+	<string>आपकी सैलरी, समझने लायक रूप में।</string>
+	<key>settings.title</key>
+	<string>सेटिंग्स</string>
+	<key>share.export_card</key>
+	<string>कार्ड एक्सपोर्ट करें</string>
+	<key>share.privacy</key>
+	<string>गोपनीयता</string>
+	<key>share.template</key>
+	<string>टेम्पलेट</string>
+	<key>share.title</key>
+	<string>शेयर स्टूडियो</string>
+	<key>work.title</key>
+	<string>मेहनत की कीमत महसूस करें।</string>
+</dict>
+</plist>

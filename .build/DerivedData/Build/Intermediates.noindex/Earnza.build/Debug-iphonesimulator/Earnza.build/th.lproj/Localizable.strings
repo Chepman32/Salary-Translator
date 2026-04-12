@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>เปลี่ยนเงินเดือนให้กลายเป็นสิ่งที่คุณรู้สึกได้จริง</string>
+	<key>assumptions.title</key>
+	<string>สมมติฐาน</string>
+	<key>cities.title</key>
+	<string>ดูว่าเงินเดือนเดียวกันให้อำนาจซื้อแตกต่างกันอย่างไร</string>
+	<key>common.continue</key>
+	<string>ต่อไป</string>
+	<key>common.hide</key>
+	<string>ซ่อน</string>
+	<key>common.share</key>
+	<string>แชร์</string>
+	<key>common.skip</key>
+	<string>ข้าม</string>
+	<key>gap.title</key>
+	<string>เทียบจังหวะ ไม่ใช่อารมณ์ดราม่า</string>
+	<key>library.title</key>
+	<string>คลังสถานการณ์</string>
+	<key>objects.title</key>
+	<string>แปลงเงินเดือนให้เป็นสิ่งของจริง</string>
+	<key>onboarding.cta.finish</key>
+	<string>แปลความหมายเงินเดือนของฉัน</string>
+	<key>salary_input.title</key>
+	<string>เงินเดือนของคุณ ในแบบที่เข้าใจได้</string>
+	<key>settings.title</key>
+	<string>การตั้งค่า</string>
+	<key>share.export_card</key>
+	<string>ส่งออกการ์ด</string>
+	<key>share.privacy</key>
+	<string>ความเป็นส่วนตัว</string>
+	<key>share.template</key>
+	<string>เทมเพลต</string>
+	<key>share.title</key>
+	<string>สตูดิโอแชร์</string>
+	<key>work.title</key>
+	<string>สัมผัสต้นทุนของแรงงาน</string>
+</dict>
+</plist>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Превратите зарплату во что-то, что действительно ощущается.</string>
+	<key>assumptions.title</key>
+	<string>Допущения</string>
+	<key>cities.title</key>
+	<string>Посмотрите, где одна и та же зарплата ощущается по-разному.</string>
+	<key>common.continue</key>
+	<string>Продолжить</string>
+	<key>common.hide</key>
+	<string>Скрыть</string>
+	<key>common.share</key>
+	<string>Поделиться</string>
+	<key>common.skip</key>
+	<string>Пропустить</string>
+	<key>gap.title</key>
+	<string>Сравнивайте темп, а не драму.</string>
+	<key>library.title</key>
+	<string>Библиотека сценариев</string>
+	<key>objects.title</key>
+	<string>Переведите зарплату в реальные вещи.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Перевести мою зарплату</string>
+	<key>salary_input.title</key>
+	<string>Ваша зарплата, переведённая на понятный язык.</string>
+	<key>settings.title</key>
+	<string>Настройки</string>
+	<key>share.export_card</key>
+	<string>Экспортировать карточку</string>
+	<key>share.privacy</key>
+	<string>Конфиденциальность</string>
+	<key>share.template</key>
+	<string>Шаблон</string>
+	<key>share.title</key>
+	<string>Студия шаринга</string>
+	<key>work.title</key>
+	<string>Почувствуйте цену труда.</string>
+</dict>
+</plist>

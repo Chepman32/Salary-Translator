@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Maaşını gerçekten hissedebileceğin bir şeye dönüştür.</string>
+	<key>assumptions.title</key>
+	<string>Varsayımlar</string>
+	<key>cities.title</key>
+	<string>Aynı maaşın nerede farklı hissettirdiğini görün.</string>
+	<key>common.continue</key>
+	<string>Devam</string>
+	<key>common.hide</key>
+	<string>Gizle</string>
+	<key>common.share</key>
+	<string>Paylaş</string>
+	<key>common.skip</key>
+	<string>Geç</string>
+	<key>gap.title</key>
+	<string>Dramayı değil, tempoyu karşılaştır.</string>
+	<key>library.title</key>
+	<string>Senaryo Arşivi</string>
+	<key>objects.title</key>
+	<string>Maaşı gerçek şeylere çevir.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Maaşımı çevir</string>
+	<key>salary_input.title</key>
+	<string>Maaşın, anlaşılır hâliyle.</string>
+	<key>settings.title</key>
+	<string>Ayarlar</string>
+	<key>share.export_card</key>
+	<string>Kartı dışa aktar</string>
+	<key>share.privacy</key>
+	<string>Gizlilik</string>
+	<key>share.template</key>
+	<string>Şablon</string>
+	<key>share.title</key>
+	<string>Paylaşım Stüdyosu</string>
+	<key>work.title</key>
+	<string>Emeğin bedelini hisset.</string>
+</dict>
+</plist>

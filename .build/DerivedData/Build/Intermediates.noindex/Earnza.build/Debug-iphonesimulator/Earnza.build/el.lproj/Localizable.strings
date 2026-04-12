@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Κάνε τον μισθό σου κάτι που μπορείς πραγματικά να νιώσεις.</string>
+	<key>assumptions.title</key>
+	<string>Παραδοχές</string>
+	<key>cities.title</key>
+	<string>Δες πού ο ίδιος μισθός αποδίδει διαφορετικά.</string>
+	<key>common.continue</key>
+	<string>Συνέχεια</string>
+	<key>common.hide</key>
+	<string>Απόκρυψη</string>
+	<key>common.share</key>
+	<string>Κοινοποίηση</string>
+	<key>common.skip</key>
+	<string>Παράλειψη</string>
+	<key>gap.title</key>
+	<string>Σύγκρινε τον ρυθμό, όχι το δράμα.</string>
+	<key>library.title</key>
+	<string>Βιβλιοθήκη σεναρίων</string>
+	<key>objects.title</key>
+	<string>Μετέτρεψε τον μισθό σε πραγματικά πράγματα.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Μετάφραση του μισθού μου</string>
+	<key>salary_input.title</key>
+	<string>Ο μισθός σου, μεταφρασμένος.</string>
+	<key>settings.title</key>
+	<string>Ρυθμίσεις</string>
+	<key>share.export_card</key>
+	<string>Εξαγωγή κάρτας</string>
+	<key>share.privacy</key>
+	<string>Απόρρητο</string>
+	<key>share.template</key>
+	<string>Πρότυπο</string>
+	<key>share.title</key>
+	<string>Στούντιο κοινοποίησης</string>
+	<key>work.title</key>
+	<string>Νιώσε το κόστος της δουλειάς.</string>
+</dict>
+</plist>

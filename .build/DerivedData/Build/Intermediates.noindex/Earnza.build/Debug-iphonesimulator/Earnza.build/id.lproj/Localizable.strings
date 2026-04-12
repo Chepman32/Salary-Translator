@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>app.tagline</key>
+	<string>Ubah gaji Anda menjadi sesuatu yang benar-benar terasa nyata.</string>
+	<key>assumptions.title</key>
+	<string>Asumsi</string>
+	<key>cities.title</key>
+	<string>Lihat di mana gaji yang sama terasa berbeda.</string>
+	<key>common.continue</key>
+	<string>Lanjutkan</string>
+	<key>common.hide</key>
+	<string>Sembunyikan</string>
+	<key>common.share</key>
+	<string>Bagikan</string>
+	<key>common.skip</key>
+	<string>Lewati</string>
+	<key>gap.title</key>
+	<string>Bandingkan lajunya, bukan dramanya.</string>
+	<key>library.title</key>
+	<string>Pustaka Skenario</string>
+	<key>objects.title</key>
+	<string>Ubah gaji menjadi hal-hal yang nyata.</string>
+	<key>onboarding.cta.finish</key>
+	<string>Terjemahkan gaji saya</string>
+	<key>salary_input.title</key>
+	<string>Gaji Anda, diterjemahkan.</string>
+	<key>settings.title</key>
+	<string>Pengaturan</string>
+	<key>share.export_card</key>
+	<string>Ekspor kartu</string>
+	<key>share.privacy</key>
+	<string>Privasi</string>
+	<key>share.template</key>
+	<string>Template</string>
+	<key>share.title</key>
+	<string>Studio Bagikan</string>
+	<key>work.title</key>
+	<string>Rasakan biaya tenaga kerja.</string>
+</dict>
+</plist>
